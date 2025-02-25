@@ -9,8 +9,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        primary: "#E33524",
+        secondary: "#1D1C1C",
+      },
+      fontFamily: {
+        notoSans: ["var(--font-noto-sans)", "sans-serif"],
+        roboto: ["var(--font-roboto)", "sans-serif"],
+        robotoCondensed: ["var(--font-roboto-condensed)", "sans-serif"],
       },
     },
   },
