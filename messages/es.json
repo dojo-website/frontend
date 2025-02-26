@@ -1,0 +1,13 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "classes": "Clases",
+    "signup": "Inscríbete",
+    "blog": "Blog"
+  },
+  "home": {
+    "pillarOfKime": "Los Pilares de Kime Dojo",
+    "signUpNow": "Inscríbete Ahora"
+  }
+}
