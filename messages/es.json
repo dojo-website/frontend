@@ -6,8 +6,131 @@
     "signup": "Inscríbete",
     "blog": "Blog"
   },
+
   "home": {
     "pillarOfKime": "Los Pilares de Kime Dojo",
-    "signUpNow": "Inscríbete Ahora"
+    "signUpNow": "Inscríbete Ahora",
+    "karate_school": "Escuela de Karate Tradicional Shotokan",
+    "welcome_message": "Bienvenidos a <strong>Dojo KIME</strong>, un espacio dedicado al Karate Tradicional Shotokan inspirado en las enseñanzas del maestro <strong>Hidetaka Nishiyama</strong>. Aquí no solo perfeccionamos la técnica, sino que cultivamos la disciplina, el respeto y la armonía entre <strong>cuerpo, mente y espíritu</strong>. Nuestro enfoque sigue el karate como un <strong>camino marcial integral (budo)</strong>, donde cada estudiante tiene la oportunidad de descubrir y desarrollar su mejor versión."
+  },
+  "readMore": "leer más",
+  "moreArticles": "Más artículos",
+
+  "nosotros": {
+    "ourPhilosophy": "Nuestra Filosofía",
+    "ourApproach": "Nuestro Enfoque",
+    "philosophyText": "En KIME Dojo, creemos que el Karate es mucho más que un arte marcial: es una forma de vida. Inspirados por los principios del budo, integramos el desarrollo físico, mental y espiritual. Aquí no solo aprenderás a defenderte, sino que también descubrirás cómo la humildad, la perseverancia y el respeto pueden transformar todos los aspectos de tu vida.",
+    "approachText": "Cada clase está diseñada para ir más allá de los movimientos físicos y sumergirte en la esencia del Karate Tradicional Shotokan.",
+    "technique": "Técnica",
+    "techniqueText": "Atención al detalle y la perfección en cada movimiento, respaldada por principios de biomecánica.",
+    "discipline": "Disciplina",
+    "disciplineText": "Desarrollo de carácter y espíritu a través del esfuerzo constante.",
+    "community": "Comunidad",
+    "communityText": "Un ambiente de respeto mutuo y apoyo entre practicantes de todas las edades y niveles.",
+    "imageCaption": "Maestro Hidetaka Nishiyama, inspiración detrás de KIME Dojo."
+  },
+
+  "schedule": {
+    "title": "HORARIOS",
+    "description": "En KIME Dojo ofrecemos clases para niños, jóvenes y adultos. A continuación, los horarios disponibles:",
+    "days": "Lunes, Miércoles y Viernes (L-M-V):",
+    "times": {
+      "children": "Niños (7-12 años)",
+      "teens": "Jóvenes (13+) y Adultos Principiantes",
+      "adults": "Adultos avanzados"
+    }
+  },
+
+  "structure": {
+    "title": "ESTRUCTURA DE LAS CLASES",
+    "description": "Nuestras clases están diseñadas para ofrecer un entrenamiento equilibrado enfocado en los aspectos técnicos, físicos y filosóficos del Karate Tradicional Shotokan. Cada sesión sigue una estructura organizada:",
+    "steps": {
+      "salutation": {
+        "title": "Saludo y Preparación",
+        "description": "Iniciamos cada clase con un saludo y meditación para concentrarnos y dejar las distracciones fuera del dojo."
+      },
+      "warmup": {
+        "title": "Calentamiento y Movilidad",
+        "description": "Ejercicios dinámicos para preparar el cuerpo, prevenir lesiones y mejorar la flexibilidad."
+      },
+      "kihon": {
+        "title": "Kihon (Técnicas Básicas)",
+        "description": "Entrenamiento en posiciones, golpes, bloqueos y patadas con énfasis en precisión y biomecánica."
+      },
+      "kata": {
+        "title": "Kata (Formas)",
+        "description": "Práctica de formas tradicionales combinando técnica, ritmo y potencia."
+      },
+      "kumite": {
+        "title": "Kumite (Combate)",
+        "description": "Ejercicios con compañero enfocados en coordinación, control y defensa personal."
+      },
+      "reflection": {
+        "title": "Reflexión y Cierre",
+        "description": "Cada sesión termina con estiramientos y una revisión de lo aprendido."
+      }
+    }
+  },
+
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "questions": [
+      {
+        "question": "¿Qué necesito llevar a mi primera clase?",
+        "answer": "Para tu primera clase, solo necesitas ropa cómoda para moverte y ganas de aprender. Más adelante, podrás adquirir un uniforme (karategi) que es obligatorio para los entrenamientos regulares."
+      },
+      {
+        "question": "¿Las clases son mixtas?",
+        "answer": "Sí, nuestras clases están abiertas a todas las personas, independientemente de su género, en un ambiente inclusivo y de respeto."
+      },
+      {
+        "question": "¿Es necesario tener experiencia previa?",
+        "answer": "No, nuestras clases están diseñadas tanto para principiantes como para practicantes avanzados. Los instructores ajustan la enseñanza según el nivel de cada estudiante."
+      },
+      {
+        "question": "¿Qué beneficios tiene el karate para los niños?",
+        "answer": "El Karate Tradicional ayuda a los niños a desarrollar disciplina, confianza en sí mismos, coordinación motora y concentración, mientras aprenden valores como el respeto y la perseverancia."
+      },
+      {
+        "question": "¿Qué pasa si no puedo asistir a todas las clases?",
+        "answer": "Entendemos que pueden surgir compromisos. Aunque recomendamos asistir regularmente para un progreso continuo, puedes retomar las clases cuando sea posible sin problema."
+      }
+    ]
+  },
+
+  "registrationForm": {
+    "title": "FORMULARIO DE INSCRIPCIÓN",
+    "practitionerDetails": "Datos del Practicante",
+    "fullName": "Nombre Completo",
+    "age": "Edad",
+    "medicalCondition": "¿El practicante tiene alguna condición médica que debamos saber?",
+    "class": "Clase a la que desea inscribirse",
+    "beginner": "Principiantes",
+    "intermediate": "Intermedios",
+    "advanced": "Avanzados",
+    "guardianDetails": "Datos del Padre, Madre o Tutor",
+    "guardianNote": "(solo para menores de edad)",
+    "email": "Correo Electrónico",
+    "phone": "Número de Teléfono",
+    "contactDetails": "Datos de Contacto",
+    "practicedBefore": "¿Has practicado karate antes?",
+    "submit": "ENVIAR INSCRIPCIÓN",
+    "select": "Select"
+  },
+
+  "registrationFAQs": {
+    "title": "PREGUNTAS FRECUENTES",
+    "where_is_dojo": "¿Dónde queda el Dojo?",
+    "where_is_dojo_answer": "El dojo se encuentra en el Estadio Corfo Las Condes.",
+    "need_to_belong": "¿Es necesario pertenecer a la Corfo para practicar?",
+    "need_to_belong_answer": "No, el dojo es abierto para todo el mundo. No necesitas pertenecer a ninguna organización para inscribirte.",
+    "can_i_come_without_registering": "¿Puedo llegar sin inscribirme?",
+    "can_i_come_without_registering_answer": "Idealmente, no. En la entrada del estadio podrían solicitar tus datos, y es mejor que queden registrados previamente para evitar inconvenientes.",
+    "how_to_contact": "Si tengo una consulta, ¿cómo los contacto?",
+    "how_to_contact_answer": "Puedes escribirnos a nuestro correo electrónico info@kime.cl o enviarnos un mensaje por WhatsApp al +56 9 9999 9999.",
+    "can_register_with_teacher": "¿Me puedo inscribir directamente con el profesor?",
+    "can_register_with_teacher_answer": "No, nuestros instructores están enfocados en las clases. Las inscripciones deben realizarse a través de la página web.",
+    "class_cost": "¿Cuál es el valor de las clases?",
+    "class_cost_answer": "El valor mensual es:\n• $60.000 para niños y jóvenes (hasta 23 años).\n• $80.000 para adultos.\nNo cobramos matrícula."
   }
 }
