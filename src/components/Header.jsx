@@ -87,7 +87,7 @@ const Header = () => {
         </nav>
         {isMenuOpen && (
           <div className="absolute left-0 z-10 w-full text-white bg-black">
-            <ul className="flex flex-col items-center py-6 space-y-4">
+            <ul className="flex flex-col items-center px-6 space-y-4">
               {navLinks.map(({ key, href }) => (
                 <li
                   key={key}

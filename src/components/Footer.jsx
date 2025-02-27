@@ -78,7 +78,7 @@ const Footer = () => {
 
       <hr className="w-[90%] mx-auto border-gray-600 my-4" />
 
-      <p className="flex justify-center pb-4 w-[60%] mx-auto text-center text-sm text-gray-300 md:text-base">
+      <p className="flex justify-center pb-4 w-[60%] mx-auto text-center text-sm text-white md:text-base">
         © 2024 KIME Karate Dojo. Todos los derechos reservados.
       </p>
     </footer>

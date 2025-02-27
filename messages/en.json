@@ -11,12 +11,34 @@
     "pillarOfKime": "The Pillars of Kime Dojo",
     "signUpNow": "Sign up now",
     "karate_school": "Traditional Shotokan Karate School",
-    "welcome_message": "Welcome to <strong>Dojo KIME</strong>, a space dedicated to Traditional Shotokan Karate, inspired by the teachings of <strong>Hidetaka Nishiyama</strong>. Here, we not only refine technique but also cultivate discipline, respect, and harmony between <strong>body, mind, and spirit</strong>. Our approach follows karate as a <strong>comprehensive martial path (budo)</strong>, where each student has the opportunity to discover and develop their best self."
+    "welcome_message": "Welcome to <strong>Dojo KIME</strong>, a space dedicated to Traditional Shotokan Karate, inspired by the teachings of <strong>Hidetaka Nishiyama</strong>. Here, we not only refine technique but also cultivate discipline, respect, and harmony between <strong>body, mind, and spirit</strong>. Our approach follows karate as a <strong>comprehensive martial path (budo)</strong>, where each student has the opportunity to discover and develop their best self.",
+    "fromOurBlog": "From Our Blog",
+
+    "martialPhilosophy": "Martial Philosophy",
+    "martialPhilosophyDescription": "At Kime Dojo, karate goes beyond physical activity: it is a true way of life. Our approach is based on budo, the martial philosophy that promotes respect, self-discipline, and essential values such as humility and perseverance. Additionally, we encourage holistic growth, strengthening body, mind, and spirit to prepare you to face life's challenges with balance, confidence, and determination.",
+    
+    "preciseTechnique": "Precise Technique",
+    "preciseTechniqueDescription": "We specialize in perfecting every aspect of Traditional Shotokan Karate. From fundamental basics (kihon) to executing advanced katas, each movement is an opportunity to refine your precision, power, and fluidity. Our technical approach ensures that you not only learn to perform techniques correctly but also understand their purpose and practical application (bunkai).",
+    
+    "selfDefense": "Self-Defense",
+    "selfDefenseDescription": "Traditional karate is a powerful tool for self-defense. We teach you how to handle real-life situations with fast, effective techniques under total control. Beyond physical strength, we promote a mental approach that prioritizes avoiding conflicts and resolving situations safely and confidently, strengthening both your body and mind.",
+    
+    "physicalEfficiency": "Physical Efficiency",
+    "physicalEfficiencyDescription": "We integrate modern biomechanics principles to ensure that every technique is efficient and effective. You will learn how the body generates force and how to optimize posture, balance, and movement. This approach not only maximizes your power and prevents injuries but also takes your training to a more conscious, deep, and strategic level."
+  
+
   },
   "readMore": "Read more",
   "moreArticles": "More articles",
 
   "nosotros": {
+    "main": {
+      "dojo": "THE DOJO",
+      "dojoDescription": "KIME Dojo: A legacy of Traditional Shotokan Karate",
+      "mission": "Our Mission",
+      "missionDescription": "KIME Karate Dojo was founded with the mission of preserving and transmitting the teachings of Traditional Shotokan Karate, following the principles of Master Hidetaka Nishiyama. More than just a practice space, we are a place where Japanese tradition, martial technique, and the universal values of respect, self-discipline, and personal growth come together into a comprehensive martial path."
+    },
+
     "ourPhilosophy": {
       "ourPhilosophy": "Our Philosophy",
       "ourApproach": "Our Approach",
@@ -30,9 +52,15 @@
       "communityText": "An environment of mutual respect and support among practitioners of all ages and levels.",
       "imageCaption": "Master Hidetaka Nishiyama, inspiration behind KIME Dojo."
     },
+
+    "instructors": {
+      "title": "Instructors",
+      "description": "At KIME Dojo, our instructors have had the privilege of training with Master Hidetaka Nishiyama and his direct students on multiple occasions, both in Chile and the United States. With over 30 years of continuous practice and improvement, they pass on the teachings of Traditional Shotokan Karate with dedication and respect, guiding each student in their technical, physical, and personal development."
+    },
+
     "association": {
       "title": "Association",
-      "description": "KIME Dojo is part of the <strong>Budo Karate Association</strong>, an organization founded by <strong>Sensei Avi Rokah, 8th Dan</strong> and a direct student of <strong>Sensei Hidetaka Nishiyama</strong>. The association's main purpose is to provide a platform for the preservation and development of Budo Karate, based on the principles taught by Sensei Nishiyama.",
+      "description": "KIME Dojo is part of the Budo Karate Association, an organization founded by Sensei Avi Rokah, 8th Dan and a direct student of Sensei Hidetaka Nishiyama. The association's main purpose is to provide a platform for the preservation and development of Budo Karate, based on the principles taught by Sensei Nishiyama.",
       "imageAlt": "Budo Karate Art"
     }
   },

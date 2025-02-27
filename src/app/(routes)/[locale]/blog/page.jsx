@@ -5,6 +5,7 @@ import BlogCard from "./_components/BlogCard";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import TitleSection from "@/components/TitleSection";
+import Image from "next/image";
 
 const categories = ["All", "Noticias", "Técnica", "Filosofía", "Historia"];
 const blogsPerPage = 6;
@@ -46,8 +47,18 @@ const Article = () => {
           </button>
         ))}
       </div>
-      <section className="p-6 mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+
+      <section className="relative p-6 mx-auto max-w-7xl">
+        <div className="absolute bottom-6 right-0 w-56">
+          <Image
+            src="/watermarks/watermark-3.png"
+            className="w-full h-auto"
+            width={200}
+            height={200}
+            alt="Watermark 3"
+          />
+        </div>
+        <div className="relative grid grid-cols-1 gap-6 md:grid-cols-3">
           {currentBlogs.map((blog) => (
             <Link href={`/${locale}/blog/${blog.id}`}>
               <BlogCard key={blog.id} {...blog} />
@@ -56,7 +67,7 @@ const Article = () => {
         </div>
 
         {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-3 mt-6">
+          <div className="relative flex items-center justify-center gap-3 mt-6">
             <button
               disabled={currentPage === 1}
               className="p-2"
