@@ -34,12 +34,12 @@ const PillarsSection = () => {
   return (
     <section className="w-full px-4 py-12 bg-secondary">
       <div className="flex flex-col items-center justify-center max-w-5xl mx-auto my-4">
-        <h1 className="mb-6 text-white uppercase">{t("pillarOfKime")}</h1>
+        <h1 className="mb-6 text-white text-center uppercase">{t("pillarOfKime")}</h1>
         <div className="grid grid-cols-1 gap-10 my-10 md:grid-cols-2">
           {pillars.map((pillar) => (
             <div
               key={pillar.id}
-              className="flex flex-col items-center gap-2 p-6 text-center bg-white rounded-lg shadow-lg"
+              className="flex flex-col items-center gap-2 p-6 m-2 text-center bg-white rounded-lg shadow-lg"
             >
               <Image
                 src={pillar.image}

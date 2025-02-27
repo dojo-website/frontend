@@ -8,7 +8,7 @@ import MainContent from "./components/MainContent";
 const Home = () => {
   const t = useTranslations("navigation");
   return (
-    <div className="text-2xl font-bold">
+    <div className="text-2xl font-bold bg-white">
       <MainSlider />
       <MainContent />
       <Pillars />
