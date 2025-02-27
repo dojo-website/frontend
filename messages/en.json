@@ -6,8 +6,138 @@
     "signup": "Sign Up",
     "blog": "Blog"
   },
+
   "home": {
     "pillarOfKime": "The Pillars of Kime Dojo",
-    "signUpNow": "Sign up now"
+    "signUpNow": "Sign up now",
+    "karate_school": "Traditional Shotokan Karate School",
+    "welcome_message": "Welcome to <strong>Dojo KIME</strong>, a space dedicated to Traditional Shotokan Karate, inspired by the teachings of <strong>Hidetaka Nishiyama</strong>. Here, we not only refine technique but also cultivate discipline, respect, and harmony between <strong>body, mind, and spirit</strong>. Our approach follows karate as a <strong>comprehensive martial path (budo)</strong>, where each student has the opportunity to discover and develop their best self."
+  },
+  "readMore": "Read more",
+  "moreArticles": "More articles",
+
+  "nosotros": {
+    "ourPhilosophy": {
+      "ourPhilosophy": "Our Philosophy",
+      "ourApproach": "Our Approach",
+      "philosophyText": "At KIME Dojo, we believe that Karate is much more than a martial art: it is a way of life. Inspired by the principles of budo, we integrate physical, mental, and spiritual development. Here, you will not only learn self-defense but also discover how humility, perseverance, and respect can transform every aspect of your life.",
+      "approachText": "Each class is designed to go beyond physical movements and immerse you in the essence of Traditional Shotokan Karate.",
+      "technique": "Technique",
+      "techniqueText": "Attention to detail and perfection in every movement, backed by principles of biomechanics.",
+      "discipline": "Discipline",
+      "disciplineText": "Development of character and spirit through constant effort.",
+      "community": "Community",
+      "communityText": "An environment of mutual respect and support among practitioners of all ages and levels.",
+      "imageCaption": "Master Hidetaka Nishiyama, inspiration behind KIME Dojo."
+    },
+    "association": {
+      "title": "Association",
+      "description": "KIME Dojo is part of the <strong>Budo Karate Association</strong>, an organization founded by <strong>Sensei Avi Rokah, 8th Dan</strong> and a direct student of <strong>Sensei Hidetaka Nishiyama</strong>. The association's main purpose is to provide a platform for the preservation and development of Budo Karate, based on the principles taught by Sensei Nishiyama.",
+      "imageAlt": "Budo Karate Art"
+    }
+  },
+
+  "schedule": {
+    "title": "SCHEDULE",
+    "description": "At KIME Dojo, we offer classes for children, youth, and adults. Below are the available class schedules:",
+    "days": "Monday, Wednesday, and Friday:",
+    "times": {
+      "children": "Children (7-12 years old)",
+      "teens": "Youth (13+) and Beginner Adults",
+      "adults": "Advanced Adults"
+    }
+  },
+
+  "structure": {
+    "title": "CLASS STRUCTURE",
+    "description": "Our classes provide balanced training focused on technical, physical, and philosophical aspects of Traditional Shotokan Karate. Each session follows a structured approach:",
+    "steps": {
+      "salutation": {
+        "title": "Greeting and Preparation",
+        "description": "We start each class with a bow and meditation to focus and leave distractions outside the dojo."
+      },
+      "warmup": {
+        "title": "Warm-up and Mobility",
+        "description": "Dynamic exercises to prepare the body, prevent injuries, and improve flexibility."
+      },
+      "kihon": {
+        "title": "Kihon (Basic Techniques)",
+        "description": "Training in stances, strikes, blocks, and kicks with emphasis on precision and biomechanics."
+      },
+      "kata": {
+        "title": "Kata (Forms)",
+        "description": "Practicing traditional forms, combining technique, rhythm, and power."
+      },
+      "kumite": {
+        "title": "Kumite (Sparring)",
+        "description": "Partner drills focusing on coordination, control, and self-defense."
+      },
+      "reflection": {
+        "title": "Reflection & Closing",
+        "description": "Each session ends with stretching and a review of lessons learned."
+      }
+    }
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "What do I need to bring to my first class?",
+        "answer": "For your first class, you only need comfortable clothes to move in and a willingness to learn. Later, you can get a uniform (karategi), which is mandatory for regular training."
+      },
+      {
+        "question": "Are the classes mixed-gender?",
+        "answer": "Yes, our classes are open to everyone, regardless of gender, in an inclusive and respectful environment."
+      },
+      {
+        "question": "Do I need prior experience?",
+        "answer": "No, our classes are designed for both beginners and advanced practitioners. Instructors adjust the teaching based on each student's level."
+      },
+      {
+        "question": "What benefits does karate have for children?",
+        "answer": "Traditional Karate helps children develop discipline, self-confidence, motor coordination, and focus while learning values such as respect and perseverance."
+      },
+      {
+        "question": "What happens if I can't attend all the classes?",
+        "answer": "We understand that commitments may arise. While we recommend regular attendance for continuous progress, you can resume classes whenever possible."
+      }
+    ]
+  },
+
+  "registrationForm": {
+    "title": "REGISTRATION FORM",
+    "practitionerDetails": "Practitioner Details",
+    "fullName": "Full Name",
+    "age": "Age",
+    "medicalCondition": "Does the practitioner have any medical condition we should know about?",
+    "class": "Class to Enroll In",
+    "beginner": "Beginners",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "guardianDetails": "Guardian Details",
+    "guardianNote": "(only for minors)",
+    "email": "Email",
+    "phone": "Phone Number",
+    "contactDetails": "Contact Details",
+    "practicedBefore": "Have you practiced karate before?",
+    "submit": "SUBMIT REGISTRATION",
+    "select": "Select"
+  },
+
+  "registrationFAQs": {
+    "title": "FREQUENTLY ASKED QUESTIONS",
+    "where_is_dojo": "Where is the Dojo located?",
+    "where_is_dojo_answer": "The dojo is located at Estadio Corfo Las Condes.",
+    "need_to_belong": "Do I need to belong to Corfo to practice?",
+    "need_to_belong_answer": "No, the dojo is open to everyone. You do not need to belong to any organization to enroll.",
+    "can_i_come_without_registering": "Can I come without registering?",
+    "can_i_come_without_registering_answer": "Ideally, no. At the stadium entrance, they might ask for your details, so it's better to register beforehand to avoid issues.",
+    "how_to_contact": "If I have a question, how do I contact you?",
+    "how_to_contact_answer": "You can email us at info@kime.cl or send us a WhatsApp message at +56 9 9999 9999.",
+    "can_register_with_teacher": "Can I register directly with the teacher?",
+    "can_register_with_teacher_answer": "No, our instructors are focused on teaching classes. Registrations must be done through the website.",
+    "class_cost": "What is the cost of the classes?",
+    "class_cost_answer": "The monthly fee is:\n• $60,000 for children and youth (up to 23 years old).\n• $80,000 for adults.\nNo registration fee."
   }
 }

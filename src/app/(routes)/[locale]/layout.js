@@ -8,22 +8,20 @@ import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-// Import and configure Noto Sans
 const notoSansJP = Noto_Sans({
   subsets: ["latin", "japanese"],
-  weight: ["400", "700"], // Adjust as needed
+  weight: ["400", "700"],
 });
 
 const robotoCondensed = Roboto_Condensed({
-  subsets: ["latin"],
-  weight: ["300", "400", "700"], // Adjust weights as needed
+  subsets: ["latin",],
+  weight: ["300", "400", "700"],
   display: "swap",
 });
 
-// Import and configure Roboto
 const roboto = Roboto({
-  subsets: ["latin"], // Specify the subsets you need
-  weight: ["400", "700"], // Define the weights you intend to use
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata = {
