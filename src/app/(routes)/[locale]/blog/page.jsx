@@ -47,7 +47,6 @@ const Article = () => {
           </button>
         ))}
       </div>
-
       <section className="relative p-6 mx-auto max-w-7xl">
         <div className="absolute bottom-6 right-0 w-56">
           <Image
@@ -60,8 +59,13 @@ const Article = () => {
         </div>
         <div className="relative grid grid-cols-1 gap-6 md:grid-cols-3">
           {currentBlogs.map((blog) => (
-            <Link href={`/${locale}/blog/${blog.id}`}>
-              <BlogCard key={blog.id} {...blog} />
+            <Link
+              key={blog.id}
+              href={`/${locale}/blog/${blog.id}`}
+              className="h-full"
+            >
+              {/* Add h-full here */}
+              <BlogCard {...blog} />
             </Link>
           ))}
         </div>
@@ -97,7 +101,7 @@ const Article = () => {
             </button>
           </div>
         )}
-      </section>
+      </section>{" "}
     </Fragment>
   );
 };

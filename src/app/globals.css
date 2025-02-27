@@ -11,8 +11,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #000000;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: var(--font-noto-sans), var(--font-roboto) sans-serif;
   }
 }
 
@@ -40,24 +46,15 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-noto-sans), var(--font-roboto) sans-serif;
-}
-
 .custom-btn {
   @apply py-2 px-10 uppercase text-white bg-primary font-robotoCondensed rounded-md hover:bg-red-700 transition duration-300;
 }
 
-/* styles/globals.css or your component's CSS file */
-/* styles/globals.css or your component's CSS file */
 .swiper-button-prev,
 .swiper-button-next {
   @apply border-white !text-white border-2 w-16 h-16 flex items-center justify-center rounded-full transition bg-black/50 hover:bg-black/70;
 }
 
-/* Style the arrows */
 .swiper-button-prev::after,
 .swiper-button-next::after {
   font-size: 40px !important; /* Increase arrow size */
@@ -66,7 +63,6 @@ body {
   color: white !important; /* Ensure arrow is white */
 }
 
-/* Adjust positioning */
 .swiper-button-prev {
   @apply !left-6; /* Move further left */
 }
@@ -75,7 +71,6 @@ body {
   @apply !right-6; /* Move further right */
 }
 
-/* Flip the left arrow */
 .swiper-button-prev::after {
-  content: "‹"; /* Left arrow character */
+  content: "‹";
 }

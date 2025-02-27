@@ -50,7 +50,7 @@ const Article = () => {
               alt="Watermark 3"
             />
           </div>
-          <div className="relative max-w-5xl mx-auto">
+          <div className="relative py-8 max-w-5xl mx-auto">
             <h2 className="mt-4 uppercase">Lorem ipsum</h2>
             <p className="mt-2 leading-relaxed">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
@@ -85,7 +85,10 @@ const Article = () => {
           <h1 className="text-center uppercase my-2">{t("moreArticles")}</h1>
           <div className="grid w-full grid-cols-1 gap-6 p-4 md:p-6 md:grid-cols-3">
             {blogData.slice(0, 3).map((blog, index) => (
-              <BlogCard key={index} {...blog} />
+              <div key={index} className="h-full">
+                {/* Add h-full to the wrapper div */}
+                <BlogCard {...blog} />
+              </div>
             ))}
           </div>
           <Link href={`/${locale}/blog`} className="uppercase custom-btn">

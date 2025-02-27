@@ -14,7 +14,7 @@ const TitleSection = ({ image, title }) => {
         />
 
         <div className="absolute inset-0 flex flex-col justify-center gap-2 px-10 max-w-7xl">
-          <h1 className="text-4xl font-bold text-black md:text-5xl lg:text-6xl">
+          <h1 className="text-3xl font-bold text-black md:text-5xl lg:text-6xl">
             {title}
           </h1>
 
@@ -23,7 +23,7 @@ const TitleSection = ({ image, title }) => {
             alt="Underline"
             width={300}
             height={70}
-            className=""
+            className="max-w-[50%]"
             priority
           />
         </div>
