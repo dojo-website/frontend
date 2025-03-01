@@ -2,7 +2,8 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
-const ClassFAQ = () => {
+const ClassFAQ = ({ faqs_title, course_faqs }) => {
+  console.log("course_faqs", course_faqs);
   const t = useTranslations("classFAQs");
 
   return (
@@ -18,9 +19,9 @@ const ClassFAQ = () => {
           />
         </div>
         <div className="relative max-w-5xl mx-auto">
-          <h1 className="mb-6 font-bold text-center">{t("title")}</h1>
+          <h1 className="mb-6 font-bold text-center">{faqs_title}</h1>
           <ol className="list-decimal list-inside">
-            {t.raw("questions").map((item, index) => (
+            {course_faqs.map((item, index) => (
               <li
                 key={index}
                 className="flex items-start gap-2 py-4 rounded-lg font-roboto"

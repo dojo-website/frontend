@@ -2,7 +2,14 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import React from "react";
 
-const OurPhilosophy = () => {
+const OurPhilosophy = ({
+  inspiration_title,
+  philosophy_title,
+  philosophy_description,
+  approaches_title,
+  approaches_description,
+  approaches,
+}) => {
   const t = useTranslations("nosotros.ourPhilosophy");
 
   return (
@@ -19,56 +26,32 @@ const OurPhilosophy = () => {
               priority
             />
             <figcaption className="mt-2 text-sm font-thin text-start font-roboto">
-              {t("imageCaption")}
+              {inspiration_title}
             </figcaption>
           </figure>
           <div className="flex flex-col items-center justify-center w-full gap-12 mb-8 md:w-1/2">
             <div className="w-[90%]">
               <h2 className="font-bold uppercase font-notoSans">
-                {t("ourPhilosophy")}
+                {philosophy_title}
               </h2>
-              <p className="mt-4">{t("philosophyText")}</p>
+              <p className="mt-4">{philosophy_description}</p>
             </div>
             <div className="hidden lg:block w-[90%]">
-              <h2 className="font-bold uppercase">{t("ourApproach")}</h2>
-              <p className="mt-4">{t("approachText")}</p>
+              <h2 className="font-bold uppercase">{approaches_title}</h2>
+              <p className="mt-4">{approaches_description}</p>
 
               <ul className="mt-4 space-y-2">
-                {[
-                  { key: "technique", textKey: "techniqueText" },
-                  { key: "discipline", textKey: "disciplineText" },
-                  { key: "community", textKey: "communityText" },
-                ].map(({ key, textKey }) => (
-                  <li key={key} className="flex items-center gap-3">
+                {approaches.map(({ id, key, value }) => (
+                  <li key={id} className="flex items-center gap-3">
                     <span className="rounded-full size-2 bg-primary"></span>
                     <span>
-                      <strong>{t(key)}:</strong> {t(textKey)}
+                      <strong>{key}:</strong> {value}
                     </span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-        </div>
-
-        <div className="block lg:hidden w-[90%]">
-          <h2 className="font-bold uppercase">{t("ourApproach")}</h2>
-          <p className="mt-4">{t("approachText")}</p>
-
-          <ul className="mt-4 space-y-2">
-            {[
-              { key: "technique", textKey: "techniqueText" },
-              { key: "discipline", textKey: "disciplineText" },
-              { key: "community", textKey: "communityText" },
-            ].map(({ key, textKey }) => (
-              <li key={key} className="flex items-center gap-3">
-                <span className="rounded-full size-2 bg-primary"></span>
-                <span>
-                  <strong>{t(key)}:</strong> {t(textKey)}
-                </span>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </div>
