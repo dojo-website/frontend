@@ -33,9 +33,9 @@ const MainSlider = () => {
             <div className="relative w-full h-full">
               <Image
                 src={blog.image}
-                className="object-cover"
-                layout="fill"
-                objectFit="cover"
+                className="object-cover w-full h-full"
+                width={1000}
+                height={500}
                 alt={blog.title}
                 priority
               />

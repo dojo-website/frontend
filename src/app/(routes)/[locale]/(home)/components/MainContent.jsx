@@ -1,7 +1,8 @@
 import { useTranslations } from "next-intl";
+import parse from "html-react-parser";
 import Image from "next/image";
 
-const MainContent = () => {
+const MainContent = ({ title, header, description }) => {
   const t = useTranslations("home");
   return (
     <section className="relative flex flex-col items-center justify-center py-10 mx-auto md:my-10 overflow-hidden bg-white w-[90%] lg:w-full max-w-7xl">
@@ -40,14 +41,10 @@ const MainContent = () => {
       </div>
 
       <main className="relative flex flex-col max-w-5xl text-center md:my-10 gap-x-10">
-        <h1 className="my-6 text-black uppercase">DOJO KIME</h1>
-        <h3 className="mt-2 font-bold font-roboto text-primary">
-          {t("karate_school")}
-        </h3>
+        <h1 className="my-6 text-black uppercase">{title}</h1>
+        <h3 className="mt-2 font-bold font-roboto text-primary">{header}</h3>
         <h5 className="mt-2 mb-6 leading-relaxed font-roboto">
-          {t.rich("welcome_message", {
-            strong: (chunks) => <strong className="font-bold">{chunks}</strong>,
-          })}
+          {parse(description)}
         </h5>
       </main>
     </section>
