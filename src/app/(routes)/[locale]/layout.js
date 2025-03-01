@@ -1,5 +1,10 @@
 import "@/app/globals.css";
-import { Noto_Sans, Roboto, Roboto_Condensed } from "next/font/google";
+import {
+  Noto_Sans,
+  Noto_Sans_JP,
+  Roboto,
+  Roboto_Condensed,
+} from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -8,7 +13,7 @@ import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const notoSansJP = Noto_Sans({
+const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["400", "700"],
 });

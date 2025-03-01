@@ -1,18 +1,21 @@
 "use client";
-import { Fragment, useState } from "react";
-import { blogData } from "@/utils/Mocks/Data";
+import { Fragment, useEffect, useState } from "react";
+import { blogData, categories } from "@/utils/Mocks/Data";
 import BlogCard from "./_components/BlogCard";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import TitleSection from "@/components/TitleSection";
 
-const categories = ["All", "Noticias", "Técnica", "Filosofía", "Historia"];
 const blogsPerPage = 6;
 
 const Article = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const { locale } = useParams();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
 
   const filteredBlogs =
     selectedCategory === "All"
@@ -96,10 +99,9 @@ const Article = () => {
                       ? "bg-black text-white border-black"
                       : "bg-white text-black border-[#9C9C9C]"
                   }`}
-                  onClick={() => {
-                    setCurrentPage(page);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
+                  onClick={() => 
+                    setCurrentPage(page)
+                    }
                 >
                   {page}
                 </button>
@@ -109,10 +111,7 @@ const Article = () => {
               <button
                 disabled={currentPage === totalPages}
                 className="p-2 disabled:opacity-50"
-                onClick={() => {
-                  setCurrentPage((prev) => prev + 1);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
+                onClick={() => setCurrentPage((prev) => prev + 1)}
               >
                 <img src="/arrow-dark.svg" />
               </button>

@@ -4,36 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
-const PillarsSection = () => {
+const PillarsSection = ({ pillars }) => {
   const t = useTranslations("home");
   const { locale } = useParams();
-
-  const pillars = [
-    {
-      id: 1,
-      title: t("martialPhilosophy"),
-      image: "/pillar 1.png",
-      description: t("martialPhilosophyDescription"),
-    },
-    {
-      id: 2,
-      title: t("preciseTechnique"),
-      image: "/pillar 2.png",
-      description: t("preciseTechniqueDescription"),
-    },
-    {
-      id: 3,
-      title: t("selfDefense"),
-      image: "/pillar 3.png",
-      description: t("selfDefenseDescription"),
-    },
-    {
-      id: 4,
-      title: t("physicalEfficiency"),
-      image: "/pillar 4.png",
-      description: t("physicalEfficiencyDescription"),
-    },
-  ];
 
   return (
     <section className="w-full px-4 py-12 bg-secondary">
@@ -48,7 +21,7 @@ const PillarsSection = () => {
               className="flex flex-col items-center gap-2 p-6 m-2 text-center bg-white rounded-lg shadow-lg"
             >
               <Image
-                src={pillar.image}
+                src="/pillar 1.png"
                 alt={pillar.title}
                 width={100}
                 height={100}

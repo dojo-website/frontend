@@ -1,3 +1,5 @@
+export const categories = ["All", "Noticias", "Técnica", "Filosofía", "Historia"];
+
 export const blogData = [
   {
     id: 1,
@@ -205,5 +207,44 @@ export const instructors = [
     designation: "Instructor, 2o Dan de KIME Dojo.",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry printing and typrintining industry.pesetting.",
+  },
+];
+
+export const home_page = [
+  {
+    model: "app_name.homepage",
+    pk: 1,
+    fields: {
+      title: "Welcome to Our Dojo",
+      header: "Empowering Through Martial Arts",
+      description:
+        "Our dojo is committed to providing the highest quality martial arts training, fostering discipline, respect, and strength.",
+      pillars: {
+        pillar_1: {
+          title: "Discipline",
+          description:
+            "Learn the art of self-discipline through rigorous training and practice.",
+          image: "home_page/pillars/discipline.jpg",
+        },
+        pillar_2: {
+          title: "Strength",
+          description:
+            "Build both physical and mental strength through our tailored programs.",
+          image: "home_page/pillars/strength.jpg",
+        },
+        pillar_3: {
+          title: "Respect",
+          description:
+            "Respect is the foundation of martial arts—respect for self, instructors, and peers.",
+          image: "home_page/pillars/respect.jpg",
+        },
+        pillar_4: {
+          title: "Community",
+          description:
+            "Join a community of like-minded individuals and grow together.",
+          image: "home_page/pillars/community.jpg",
+        },
+      },
+    },
   },
 ];

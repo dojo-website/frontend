@@ -61,7 +61,7 @@ const RegistrationForm = () => {
                     <option value="avanzados">{t("advanced")}</option>
                   </select>
                   <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
-                    <img src="/arrow-dropdown.svg"/>
+                    <img src="/arrow-dropdown.svg" />
                   </div>
                 </div>
               </div>
