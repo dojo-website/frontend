@@ -16,19 +16,18 @@
 
     "martialPhilosophy": "Martial Philosophy",
     "martialPhilosophyDescription": "At Kime Dojo, karate goes beyond physical activity: it is a true way of life. Our approach is based on budo, the martial philosophy that promotes respect, self-discipline, and essential values such as humility and perseverance. Additionally, we encourage holistic growth, strengthening body, mind, and spirit to prepare you to face life's challenges with balance, confidence, and determination.",
-    
+
     "preciseTechnique": "Precise Technique",
     "preciseTechniqueDescription": "We specialize in perfecting every aspect of Traditional Shotokan Karate. From fundamental basics (kihon) to executing advanced katas, each movement is an opportunity to refine your precision, power, and fluidity. Our technical approach ensures that you not only learn to perform techniques correctly but also understand their purpose and practical application (bunkai).",
-    
+
     "selfDefense": "Self-Defense",
     "selfDefenseDescription": "Traditional karate is a powerful tool for self-defense. We teach you how to handle real-life situations with fast, effective techniques under total control. Beyond physical strength, we promote a mental approach that prioritizes avoiding conflicts and resolving situations safely and confidently, strengthening both your body and mind.",
-    
-    "physicalEfficiency": "Physical Efficiency",
-    "physicalEfficiencyDescription": "We integrate modern biomechanics principles to ensure that every technique is efficient and effective. You will learn how the body generates force and how to optimize posture, balance, and movement. This approach not only maximizes your power and prevents injuries but also takes your training to a more conscious, deep, and strategic level."
-  
 
+    "physicalEfficiency": "Physical Efficiency",
+    "physicalEfficiencyDescription": "We integrate modern biomechanics principles to ensure that every technique is efficient and effective. You will learn how the body generates force and how to optimize posture, balance, and movement. This approach not only maximizes your power and prevents injuries but also takes your training to a more conscious, deep, and strategic level.",
+
+    "readMore": "Read more"
   },
-  "readMore": "Read more",
   "moreArticles": "More articles",
 
   "nosotros": {
@@ -107,7 +106,7 @@
     }
   },
 
-  "faq": {
+  "classFAQs": {
     "title": "Frequently Asked Questions",
     "questions": [
       {
@@ -167,5 +166,9 @@
     "can_register_with_teacher_answer": "No, our instructors are focused on teaching classes. Registrations must be done through the website.",
     "class_cost": "What is the cost of the classes?",
     "class_cost_answer": "The monthly fee is:\n• $60,000 for children and youth (up to 23 years old).\n• $80,000 for adults.\nNo registration fee."
+  },
+
+  "footer": {
+    "writeToUs": "Write to us on Whatsapp"
   }
 }

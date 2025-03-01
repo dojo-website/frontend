@@ -31,7 +31,7 @@ const Header = () => {
               width={120}
               height={120}
               alt="Head Logo"
-              className="w-28 md:w-40"
+              className="h-auto w-28 md:w-40"
             />
           </Link>
 
@@ -40,7 +40,7 @@ const Header = () => {
               <li key={key}>
                 <Link
                   href={`/${locale}${href}`}
-                  className="transition duration-300 hover:text-primary"
+                  className="text-xl transition duration-300 hover:text-primary"
                 >
                   {t(key)}
                 </Link>
@@ -53,45 +53,19 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8 text-black"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <img src="/cross.svg" />
             ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8 text-black"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              </svg>
+              <img src="/hamburger.svg" />
             )}
           </button>
         </nav>
         {isMenuOpen && (
-          <div className="absolute left-0 z-10 w-full text-white bg-black">
-            <ul className="flex flex-col items-center px-6 space-y-4">
+          <div className="absolute left-0 z-10 w-full text-[#FFF2F2] bg-black">
+            <ul className="flex flex-col items-center px-6">
               {navLinks.map(({ key, href }) => (
                 <li
                   key={key}
-                  className="w-full pb-2 text-center border-b border-primary"
+                  className="w-full py-1 text-2xl font-semibold text-center border-b border-primary"
                 >
                   <Link
                     href={`/${locale}${href}`}

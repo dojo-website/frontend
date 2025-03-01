@@ -4,6 +4,8 @@ export const blogData = [
     title: "¿Qué es el kime y por qué es esencial en el karate?",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+    category: "Noticias",
+
     image: "/hero-image.jpg",
     link: "/blog/1",
     createdAt: "2025-02-26",
@@ -22,6 +24,8 @@ export const blogData = [
     title: "Karate Tradicional: Más allá de la competición.",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+    category: "Técnica",
+
     image: "/hero-image.jpg",
     link: "/blog/2",
     createdAt: "2025-02-20",
@@ -40,6 +44,8 @@ export const blogData = [
     title: "Beneficios del karate para niños: Disciplina y confianza.",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+    category: "Filosofía",
+
     image: "/hero-image.jpg",
     link: "/blog/3",
     createdAt: "2025-02-15",
@@ -58,6 +64,8 @@ export const blogData = [
     title: "¿Qué es el kime y por qué es esencial en el karate?",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+    category: "Noticias",
+
     image: "/hero-image.jpg",
     link: "/blog/4",
     createdAt: "2025-02-26",
@@ -76,6 +84,8 @@ export const blogData = [
     title: "Karate Tradicional: Más allá de la competición.",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+    category: "Filosofía",
+
     image: "/hero-image.jpg",
     link: "/blog/5",
     createdAt: "2025-02-20",
@@ -94,6 +104,8 @@ export const blogData = [
     title: "Beneficios del karate para niños: Disciplina y confianza.",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+    category: "Noticias",
+
     image: "/hero-image.jpg",
     link: "/blog/6",
     createdAt: "2025-02-15",
@@ -112,6 +124,8 @@ export const blogData = [
     title: "¿Qué es el kime y por qué es esencial en el karate?",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+    category: "Filosofía",
+
     image: "/hero-image.jpg",
     link: "/blog/7",
     createdAt: "2025-02-26",
@@ -130,6 +144,8 @@ export const blogData = [
     title: "Karate Tradicional: Más allá de la competición.",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+    category: "Noticias",
+
     image: "/hero-image.jpg",
     link: "/blog/8",
     createdAt: "2025-02-20",
@@ -148,6 +164,8 @@ export const blogData = [
     title: "Beneficios del karate para niños: Disciplina y confianza.",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+    category: "Técnica",
+
     image: "/hero-image.jpg",
     link: "/blog/9",
     createdAt: "2025-02-15",
@@ -164,29 +182,28 @@ export const blogData = [
 ];
 
 export const instructors = [
-    {
-      id: 1,
-      image: "/Instructors/instructor-1.png",
-      name: "Sensei Francisco Fuentealba",
-      designation: "Director e instructor, 3er Dan de KIME Dojo.",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry printing and typrintining industry.pesetting.",
-    },
-    {
-      id: 2,
-      image: "/Instructors/instructor-2.png",
-      name: "Sensei Juan Luis León",
-      designation: "Instructor, 3er Dan de KIME Dojo.",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry printing and typrintining industry.pesetting.",
-    },
-    {
-      id: 3,
-      image: "/Instructors/instructor-3.png",
-      name: "Sensei Iván Hrdina",
-      designation: "Instructor, 2o Dan de KIME Dojo.",
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry printing and typrintining industry.pesetting.",
-    },
-  ];
-
+  {
+    id: 1,
+    image: "/Instructors/instructor-1.png",
+    name: "Sensei Francisco Fuentealba",
+    designation: "Director e instructor, 3er Dan de KIME Dojo.",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry printing and typrintining industry.pesetting.",
+  },
+  {
+    id: 2,
+    image: "/Instructors/instructor-2.png",
+    name: "Sensei Juan Luis León",
+    designation: "Instructor, 3er Dan de KIME Dojo.",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry printing and typrintining industry.pesetting.",
+  },
+  {
+    id: 3,
+    image: "/Instructors/instructor-3.png",
+    name: "Sensei Iván Hrdina",
+    designation: "Instructor, 2o Dan de KIME Dojo.",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry printing and typrintining industry.pesetting.",
+  },
+];

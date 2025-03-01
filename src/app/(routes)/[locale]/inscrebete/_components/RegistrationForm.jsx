@@ -47,27 +47,33 @@ const RegistrationForm = () => {
                 />
               </div>
 
-              <div>
+              <div className="relative">
                 <label className="block font-medium">{t("class")}:</label>
-                <select
-                  {...register("claseInscripcion")}
-                  className="w-full p-3 bg-[#F3EFEF] border rounded-md"
-                >
-                  <option value="">{t("select")}</option>
-                  <option value="principiantes">{t("beginner")}</option>
-                  <option value="intermedios">{t("intermediate")}</option>
-                  <option value="avanzados">{t("advanced")}</option>
-                </select>
+                <div className="relative">
+                  <select
+                    {...register("claseInscripcion")}
+                    defaultValue=""
+                    className="w-full p-3 bg-[#F3EFEF] border rounded-md appearance-none pr-10"
+                  >
+                    <option value="" disabled></option>
+                    <option value="principiantes">{t("beginner")}</option>
+                    <option value="intermedios">{t("intermediate")}</option>
+                    <option value="avanzados">{t("advanced")}</option>
+                  </select>
+                  <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
+                    <img src="/arrow-dropdown.svg"/>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div>
+            <div className="flex flex-col">
               <label className="block font-medium">
                 {t("medicalCondition")}:
               </label>
               <textarea
                 {...register("practicanteCondicion")}
-                className="w-full h-[85%] p-3 bg-[#F3EFEF] border rounded-md"
+                className="w-full min-h-44 flex-1 text-sm leading-relaxed p-3 bg-[#F3EFEF] border rounded-md"
               />
             </div>
           </div>

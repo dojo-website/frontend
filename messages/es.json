@@ -12,7 +12,7 @@
     "signUpNow": "Inscríbete Ahora",
     "karate_school": "Escuela de Karate Tradicional Shotokan",
     "welcome_message": "Bienvenidos a <strong>Dojo KIME</strong>, un espacio dedicado al Karate Tradicional Shotokan inspirado en las enseñanzas del maestro <strong>Hidetaka Nishiyama</strong>. Aquí no solo perfeccionamos la técnica, sino que cultivamos la disciplina, el respeto y la armonía entre <strong>cuerpo, mente y espíritu</strong>. Nuestro enfoque sigue el karate como un <strong>camino marcial integral (budo)</strong>, donde cada estudiante tiene la oportunidad de descubrir y desarrollar su mejor versión.",
-    "fromOurBlog": "From Our Blog",
+    "fromOurBlog": "De Nuestro Blog",
 
     "martialPhilosophy": "Filosofía Marcial",
     "martialPhilosophyDescription": "En Kime Dojo, el karate trasciende la actividad física: es un verdadero camino de vida. Nuestro enfoque se basa en el budo, la filosofía marcial que fomenta el respeto, la autodisciplina y valores esenciales como la humildad y la perseverancia. Además, promovemos un crecimiento integral, fortaleciendo cuerpo, mente y espíritu para prepararte a enfrentar los desafíos de la vida con equilibrio, confianza y determinación.",
@@ -24,9 +24,10 @@
     "selfDefenseDescription": "El karate tradicional es una herramienta poderosa para la defensa personal. Te enseñamos a manejar situaciones reales con técnicas rápidas, efectivas y bajo control total. Más allá de la fuerza física, fomentamos un enfoque mental que prioriza evitar conflictos y resolver situaciones con seguridad y confianza, fortaleciendo tanto tu cuerpo como tu mente.",
 
     "physicalEfficiency": "Eficiencia Física",
-    "physicalEfficiencyDescription": "Integramos principios modernos de biomecánica para que cada técnica sea eficiente y efectiva. Aprenderás cómo el cuerpo genera fuerza y cómo optimizar postura, equilibrio y movimiento. Este enfoque no solo maximiza tu potencia y previene lesiones, sino que lleva tu entrenamiento a un nivel más consciente, profundo y estratégico."
+    "physicalEfficiencyDescription": "Integramos principios modernos de biomecánica para que cada técnica sea eficiente y efectiva. Aprenderás cómo el cuerpo genera fuerza y cómo optimizar postura, equilibrio y movimiento. Este enfoque no solo maximiza tu potencia y previene lesiones, sino que lleva tu entrenamiento a un nivel más consciente, profundo y estratégico.",
+
+    "readMore": "leer más"
   },
-  "readMore": "leer más",
   "moreArticles": "Más artículos",
 
   "nosotros": {
@@ -104,7 +105,7 @@
     }
   },
 
-  "faq": {
+  "classFAQs": {
     "title": "Preguntas Frecuentes",
     "questions": [
       {

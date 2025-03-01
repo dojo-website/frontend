@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 const Article = () => {
-  const { locale } = useParams();
+  const { locale, id } = useParams();
   const t = useTranslations();
   return (
     <div className="w-[90%] mx-auto">
@@ -27,9 +27,9 @@ const Article = () => {
         <Breadcrumb
           items={[
             { id: 1, label: "Home", href: "/" },
-            { id: 2, label: "Nuestro Blog", href: `${locale}/blog` },
-            { id: 3, label: "Noticias", href: `${locale}/blog/news` },
-            { id: 4, label: "Lorem Ipsum", href: `${locale}/blog/news/lorem` },
+            { id: 2, label: "Nuestro Blog", href: `/${locale}/blog` },
+            { id: 3, label: "Noticias", href: `#` },
+            { id: 4, label: "Lorem Ipsum", href: `#` },
           ]}
         />
         <Image
@@ -41,7 +41,7 @@ const Article = () => {
         />
 
         <div className="relative -z-10">
-          <div className="absolute -bottom-24 right-0 w-56">
+          <div className="absolute right-0 w-56 -bottom-24">
             <Image
               src="/watermarks/watermark-3.png"
               className="w-full h-auto"
@@ -50,7 +50,7 @@ const Article = () => {
               alt="Watermark 3"
             />
           </div>
-          <div className="relative py-8 max-w-5xl mx-auto">
+          <div className="relative max-w-5xl py-8 mx-auto">
             <h2 className="mt-4 uppercase">Lorem ipsum</h2>
             <p className="mt-2 leading-relaxed">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
@@ -82,16 +82,19 @@ const Article = () => {
           </div>
         </div>
         <section className="flex flex-col items-center justify-center my-4">
-          <h1 className="text-center uppercase my-2">{t("moreArticles")}</h1>
+          <h1 className="my-2 text-center uppercase">{t("moreArticles")}</h1>
           <div className="grid w-full grid-cols-1 gap-6 p-4 md:p-6 md:grid-cols-3">
             {blogData.slice(0, 3).map((blog, index) => (
-              <div key={index} className="h-full">
-                {/* Add h-full to the wrapper div */}
+              <Link
+                href={`/${locale}/blog/${blog.id}`}
+                key={index}
+                className="h-full"
+              >
                 <BlogCard {...blog} />
-              </div>
+              </Link>
             ))}
           </div>
-          <Link href={`/${locale}/blog`} className="uppercase custom-btn">
+          <Link href={`/${locale}/blog/`} className="uppercase custom-btn">
             {t("moreArticles")}
           </Link>
         </section>

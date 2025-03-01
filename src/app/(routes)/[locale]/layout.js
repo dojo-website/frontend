@@ -9,7 +9,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const notoSansJP = Noto_Sans({
-  subsets: ["latin", "japanese"],
+  subsets: ["latin"],
   weight: ["400", "700"],
 });
 

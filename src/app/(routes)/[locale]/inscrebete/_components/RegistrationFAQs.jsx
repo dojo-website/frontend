@@ -33,7 +33,7 @@ const RegistrationFAQ = () => {
 
   return (
     <div className="flex flex-col items-center w-full p-10 py-12 bg-secondary">
-      <section className="relative w-full py-12 mx-auto text-white max-w-7xl">
+      <section className="relative w-full py-6 mx-auto text-white max-w-7xl">
         <div className="absolute bottom-0 right-0 w-56">
           <Image
             src="/watermarks/watermark-3.png"
@@ -44,15 +44,13 @@ const RegistrationFAQ = () => {
           />
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <h1 className="mb-8 font-bold text-center font-notoSans">
-            {t("title")}
-          </h1>
-          <div className="space-y-6">
+        <div className="relative max-w-5xl mx-auto">
+          <h1 className="mb-4 font-bold text-center">{t("title")}</h1>
+          <div className="list-decimal list-inside">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="flex items-start gap-2 p-4 rounded-lg font-roboto"
+                className="flex items-start gap-2 py-4 rounded-lg font-roboto"
               >
                 <span className="font-semibold">{index + 1}.</span>
                 <div>
