@@ -7,7 +7,7 @@ const ClassSchedule = () => {
 
   return (
     <section className="relative flex flex-col mx-auto max-w-7xl">
-      <div className="absolute bottom-0 right-0 w-48 py-12">
+      <div className="absolute bottom-0 right-0 w-40 py-12 md:w-48">
         <Image
           src="/watermarks/watermark-1.png"
           className="w-full h-auto"
@@ -29,7 +29,7 @@ const ClassSchedule = () => {
           <p className="">{t("schedule.description")}</p>
 
           <div className="mt-6 rounded-lg ">
-            <h6 className="mb-2 font-semibold">{t("schedule.days")}</h6>
+            <h6 className="mb-2 font-bold">{t("schedule.days")}</h6>
             <ul className="space-y-2 text-sm font-roboto">
               <li className="flex items-center gap-2 font-semibold text-primary">
                 <div className="rounded-full size-2 bg-primary" />

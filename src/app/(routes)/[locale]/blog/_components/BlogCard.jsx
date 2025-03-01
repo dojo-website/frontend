@@ -16,8 +16,13 @@ const BlogCard = ({ image, title, description, createdAt }) => {
       <div className="flex flex-col gap-2 p-4 flex-grow">
         <h4 className="font-bold text-lg">{title}</h4>
         <p className="mt-2 text-sm">{description}</p>
-        <p className="text-sm text-center text-primary mt-auto">
-          {new Date(createdAt).toLocaleDateString()}
+        <p className="text-base text-center text-primary mt-auto">
+          {new Date(createdAt)
+            .toISOString()
+            .split("T")[0]
+            .split("-")
+            .reverse()
+            .join(".")}
         </p>
       </div>
     </div>
