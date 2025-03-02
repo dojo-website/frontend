@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-const TitleSection = ({ image, title }) => {
+const TitleSection = ({ title, image }) => {
   return (
     <div className="flex flex-col items-center justify-center px-2 mx-auto my-2 max-w-7xl">
       <div className="relative w-full">
         <Image
-          src={image}
+          src={`${image}`}
           alt={`${title} Image`}
           width={2000}
           height={500}

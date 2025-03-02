@@ -30,8 +30,9 @@ const Footer = () => {
       <section className="flex flex-col items-center justify-between gap-3 px-6 mx-auto text-center max-w-7xl md:items-start md:text-left md:flex-row">
         <div className="flex flex-col items-center space-y-3 md:items-start">
           <Image
-            className="w-full h-auto p-2 bg-white"
-            src={contact?.company_logo}
+            className="w-f
+            ull h-auto p-2 bg-white"
+            src="/KIMElogo.png"
             width={250}
             height={250}
             alt="Head Logo"
