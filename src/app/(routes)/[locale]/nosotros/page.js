@@ -60,7 +60,7 @@ const Nosotros = () => {
           />
         </>
       ) : (
-        <div className="flex justify-center items-center min-h-[80%">
+        <div className="flex justify-center items-center min-h-[80vh]">
           <Loader />
         </div>
       )}

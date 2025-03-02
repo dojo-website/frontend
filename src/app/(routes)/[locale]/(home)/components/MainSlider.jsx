@@ -44,7 +44,7 @@ const MainSlider = () => {
                 <h4 className="mt-2 font-bold md:text-4xl">
                   El enfoque que define el Karate.
                 </h4>
-                <Link href={`/${locale}/blog/${blog.id}`}>
+                <Link href={`/${locale}/nosotros`}>
                   <button className="mt-4 text-sm font-medium md:mt-12 md:text-2xl custom-btn">
                     {t("readMore")}
                   </button>
