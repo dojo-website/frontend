@@ -1,24 +1,52 @@
 "use client";
 import { Fragment, useEffect, useState } from "react";
-import { blogData, categories } from "@/utils/Mocks/Data";
+import { categories } from "@/utils/Mocks/Data";
 import BlogCard from "./_components/BlogCard";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import TitleSection from "@/components/TitleSection";
+import { getBlogs } from "@/services/blogs";
+import Loader from "@/components/Loader";
 
-const blogsPerPage = 6;
+const blogsPerPage = 9;
 
 const Article = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const { locale } = useParams();
+  const [blogData, setBlogData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const searchParams = useSearchParams();
+  const categoryQuery = searchParams.get("category");
+
+  // Set the selected category based on the query parameter
+  useEffect(() => {
+    if (categoryQuery) {
+      setSelectedCategory(categoryQuery);
+    }
+  }, [categoryQuery]);
+
+  useEffect(() => {
+    const fetchBlogData = async () => {
+      try {
+        const data = await getBlogs();
+        setBlogData(data || []);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogData();
+  }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
   const filteredBlogs =
-    selectedCategory === "All"
+    selectedCategory === "all"
       ? blogData
       : blogData.filter((blog) => blog.category === selectedCategory);
 
@@ -49,31 +77,41 @@ const Article = () => {
         <div className="flex gap-3 px-6 mx-auto overflow-x-auto shadow-md md:shadow-none md:max-w-7xl md:overflow-visible no-scrollbar">
           {categories.map((category) => (
             <button
-              key={category}
+              key={category.id}
               className={`px-6 py-2 md:rounded-full md:border-gray-500 md:border font-bold font-roboto whitespace-nowrap ${
-                selectedCategory === category
+                selectedCategory === category.id
                   ? "border-b-2 border-black md:bg-black md:text-white"
                   : "md:bg-white md:text-black"
               }`}
               onClick={() => {
-                setSelectedCategory(category);
+                setSelectedCategory(category.id);
                 setCurrentPage(1);
               }}
             >
-              {category}
+              {category.name}
             </button>
           ))}
         </div>
 
         {/* Blog Cards */}
         <section className="p-6 mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {currentBlogs.map((blog) => (
-              <Link key={blog.id} href={`/${locale}/blog/${blog.id}`}>
-                <BlogCard {...blog} />
-              </Link>
-            ))}
-          </div>
+          {loading ? (
+            <div className="text-center">
+              <Loader />
+            </div>
+          ) : currentBlogs.length > 0 ? (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {currentBlogs.map((blog) => (
+                <Link key={blog.id} href={`/${locale}/blog/${blog.id}`}>
+                  <BlogCard blog={blog} />
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <h5 className="font-bold text-center text-primary">
+              No blogs found.
+            </h5>
+          )}
 
           {/* Pagination */}
           {totalPages > 1 && (
@@ -87,7 +125,7 @@ const Article = () => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
               >
-                <img src="/arrow-dark.svg" className="rotate-180" />
+                <img src="/arrow-dark.svg" alt="arrow" className="rotate-180" />
               </button>
 
               {/* Dynamic Pagination Buttons */}
@@ -99,9 +137,7 @@ const Article = () => {
                       ? "bg-black text-white border-black"
                       : "bg-white text-black border-[#9C9C9C]"
                   }`}
-                  onClick={() => 
-                    setCurrentPage(page)
-                    }
+                  onClick={() => setCurrentPage(page)}
                 >
                   {page}
                 </button>
@@ -113,7 +149,7 @@ const Article = () => {
                 className="p-2 disabled:opacity-50"
                 onClick={() => setCurrentPage((prev) => prev + 1)}
               >
-                <img src="/arrow-dark.svg" />
+                <img src="/arrow-dark.svg" alt="arrow" />
               </button>
             </div>
           )}
