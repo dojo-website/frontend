@@ -16,13 +16,12 @@ const RegistrationForm = ({ data }) => {
 
   const onSubmit = async (formData) => {
     try {
-
       // Format the payload
       const payload = {
         ...formData,
-        age: parseInt(formData.age, 10), // Convert age to a number
-        class_level: formData.class_level.toLowerCase(), // Convert class_level to lowercase
-        phone_number: formData.phone_number || null, // Handle optional fields
+        age: parseInt(formData.age, 10),
+        class_level: formData.class_level.toLowerCase(),
+        phone_number: formData.phone_number || null,
         karate_history: formData.karate_history || null,
         medical_condition: formData.medical_condition || null,
         guardian_full_name: formData.guardian_full_name || null,
@@ -39,7 +38,6 @@ const RegistrationForm = ({ data }) => {
       );
 
       if (error.response?.data) {
-        // Display specific error messages from the API
         alert(`Error: ${JSON.stringify(error.response.data)}`);
       } else {
         alert(t("error") + " ❌");
@@ -63,7 +61,7 @@ const RegistrationForm = ({ data }) => {
           <div className="grid grid-cols-1 gap-8 mt-4 md:grid-cols-2">
             <div className="space-y-4">
               <div>
-                <label className="block font-medium">{data?.name_title}:</label>
+                <label className="block font-medium">{data?.name_title}</label>
                 <input
                   {...register("full_name", { required: true })}
                   className="w-full p-3 bg-[#F3EFEF] border rounded-md"
@@ -71,7 +69,7 @@ const RegistrationForm = ({ data }) => {
               </div>
 
               <div>
-                <label className="block font-medium">{data?.age_title}:</label>
+                <label className="block font-medium">{data?.age_title}</label>
                 <input
                   type="number"
                   {...register("age", {
@@ -84,9 +82,7 @@ const RegistrationForm = ({ data }) => {
               </div>
 
               <div className="relative">
-                <label className="block font-medium">
-                  {data?.class_title}:
-                </label>
+                <label className="block font-medium">{data?.class_title}</label>
                 <div className="relative">
                   <select
                     {...register("class_level")}
@@ -107,7 +103,7 @@ const RegistrationForm = ({ data }) => {
 
             <div className="flex flex-col">
               <label className="block font-medium">
-                {data?.medical_condition_title}:
+                {data?.medical_condition_title}
               </label>
               <textarea
                 {...register("medical_condition")}
@@ -129,7 +125,7 @@ const RegistrationForm = ({ data }) => {
             <div className="flex flex-col gap-4">
               <div>
                 <label className="block font-medium">
-                  {data?.guardian_name_title}:
+                  {data?.guardian_name_title}
                 </label>
                 <input
                   {...register("guardian_full_name")}
@@ -138,7 +134,7 @@ const RegistrationForm = ({ data }) => {
               </div>
               <div>
                 <label className="block font-medium">
-                  {data?.guardian_email_title}:
+                  {data?.guardian_email_title}
                 </label>
                 <input
                   type="email"
@@ -148,7 +144,7 @@ const RegistrationForm = ({ data }) => {
               </div>
               <div>
                 <label className="block font-medium">
-                  {data?.guardian_phone_title}:
+                  {data?.guardian_phone_title}
                 </label>
                 <input
                   type="tel"
@@ -168,7 +164,7 @@ const RegistrationForm = ({ data }) => {
             <div className="flex flex-col gap-4">
               <div>
                 <label className="block font-medium">
-                  {data?.contact_email_title}:
+                  {data?.contact_email_title}
                 </label>
                 <input
                   type="email"
@@ -178,7 +174,7 @@ const RegistrationForm = ({ data }) => {
               </div>
               <div>
                 <label className="block font-medium">
-                  {data?.contact_phone_title}:
+                  {data?.contact_phone_title}
                 </label>
                 <input
                   type="tel"
@@ -188,7 +184,7 @@ const RegistrationForm = ({ data }) => {
               </div>
               <div>
                 <label className="block font-medium">
-                  {data?.contact_history_title}:
+                  {data?.contact_history_title}
                 </label>
                 <input
                   {...register("karate_history")}

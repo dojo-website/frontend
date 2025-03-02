@@ -1,11 +1,11 @@
 "use client";
 import { Fragment, useEffect, useState } from "react";
 import { categories } from "@/utils/Mocks/Data";
-import BlogCard from "./_components/BlogCard";
+import BlogCard from "@/components/BlogCard";
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 import TitleSection from "@/components/TitleSection";
-import { getBlogs } from "@/services/blogs";
+import { getBlogs, getBlogsHeader } from "@/services/blogs";
 import Loader from "@/components/Loader";
 
 const blogsPerPage = 9;
@@ -15,6 +15,7 @@ const Article = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { locale } = useParams();
   const [blogData, setBlogData] = useState([]);
+  const [blogHeader, setBlogHeader] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const searchParams = useSearchParams();
@@ -27,6 +28,26 @@ const Article = () => {
     }
   }, [categoryQuery]);
 
+  //Blog Header
+  useEffect(() => {
+    const fetchBlogHeader = async () => {
+      try {
+        const header = await getBlogsHeader();
+        if (header && header.length > 0) {
+          setBlogHeader(header[0]);
+        } else {
+          setBlogHeader(null);
+        }
+      } catch (error) {
+        console.error("Error fetching Header:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogHeader();
+  }, []);
+
+  //Blogs Data
   useEffect(() => {
     const fetchBlogData = async () => {
       try {
@@ -71,7 +92,7 @@ const Article = () => {
 
   return (
     <Fragment>
-      <TitleSection image="/title-img-blog.png" title="Nuestro Blog" />
+      <TitleSection image={blogHeader?.image} title={blogHeader?.title} />
       <div className="my-10">
         {/* Category Filter */}
         <div className="flex gap-3 px-6 mx-auto overflow-x-auto shadow-md md:shadow-none md:max-w-7xl md:overflow-visible no-scrollbar">

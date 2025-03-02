@@ -41,7 +41,7 @@ const Inscrebete = () => {
     <div>
       <TitleSection
         title={signupData?.title}
-        image="/title-img-registration.png"
+        image={signupData?.signup_image}
       />
       <RegistrationForm data={signupData} />
       <RegistrationFAQ

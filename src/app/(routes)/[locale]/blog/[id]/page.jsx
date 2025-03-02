@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Breadcrumb from "@/components/BreadCrumb";
 import Image from "next/image";
-import BlogCard from "../_components/BlogCard";
+import BlogCard from "@/components/BlogCard";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -17,15 +17,12 @@ const Article = () => {
   const [error, setError] = useState(null);
   const [blogData, setBlogData] = useState([]); // For "More Articles" section
 
-  // Fetch the specific blog data and all blogs for the "More Articles" section
+  // Fetch Specific blog data and blogs for the "More Articles" section
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch all blogs
         const data = await getBlogs();
         setBlogData(data || []);
-
-        // Find the specific blog by ID
         const selectedBlog = data.find((blog) => blog.id === parseInt(id));
         if (selectedBlog) {
           setBlog(selectedBlog);
@@ -42,6 +39,12 @@ const Article = () => {
     fetchData();
   }, [id]);
 
+  const featuredImages = blog?.blog_images?.filter((image) => image.featured);
+  const imageToShow =
+    featuredImages?.length > 0
+      ? featuredImages[0]?.image_url // Use the first featured image
+      : blog?.blog_images[0]?.image_url; // Use the first image if no featured image is found
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -49,6 +52,10 @@ const Article = () => {
       </div>
     );
   }
+
+  const featuredImage = blog?.blog_images?.find(
+    (image) => image.featured
+  )?.image_url;
 
   if (error) {
     return <p className="text-center text-red-500">Error: {error}</p>;
@@ -63,7 +70,7 @@ const Article = () => {
       <div className="max-w-6xl mx-auto">
         {/* Blog Title */}
         <div className="inset-0 flex flex-col justify-center gap-2 w-[80%] my-6">
-          <h1 className="font-bold text-black">{blog.blogs_page_title}</h1>
+          <h1 className="font-bold text-black">{blog.title}</h1>
           <Image
             src="/underline.png"
             alt="Underline"
@@ -82,14 +89,14 @@ const Article = () => {
               id: 3,
               label: blog.category,
               href: `/${locale}/blog?category=${blog.category}`,
-            }, // Add category as query parameter
-            { id: 4, label: blog.blogs_page_title, href: `#` },
+            },
+            { id: 4, label: blog.title, href: `#` },
           ]}
         />
 
         {/* Blog Title Image */}
         <Image
-          src={blog.blogs_page_image}
+          src={imageToShow || "/favicon.svg"}
           width={1000}
           height={300}
           alt="Blog Image"
@@ -108,23 +115,10 @@ const Article = () => {
             />
           </div>
           <div className="relative max-w-5xl py-8 mx-auto">
-            {blog.blog_sections.map((section, index) => (
+            {blog?.blog_sections.map((section, index) => (
               <div key={section.id}>
                 <h2 className="mt-4 uppercase">{section.title}</h2>
                 <p className="mt-2 leading-relaxed">{section.description}</p>
-                {/* If there are images in the section, render them here */}
-                {blog.blog_images
-                  .filter((image) => image.featured)
-                  .map((image) => (
-                    <Image
-                      key={image.id}
-                      src={image.image_url}
-                      width={800}
-                      height={400}
-                      alt={section.title}
-                      className="object-cover w-full my-4 rounded-xl h-72"
-                    />
-                  ))}
               </div>
             ))}
           </div>
@@ -135,8 +129,8 @@ const Article = () => {
           <h1 className="my-2 text-center uppercase">{t("moreArticles")}</h1>
           <div className="grid w-full grid-cols-1 gap-6 p-4 md:p-6 md:grid-cols-3">
             {blogData
-              .filter((b) => b.id !== blog.id) // Exclude the current blog
-              .slice(0, 3) // Show only 3 related blogs
+              .filter((b) => b.id !== blog.id) //filter current blog
+              .slice(0, 3)
               .map((relatedBlog) => (
                 <Link
                   href={`/${locale}/blog/${relatedBlog.id}`}

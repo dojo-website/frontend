@@ -1,5 +1,3 @@
-// services/auth.js
-
 import api from "@/utils/api";
 
 export const getSignupData = async () => {
