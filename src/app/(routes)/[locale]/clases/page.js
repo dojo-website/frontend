@@ -13,7 +13,6 @@ const Clases = () => {
     const fetchClasesData = async () => {
       try {
         const data = await classesData();
-        console.log("Fetched data:", data);
         setClassesPageData(data);
       } catch (error) {
         console.error("Error fetching data:", error);

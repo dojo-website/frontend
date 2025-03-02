@@ -5,8 +5,9 @@ import OurPhilosophy from "./_components/OurPhilosophy";
 import Instructors from "./_components/Instructors";
 import Association from "./_components/Association";
 import Title from "./_components/Title";
-import aboutData from "@/services/about";
+import { getAboutUs } from "@/services/about";
 import TitleSection from "@/components/TitleSection";
+import Loader from "@/components/Loader";
 
 const Nosotros = () => {
   const [aboutPageData, setAboutPageData] = useState(null);
@@ -14,8 +15,7 @@ const Nosotros = () => {
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
-        const data = await aboutData();
-        console.log("Fetched data:", data);
+        const data = await getAboutUs();
         setAboutPageData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -60,7 +60,9 @@ const Nosotros = () => {
           />
         </>
       ) : (
-        <p>Loading...</p>
+        <div className="flex justify-center items-center min-h-[80%">
+          <Loader />
+        </div>
       )}
     </div>
   );

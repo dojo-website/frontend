@@ -1,10 +1,5 @@
 import "@/app/globals.css";
-import {
-  Noto_Sans,
-  Noto_Sans_JP,
-  Roboto,
-  Roboto_Condensed,
-} from "next/font/google";
+import { Noto_Sans, Roboto, Roboto_Condensed } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -12,8 +7,9 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Providers from "./Providers";
 
-const notoSansJP = Noto_Sans_JP({
+const notoSansJP = Noto_Sans({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -48,15 +44,17 @@ export default async function RootLayout({ children, params }) {
       <head>
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
-      <body
-        className={`${notoSansJP.variable} ${roboto.variable} ${robotoCondensed.className} antialiased`}
-      >
-        <NextIntlClientProvider messages={messages}>
-          <Header />
-          {children}
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
+      <Providers>
+        <body
+          className={`${notoSansJP.variable} ${roboto.variable} ${robotoCondensed.className} antialiased`}
+        >
+          <NextIntlClientProvider messages={messages}>
+            <Header />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
+        </body>
+      </Providers>
     </html>
   );
 }

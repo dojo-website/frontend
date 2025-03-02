@@ -22,7 +22,7 @@ const HomeBlogCard = ({ title, description, image, link }) => {
 
       <div className="flex flex-col flex-grow gap-2 p-4">
         <h4 className="text-lg font-bold">{title}</h4>
-        <p className="mt-2 text-sm">{description}</p>
+        <p className="mt-2  text-base">{description}</p>
         <p className="py-2 mt-auto text-base text-center">
           <Link href={`${locale}/${link}`} className="custom-btn">
             {t("readMore")}

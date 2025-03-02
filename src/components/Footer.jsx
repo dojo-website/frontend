@@ -1,6 +1,30 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import getContacts from "@/services/contactUs";
+import Loader from "./Loader";
 
 const Footer = () => {
+  const [contact, setContact] = useState(null);
+
+  useEffect(() => {
+    const fetchContactData = async () => {
+      try {
+        const contact = await getContacts();
+        if (contact) {
+          setContact(contact);
+        } else {
+          console.warn("Contact data is empty!");
+        }
+      } catch (error) {
+        console.error("Error loading contact data:", error);
+      } finally {
+      }
+    };
+    fetchContactData();
+  }, []);
+
   return (
     <footer className="w-full pt-6 text-white bg-black">
       <section className="flex flex-col items-center justify-between gap-3 px-6 mx-auto text-center max-w-7xl md:items-start md:text-left md:flex-row">
@@ -11,15 +35,16 @@ const Footer = () => {
             width={250}
             height={250}
             alt="Head Logo"
+            priority
           />
           <h5 className="font-semibold text-white">
-            KIME: El enfoque que define el Karate
+            {contact?.company_slogan || "Your Trusted Karate Dojo"}
           </h5>
         </div>
 
         <div className="flex flex-col items-start gap-4 mt-6 md:mt-0">
           <h3 className="text-white uppercase text-start">
-            Contact Information
+            {contact?.title || "Contact Information"}
           </h3>
 
           <div
@@ -36,12 +61,12 @@ const Footer = () => {
             />
             <p itemProp="address" className="md:text-base">
               <a
-                href="https://www.google.com/maps/search/Estadio+Las+Condes,+Santiago,+Chile"
+                href={`https://www.google.com/maps/search/`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:underline"
               >
-                Estadio Las Condes, Santiago, Chile
+                {contact?.location || "abc"}
               </a>
             </p>
           </div>
@@ -60,10 +85,13 @@ const Footer = () => {
                 className="no-underline md:text-base hover:underline"
                 itemProp="telephone"
               >
-                +56 9 9999 9999
+                {contact?.whatsapp_contact || "123"}
               </a>
               <a
-                href="https://wa.me/56999999999"
+                href={`https://wa.me/${contact?.whatsapp_contact.replace(
+                  /\D/g,
+                  ""
+                )}`}
                 className="hidden underline md:block"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -82,8 +110,11 @@ const Footer = () => {
               className="object-contain size-8"
             />
             <p className="md:text-base">
-              <a href="mailto:info@kime.cl" className="hover:underline">
-                info@kime.cl
+              <a
+                href={`mailto:${contact?.whatsapp_contact}`}
+                className="hover:underline"
+              >
+                {contact?.email || "abc@example.com"}
               </a>
             </p>
           </div>
@@ -91,7 +122,7 @@ const Footer = () => {
 
         <div className="flex gap-4 mt-6 md:mt-0">
           <a
-            href="https://www.facebook.com/facebook-page-name"
+            href={contact?.facebook_link}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit our Facebook page"
@@ -105,7 +136,7 @@ const Footer = () => {
             />
           </a>
           <a
-            href="https://www.instagram.com/instagram-page-name"
+            href={contact?.instagram_link}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit our Instagram page"
@@ -124,7 +155,7 @@ const Footer = () => {
       <hr className="w-[90%] mx-auto border-primary my-4" />
 
       <p className="flex justify-center pb-4 w-[60%] mx-auto text-center text-sm text-white md:text-base">
-        © 2024 KIME Karate Dojo. Todos los derechos reservados.
+        {contact?.copyright_description || "abc"}
       </p>
     </footer>
   );
