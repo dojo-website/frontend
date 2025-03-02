@@ -29,8 +29,12 @@ const Home = () => {
     fetchData();
   }, []);
 
-  if (loading) return <Loader />;
-
+  if (loading)
+    return (
+      <div className=" flex justify-center items-center min-h-[80vh]">
+        <Loader />
+      </div>
+    );
   return (
     <div className="text-2xl font-bold bg-white">
       <MainSlider />

@@ -21,7 +21,7 @@ const PillarsSection = ({ pillars }) => {
               className="flex flex-col items-center gap-2 p-6 m-2 text-center bg-white rounded-lg shadow-lg"
             >
               <Image
-                src="/pillar 1.png"
+                src={`/pillar ${pillar.id}.png`}
                 alt={pillar.title}
                 width={100}
                 height={100}
