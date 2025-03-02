@@ -31,7 +31,6 @@ const OurPhilosophy = ({
     );
   };
 
-  console.log(approaches);
   return (
     <div className="w-full py-12 bg-secondary">
       <div className="flex flex-col items-center mx-auto text-white max-w-7xl">

@@ -15,15 +15,12 @@ const Clases = () => {
       try {
         const data = await getClassesData();
         setClassesPageData(data);
-        debugger;
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-    debugger;
     fetchClasesData();
   }, []);
-  debugger;
   return (
     <div className="w-full">
       {classesPageData ? (

@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="flex flex-col items-center space-y-3 md:items-start">
           <Image
             className="w-full h-auto p-2 bg-white"
-            src="/KIMElogo.png"
+            src={contact?.company_logo}
             width={250}
             height={250}
             alt="Head Logo"

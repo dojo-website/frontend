@@ -11,9 +11,9 @@ const BreadCrumb = ({ items }) => {
           >
             {index !== 0 && <span className="mx-2">{">"}</span>}
             {index === items.length - 1 ? (
-              <span className="font-bold text-black">{item.label}</span>
+              <span className="font-bold text-black ">{item.label}</span>
             ) : (
-              <Link href={item.href} className="hover:underline">
+              <Link href={item.href} className="capitalize hover:underline">
                 {item.label}
               </Link>
             )}

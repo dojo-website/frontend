@@ -1,5 +1,10 @@
-export const categories = ["All", "Noticias", "Técnica", "Filosofía", "Historia"];
-
+export const categories = [
+  { id: "all", name: "All" },
+  { id: "news", name: "Noticias" },
+  { id: "technique", name: "Técnica" },
+  { id: "philosophy", name: "Filosofía" },
+  { id: "history", name: "Historia" },
+];
 export const blogData = [
   {
     id: 1,
