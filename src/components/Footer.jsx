@@ -38,7 +38,8 @@ const Footer = () => {
             priority
           />
           <h5 className="font-semibold text-white">
-            {contact?.company_slogan || "Your Trusted Karate Dojo"}
+            {contact?.company_title + ": " + contact?.company_slogan ||
+              "Your Trusted Karate Dojo"}
           </h5>
         </div>
 
@@ -81,22 +82,19 @@ const Footer = () => {
             />
             <div className="flex flex-col">
               <a
-                href="tel:+56999999999"
-                className="no-underline md:text-base hover:underline"
-                itemProp="telephone"
-              >
-                {contact?.whatsapp_contact || "123"}
-              </a>
-              <a
                 href={`https://wa.me/${contact?.whatsapp_contact.replace(
                   /\D/g,
                   ""
                 )}`}
-                className="hidden underline md:block"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Write to us on WhatsApp
+                <p className="no-underline hover:underline">
+                  {contact?.whatsapp_contact || "123"}
+                </p>
+                <p className="hidden underline md:block">
+                  Write to us on WhatsApp
+                </p>
               </a>
             </div>
           </div>

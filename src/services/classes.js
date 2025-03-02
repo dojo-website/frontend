@@ -1,7 +1,14 @@
-import { classesData } from "../utils/Mocks/Data";
+import api from "@/utils/api";
 
-const getclassesData = () => {
-  return classesData;
+export const getClassesData = async () => {
+  try {
+    const response = await api.get("/course");
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Failed to fetch Classes page data:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
 };
-
-export default getclassesData;
