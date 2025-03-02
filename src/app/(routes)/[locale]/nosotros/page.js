@@ -11,7 +11,6 @@ import Loader from "@/components/Loader";
 
 const Nosotros = () => {
   const [aboutPageData, setAboutPageData] = useState(null);
-
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
@@ -31,7 +30,7 @@ const Nosotros = () => {
         <>
           <TitleSection
             title={aboutPageData.title}
-            image="/title-img-nosotros.png"
+            image={aboutPageData.about_us_image}
           />
           <Title
             content_title={aboutPageData.content_title}
@@ -42,6 +41,7 @@ const Nosotros = () => {
 
           <OurPhilosophy
             inspiration_title={aboutPageData.inspiration_title}
+            inspiration_picture={aboutPageData.inspiration_picture}
             philosophy_title={aboutPageData.philosophy_title}
             philosophy_description={aboutPageData.philosophy_description}
             approaches_title={aboutPageData.approaches_title}

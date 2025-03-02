@@ -44,17 +44,15 @@ export default async function RootLayout({ children, params }) {
       <head>
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
-      <Providers>
-        <body
-          className={`${notoSansJP.variable} ${roboto.variable} ${robotoCondensed.className} antialiased`}
-        >
-          <NextIntlClientProvider messages={messages}>
-            <Header />
-            {children}
-            <Footer />
-          </NextIntlClientProvider>
-        </body>
-      </Providers>
+      <body
+        className={`${notoSansJP.variable} ${roboto.variable} ${robotoCondensed.className} antialiased`}
+      >
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

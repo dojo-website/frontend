@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const ClassFAQ = ({ faqs_title, course_faqs }) => {
+  console.log("course_faqs", course_faqs);
   const t = useTranslations("classFAQs");
 
   return (

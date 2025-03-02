@@ -43,10 +43,10 @@ const Instructors = ({
 };
 
 export default Instructors;
-const InstructorCard = ({ name, designation, description }) => {
+const InstructorCard = ({ name, designation, description, image }) => {
   return (
     <div className="flex flex-col items-center space-y-3 text-center">
-      {/* <div className="p-1 border-2 rounded-full border-primary size-36">
+      <div className="p-1 border-2 rounded-full border-primary size-36">
         <Image
           src={image}
           alt={name}
@@ -54,7 +54,7 @@ const InstructorCard = ({ name, designation, description }) => {
           height={120}
           className="object-cover w-full h-full rounded-full"
         />
-      </div> */}
+      </div>
       <div>
         <h4 className="font-bold">{name}</h4>
         <p className="text-sm font-semibold font-roboto text-primary">

@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import ClassSchedule from "./_components/ClassSchedule";
 import TitleSection from "@/components/TitleSection";
 import ClassFAQ from "./_components/ClassFAQs";
-import classesData from "@/services/classes";
+import { getClassesData } from "@/services/classes";
+import Loader from "@/components/Loader";
 
 const Clases = () => {
   const [classesPageData, setClassesPageData] = useState(null);
@@ -12,23 +13,24 @@ const Clases = () => {
   useEffect(() => {
     const fetchClasesData = async () => {
       try {
-        const data = await classesData();
+        const data = await getClassesData();
         setClassesPageData(data);
+        debugger;
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
+    debugger;
     fetchClasesData();
   }, []);
-
+  debugger;
   return (
     <div className="w-full">
       {classesPageData ? (
         <>
           <TitleSection
             title={classesPageData.title}
-            image="/title-img-clases.png"
+            image={classesPageData.course_image}
           />
           <ClassSchedule
             schedule_title={classesPageData.schedule_title}
@@ -47,7 +49,9 @@ const Clases = () => {
           />
         </>
       ) : (
-        <p>Loading...</p>
+        <div className="flex items-center justify-center h-[80vh]">
+          <Loader />
+        </div>
       )}
     </div>
   );
