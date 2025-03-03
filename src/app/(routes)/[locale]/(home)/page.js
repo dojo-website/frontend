@@ -37,7 +37,7 @@ const Home = () => {
         </div>
       ) : homeData ? (
         <>
-          <MainSlider />
+          <MainSlider headerImages={homeData?.header_images} />
           <MainContent
             title={homeData?.title}
             header={homeData?.header}

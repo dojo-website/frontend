@@ -44,7 +44,7 @@ const MainSlider = ({ headerImages }) => {
                 alt="Hero Image"
                 priority
                 onError={(e) => {
-                  e.target.src = "/fallback-image.jpg"; // Add a fallback image
+                  e.target.src = "/fallback-image.jpg";
                 }}
               />
               <div className="absolute top-1/2 transform mx-16 md:mx-28 -translate-y-1/2 text-white max-w-[50%]">
@@ -62,7 +62,6 @@ const MainSlider = ({ headerImages }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* Custom Navigation Buttons */}
       <button className="absolute z-10 flex items-center justify-center transform -translate-y-1/2 size-8 md:size-20 custom-prev left-4 top-1/2">
         <Image
           src="/arrow-left.png"
