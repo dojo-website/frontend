@@ -6,7 +6,7 @@ const MainContent = ({ title, header, description }) => {
   const t = useTranslations("home");
   return (
     <section className="relative flex flex-col items-center justify-center py-10 mx-auto md:my-10 overflow-hidden bg-white w-[90%] lg:w-full max-w-7xl">
-      <div className="absolute w-full h-full md:hidden">
+      <div className="absolute w-full h-full select-none md:hidden">
         <Image
           src="/watermarks/watermark-1.png"
           className="absolute top-0 right-0 h-auto w-44"
@@ -16,14 +16,14 @@ const MainContent = ({ title, header, description }) => {
         />
         <Image
           src="/watermarks/watermark-2.png"
-          className="absolute bottom-0 left-0 w-40 h-auto"
+          className="absolute bottom-0 left-0 w-40 h-auto "
           width={200}
           height={200}
           alt="Watermark 2"
         />
       </div>
 
-      <div className="absolute top-0 right-0 h-auto w-44 max-md:hidden">
+      <div className="absolute top-0 right-0 h-auto select-none w-44 max-md:hidden">
         <Image
           src="/watermarks/watermark-1.png"
           className="h-auto w-44"

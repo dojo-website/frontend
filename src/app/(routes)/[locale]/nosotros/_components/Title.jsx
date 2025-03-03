@@ -10,14 +10,14 @@ const Title = ({ content_title, header, mission_title, mission_statement }) => {
         <div className="absolute left-0 w-44">
           <Image
             src="/watermarks/watermark-1.png"
-            className="w-full h-auto"
+            className="w-full h-auto select-none"
             width={200}
             height={200}
             alt="Watermark 1"
           />
           <Image
             src="/watermarks/watermark-2.png"
-            className="w-full h-auto"
+            className="w-full h-auto select-none"
             width={200}
             height={200}
             alt="Watermark 2"

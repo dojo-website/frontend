@@ -28,8 +28,8 @@ const Header = () => {
           <Link href={`/${locale}/`}>
             <Image
               src="/KIMElogo.png"
-              width={120}
-              height={120}
+              width={500}
+              height={500}
               alt="Head Logo"
               className="h-auto w-28 md:w-40"
               priority

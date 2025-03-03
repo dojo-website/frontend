@@ -25,7 +25,7 @@ const PillarsSection = ({ pillars }) => {
                 alt={pillar.title}
                 width={100}
                 height={100}
-                className="w-auto mb-4 h-36"
+                className="w-auto mb-4 select-none h-36 "
               />
               <div className="p-2">
                 <h3 className="font-bold uppercase">{pillar.title}</h3>

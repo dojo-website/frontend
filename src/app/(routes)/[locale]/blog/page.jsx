@@ -1,6 +1,5 @@
 "use client";
 import { Fragment, useEffect, useState } from "react";
-import { categories } from "@/utils/Mocks/Data";
 import BlogCard from "@/components/BlogCard";
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
@@ -10,7 +9,15 @@ import Loader from "@/components/Loader";
 
 const blogsPerPage = 9;
 
-const Article = () => {
+const Blogs = () => {
+  const categories = [
+    { id: "all", name: "All" },
+    { id: "news", name: "Noticias" },
+    { id: "technical", name: "Técnica" },
+    { id: "philosophy", name: "Filosofía" },
+    { id: "history", name: "Historia" },
+  ];
+
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const { locale } = useParams();
@@ -28,7 +35,7 @@ const Article = () => {
     }
   }, [categoryQuery]);
 
-  //Blog Header
+  // Fetch blog header
   useEffect(() => {
     const fetchBlogHeader = async () => {
       try {
@@ -47,11 +54,12 @@ const Article = () => {
     fetchBlogHeader();
   }, []);
 
-  //Blogs Data
+  // Fetch blogs based on selected category
   useEffect(() => {
     const fetchBlogData = async () => {
+      setLoading(true);
       try {
-        const data = await getBlogs();
+        const data = await getBlogs(selectedCategory);
         setBlogData(data || []);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -60,22 +68,17 @@ const Article = () => {
       }
     };
     fetchBlogData();
-  }, []);
+  }, [selectedCategory]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
-  const filteredBlogs =
-    selectedCategory === "all"
-      ? blogData
-      : blogData.filter((blog) => blog.category === selectedCategory);
-
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-  const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
+  const currentBlogs = blogData.slice(indexOfFirstBlog, indexOfLastBlog);
 
-  const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
+  const totalPages = Math.ceil(blogData.length / blogsPerPage);
 
   const getPaginationRange = () => {
     let start = Math.max(1, currentPage - 1);
@@ -180,4 +183,4 @@ const Article = () => {
   );
 };
 
-export default Article;
+export default Blogs;

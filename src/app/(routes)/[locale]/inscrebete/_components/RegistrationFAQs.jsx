@@ -8,7 +8,7 @@ const RegistrationFAQ = ({ title, faqs }) => {
   return (
     <div className="flex flex-col items-center w-full p-10 py-12 bg-secondary">
       <section className="relative w-full py-6 mx-auto text-white max-w-7xl">
-        <div className="absolute bottom-0 right-0 w-56">
+        <div className="absolute bottom-0 right-0 w-56 select-none">
           <Image
             src="/watermarks/watermark-3.png"
             className="w-full h-auto opacity-10"

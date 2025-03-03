@@ -7,13 +7,18 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { blogData, heroImages } from "@/utils/Mocks/Data";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
+import { useEffect } from "react";
 
-const MainSlider = () => {
+const MainSlider = ({ headerImages }) => {
   const t = useTranslations("home");
   const { locale } = useParams();
+
+  if (!headerImages || headerImages.length === 0) {
+    return <div>No images to display.</div>;
+  }
+
   return (
     <section className="relative flex flex-col items-center justify-center mx-auto my-2 max-w-[90%]">
       <Swiper
@@ -28,8 +33,8 @@ const MainSlider = () => {
         autoplay={{ delay: 5000 }}
         className="w-full h-[300px] md:h-[600px]"
       >
-        {heroImages.map((image, index) => (
-          <SwiperSlide key={index} className="relative">
+        {headerImages?.map((image) => (
+          <SwiperSlide key={image.id} className="relative">
             <div className="relative w-full h-full">
               <Image
                 src={image.image}
@@ -38,6 +43,9 @@ const MainSlider = () => {
                 height={500}
                 alt="Hero Image"
                 priority
+                onError={(e) => {
+                  e.target.src = "/fallback-image.jpg"; // Add a fallback image
+                }}
               />
               <div className="absolute top-1/2 transform mx-16 md:mx-28 -translate-y-1/2 text-white max-w-[50%]">
                 <h1 className="text-5xl font-bold md:text-7xl">KIME:</h1>
