@@ -1,13 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { blogData } from "@/utils/Mocks/Data";
 import Image from "next/image";
-import HomeBlogCard from "./HomeBlogCard";
 import { useTranslations } from "next-intl";
 import Loader from "@/components/Loader";
 import { getBlogs } from "@/services/blogs";
-import Link from "next/link";
-import BlogCard from "./HomeBlogCard";
+import BlogCard from "@/components/BlogCard";
 
 const BlogsSection = () => {
   const [blogData, setBlogData] = useState();
@@ -50,7 +47,7 @@ const BlogsSection = () => {
         ) : (
           <div className="grid w-full grid-cols-1 gap-6 p-6 mt-10 md:grid-cols-3">
             {blogData.slice(0, 3).map((blog) => (
-              <BlogCard key={blog?.id} blog={blog} />
+              <BlogCard key={blog?.id} blog={blog} isButton={true} />
             ))}
           </div>
         )}

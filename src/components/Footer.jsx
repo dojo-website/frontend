@@ -12,6 +12,7 @@ const Footer = () => {
     const fetchContactData = async () => {
       try {
         const contact = await getContacts();
+
         if (contact) {
           setContact(contact);
         } else {
@@ -25,22 +26,36 @@ const Footer = () => {
     fetchContactData();
   }, []);
 
+  const isValidLogo =
+    contact?.company_logo &&
+    typeof contact?.company_logo === "string" &&
+    contact?.company_logo.trim() !== "";
+
   return (
     <footer className="w-full pt-6 text-white bg-black">
       <section className="flex flex-col items-center justify-between gap-3 px-6 mx-auto text-center max-w-7xl md:items-start md:text-left md:flex-row">
         <div className="flex flex-col items-center space-y-3 md:items-start">
-          <Image
-            className="w-f
-            ull h-auto p-2 bg-white"
-            src="/KIMElogo.png"
-            width={250}
-            height={250}
-            alt="Head Logo"
-            priority
-          />
+          {isValidLogo ? (
+            <Image
+              src={contact?.company_logo}
+              alt={
+                contact?.company_slogan
+                  ? `${contact?.company_slogan} Image`
+                  : "Logo Image"
+              }
+              width={250}
+              height={250}
+              className="object-cover h-auto p-2 bg-white max-md:w-full"
+              priority
+            />
+          ) : (
+            <div className="flex items-center justify-center w-full h-auto">
+              <p className="text-white">No image available</p>
+            </div>
+          )}
           <h5 className="font-semibold text-white">
             {contact?.company_title + ": " + contact?.company_slogan ||
-              "Your Trusted Karate Dojo"}
+              "Company Slogan"}
           </h5>
         </div>
 
@@ -94,7 +109,7 @@ const Footer = () => {
                   {contact?.whatsapp_contact || "123"}
                 </p>
                 <p className="hidden underline md:block">
-                  Write to us on WhatsApp
+                  {contact?.whatsapp_text || "Whatsapp"}
                 </p>
               </a>
             </div>

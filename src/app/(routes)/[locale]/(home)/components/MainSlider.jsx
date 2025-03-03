@@ -7,7 +7,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { blogData } from "@/utils/Mocks/Data";
+import { blogData, heroImages } from "@/utils/Mocks/Data";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 
@@ -25,18 +25,18 @@ const MainSlider = () => {
           prevEl: ".custom-prev",
           nextEl: ".custom-next",
         }}
-        autoplay={{ delay: 8000 }}
+        autoplay={{ delay: 5000 }}
         className="w-full h-[300px] md:h-[600px]"
       >
-        {blogData.map((blog) => (
-          <SwiperSlide key={blog.id} className="relative">
+        {heroImages.map((image, index) => (
+          <SwiperSlide key={index} className="relative">
             <div className="relative w-full h-full">
               <Image
-                src={blog.image}
+                src={image.image}
                 className="object-cover w-full h-full"
                 width={1000}
                 height={500}
-                alt={blog.title}
+                alt="Hero Image"
                 priority
               />
               <div className="absolute top-1/2 transform mx-16 md:mx-28 -translate-y-1/2 text-white max-w-[50%]">
