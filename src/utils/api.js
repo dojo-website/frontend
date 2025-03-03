@@ -7,6 +7,9 @@ const api = axios.create({
 api.interceptors.response.use(
   (response) => response,
   (error) => {
+    if (error.response && error.response.status === 404) {
+      return Promise.resolve({ data: null });
+    }
     console.error("API Error:", error);
     return Promise.reject(error);
   }

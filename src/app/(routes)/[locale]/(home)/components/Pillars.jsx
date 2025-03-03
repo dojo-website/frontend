@@ -15,7 +15,7 @@ const PillarsSection = ({ pillars }) => {
           {t("pillarOfKime")}
         </h1>
         <div className="grid grid-cols-1 gap-10 my-10 md:grid-cols-2">
-          {pillars.map((pillar) => (
+          {pillars?.map((pillar) => (
             <div
               key={pillar.id}
               className="flex flex-col items-center gap-2 p-6 m-2 text-center bg-white rounded-lg shadow-lg"

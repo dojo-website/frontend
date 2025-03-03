@@ -43,9 +43,7 @@ const MainContent = ({ title, header, description }) => {
       <main className="relative flex flex-col max-w-5xl text-center md:my-10 gap-x-10">
         <h1 className="my-6 text-black uppercase">{title}</h1>
         <h3 className="mt-2 font-bold font-roboto text-primary">{header}</h3>
-        <h5 className="mt-2 mb-6 leading-relaxed font-roboto">
-          {parse(description)}
-        </h5>
+        <h5 className="mt-2 mb-6 leading-relaxed font-roboto">{description}</h5>
       </main>
     </section>
   );

@@ -29,23 +29,30 @@ const Home = () => {
     fetchData();
   }, []);
 
-  if (loading)
-    return (
-      <div className=" flex justify-center items-center min-h-[80vh]">
-        <Loader />
-      </div>
-    );
-
   return (
     <div className="text-2xl font-bold bg-white">
-      <MainSlider headerImages={homeData?.header_images} />
-      <MainContent
-        title={homeData.title}
-        header={homeData.header}
-        description={homeData.description}
-      />
-      <Pillars pillars={homeData.pillars} />
-      <BlogsSection />
+      {loading ? (
+        <div className="flex justify-center items-center min-h-[80vh]">
+          <Loader />
+        </div>
+      ) : homeData ? (
+        <>
+          <MainSlider />
+          <MainContent
+            title={homeData?.title}
+            header={homeData?.header}
+            description={homeData?.description}
+          />
+          <Pillars pillars={homeData?.pillars} />
+          <BlogsSection />
+        </>
+      ) : (
+        <div className="flex justify-center items-center min-h-[80vh]">
+          <h5 className="font-bold text-center text-primary">
+            No se encontró ningún registro.
+          </h5>
+        </div>
+      )}
     </div>
   );
 };
