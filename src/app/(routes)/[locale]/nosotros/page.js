@@ -64,7 +64,6 @@ const Nosotros = () => {
                 mission_statement={aboutPageData.mission_statement}
               />
 
-            <AnimatedSection delay={0.4}>
               <OurPhilosophy
                 inspiration_title={aboutPageData.inspiration_title}
                 inspiration_picture={aboutPageData.inspiration_picture}
@@ -74,15 +73,12 @@ const Nosotros = () => {
                 approaches_description={aboutPageData.approaches_description}
                 approaches={aboutPageData.approaches}
               />
-            </AnimatedSection>
 
-            <AnimatedSection delay={0.4}>
               <Instructors
                 instructor_title={aboutPageData.instructor_title}
                 instructor_description={aboutPageData.instructor_description}
                 instructors={aboutPageData.instructors}
               />
-            </AnimatedSection>
 
             <AnimatedSection delay={0.4}>
               <Association

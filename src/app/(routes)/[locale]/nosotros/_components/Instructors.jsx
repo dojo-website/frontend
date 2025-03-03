@@ -1,3 +1,4 @@
+import AnimatedSection from "@/components/animations/AnimatedSection";
 import Seperator from "@/components/Seperator";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -22,19 +23,22 @@ const Instructors = ({
           />
         </div>
         <div className="relative  w-[90%] my-16 mx-auto">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="uppercase font-notoSans">{instructor_title}</h1>
-            <p className="mt-4 text-lg">{instructor_description}</p>
-          </div>
-
-          <div className="flex flex-col items-center justify-center max-w-5xl gap-5 mx-auto mt-10 md:flex-row md:gap-10">
-            {instructors.map((instructor, index) => (
-              <Fragment key={instructor.id}>
-                <InstructorCard {...instructor} />
-                {index !== instructors.length - 1 && <Seperator />}
-              </Fragment>
-            ))}
-          </div>
+          <AnimatedSection delay={0.2} direction="down">
+            <div className="max-w-5xl mx-auto text-center">
+              <h1 className="uppercase font-notoSans">{instructor_title}</h1>
+              <p className="mt-4 text-lg">{instructor_description}</p>
+            </div>
+          </AnimatedSection>
+          <AnimatedSection delay={0.4} direction="down">
+            <div className="flex flex-col items-center justify-center max-w-5xl gap-5 mx-auto mt-10 md:flex-row md:gap-10">
+              {instructors.map((instructor, index) => (
+                <Fragment key={instructor.id}>
+                  <InstructorCard {...instructor} />
+                  {index !== instructors.length - 1 && <Seperator />}
+                </Fragment>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>

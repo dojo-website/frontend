@@ -60,12 +60,10 @@ const Clases = () => {
             />
           </AnimatedSection>
 
-          <AnimatedSection delay={0.2}>
-            <ClassFAQ
-              faqs_title={classesPageData.faqs_title}
-              course_faqs={classesPageData.course_faqs}
-            />
-          </AnimatedSection>
+          <ClassFAQ
+            faqs_title={classesPageData.faqs_title}
+            course_faqs={classesPageData.course_faqs}
+          />
         </>
       ) : (
         <div className="flex items-center justify-center h-[80vh]">
