@@ -9,21 +9,35 @@ import Loader from "@/components/Loader";
 
 const Clases = () => {
   const [classesPageData, setClassesPageData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchClasesData = async () => {
       try {
         const data = await getClassesData();
-        setClassesPageData(data);
+        if (data) {
+          setClassesPageData(data);
+        } else {
+          console.warn("No data found!");
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchClasesData();
   }, []);
+
   return (
     <div className="w-full">
-      {classesPageData ? (
+      {loading ? (
+        <div className="flex items-center justify-center h-[80vh]">
+          <Loader />
+        </div>
+      ) : classesPageData ? (
         <>
           <TitleSection
             title={classesPageData.title}
@@ -47,7 +61,9 @@ const Clases = () => {
         </>
       ) : (
         <div className="flex items-center justify-center h-[80vh]">
-          <Loader />
+          <h5 className="font-bold text-center text-primary">
+            No se encontró ningún registro.
+          </h5>
         </div>
       )}
     </div>

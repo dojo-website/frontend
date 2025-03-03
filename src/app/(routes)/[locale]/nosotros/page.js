@@ -11,13 +11,22 @@ import Loader from "@/components/Loader";
 
 const Nosotros = () => {
   const [aboutPageData, setAboutPageData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
         const data = await getAboutUs();
-        setAboutPageData(data);
+        if (data) {
+          setAboutPageData(data);
+        } else {
+          console.warn("No data found!");
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError(error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -26,7 +35,11 @@ const Nosotros = () => {
 
   return (
     <div className="w-full">
-      {aboutPageData ? (
+      {loading ? (
+        <div className="flex justify-center items-center min-h-[80vh]">
+          <Loader />
+        </div>
+      ) : aboutPageData ? (
         <>
           <TitleSection
             title={aboutPageData.title}
@@ -61,7 +74,9 @@ const Nosotros = () => {
         </>
       ) : (
         <div className="flex justify-center items-center min-h-[80vh]">
-          <Loader />
+          <h5 className="font-bold text-center text-primary">
+            No se encontró ningún registro.
+          </h5>
         </div>
       )}
     </div>

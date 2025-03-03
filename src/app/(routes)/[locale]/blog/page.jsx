@@ -54,7 +54,6 @@ const Blogs = () => {
     fetchBlogHeader();
   }, []);
 
-  // Fetch blogs based on selected category
   useEffect(() => {
     const fetchBlogData = async () => {
       setLoading(true);
@@ -96,8 +95,8 @@ const Blogs = () => {
   return (
     <Fragment>
       <TitleSection image={blogHeader?.image} title={blogHeader?.title} />
+
       <div className="my-10">
-        {/* Category Filter */}
         <div className="flex gap-3 px-6 mx-auto overflow-x-auto shadow-md md:shadow-none md:max-w-7xl md:overflow-visible no-scrollbar">
           {categories.map((category) => (
             <button
@@ -117,13 +116,18 @@ const Blogs = () => {
           ))}
         </div>
 
-        {/* Blog Cards */}
         <section className="p-6 mx-auto max-w-7xl">
           {loading ? (
-            <div className="text-center">
+            <div className="flex justify-center items-center min-h-[50vh]">
               <Loader />
             </div>
-          ) : currentBlogs.length > 0 ? (
+          ) : currentBlogs.length === 0 ? (
+            <div className="flex justify-center items-center min-h-[50vh]">
+              <h5 className="font-bold text-center text-primary">
+                No se encontró ningún registro.
+              </h5>
+            </div>
+          ) : (
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {currentBlogs.map((blog) => (
                 <Link key={blog.id} href={`/${locale}/blog/${blog.id}`}>
@@ -131,16 +135,10 @@ const Blogs = () => {
                 </Link>
               ))}
             </div>
-          ) : (
-            <h5 className="font-bold text-center text-primary">
-              No blogs found.
-            </h5>
           )}
 
-          {/* Pagination */}
-          {totalPages > 1 && (
+          {totalPages > 1 && currentBlogs.length > 0 && !loading && (
             <div className="flex items-center justify-center gap-4 mt-6">
-              {/* Previous Button */}
               <button
                 disabled={currentPage === 1}
                 className="p-2 disabled:opacity-50"
@@ -149,10 +147,13 @@ const Blogs = () => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
               >
-                <img src="/arrow-dark.svg" alt="arrow" className="rotate-180" />
+                <img
+                  src="/arrow-dark.svg"
+                  alt="Previous"
+                  className="rotate-180"
+                />
               </button>
 
-              {/* Dynamic Pagination Buttons */}
               {getPaginationRange().map((page) => (
                 <button
                   key={page}
@@ -167,13 +168,15 @@ const Blogs = () => {
                 </button>
               ))}
 
-              {/* Next Button */}
               <button
                 disabled={currentPage === totalPages}
                 className="p-2 disabled:opacity-50"
-                onClick={() => setCurrentPage((prev) => prev + 1)}
+                onClick={() => {
+                  setCurrentPage((prev) => prev + 1);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
               >
-                <img src="/arrow-dark.svg" alt="arrow" />
+                <img src="/arrow-dark.svg" alt="Next" />
               </button>
             </div>
           )}

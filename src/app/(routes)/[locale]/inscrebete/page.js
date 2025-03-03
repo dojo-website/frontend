@@ -9,7 +9,7 @@ import { getSignupData } from "@/services/inscrebete";
 
 const Inscrebete = () => {
   const [signupData, setSignupData] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const Inscrebete = () => {
         }
       } catch (error) {
         console.error("Error loading page data:", error);
+        setError(error);
       } finally {
         setLoading(false);
       }
@@ -30,24 +31,31 @@ const Inscrebete = () => {
     fetchData();
   }, []);
 
-  if (loading)
-    return (
-      <div className=" flex justify-center items-center min-h-[80vh]">
-        <Loader />
-      </div>
-    );
-
   return (
     <div>
-      <TitleSection
-        title={signupData?.title}
-        image={signupData?.signup_image}
-      />
-      <RegistrationForm data={signupData} />
-      <RegistrationFAQ
-        title={signupData?.faqs_heading}
-        faqs={signupData?.signup_faqs}
-      />
+      {loading ? (
+        <div className="flex justify-center items-center min-h-[80vh]">
+          <Loader />
+        </div>
+      ) : signupData ? (
+        <>
+          <TitleSection
+            title={signupData?.title}
+            image={signupData?.signup_image}
+          />
+          <RegistrationForm data={signupData} />
+          <RegistrationFAQ
+            title={signupData?.faqs_heading}
+            faqs={signupData?.signup_faqs}
+          />
+        </>
+      ) : (
+        <div className="flex justify-center items-center min-h-[80vh]">
+          <h5 className="font-bold text-center text-primary">
+            No se encontró ningún registro.
+          </h5>
+        </div>
+      )}
     </div>
   );
 };
