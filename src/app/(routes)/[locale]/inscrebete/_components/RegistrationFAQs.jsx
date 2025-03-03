@@ -20,23 +20,20 @@ const RegistrationFAQ = ({ title, faqs }) => {
         </div>
 
         <div className="relative max-w-5xl mx-auto">
-          <AnimatedSection delay={0.2}>
-            <h1 className="mb-4 font-bold text-center">{title}</h1>
-            <div className="list-decimal list-inside">
-              {faqs?.map((faq, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-2 py-4 rounded-lg font-roboto"
-                >
+          <h1 className="mb-4 font-bold text-center">{title}</h1>
+          <div className="list-decimal list-inside">
+            {faqs?.map((faq, index) => (
+              <AnimatedSection key={index} delay={index * 0.2} direction="top">
+                <div className="flex items-start gap-2 py-4 rounded-lg font-roboto">
                   <span className="font-semibold">{index + 1}.</span>
                   <div>
                     <h3 className="text-lg font-semibold">{faq.question}</h3>
                     <p className="mt-1">{faq.answer}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </AnimatedSection>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
     </div>

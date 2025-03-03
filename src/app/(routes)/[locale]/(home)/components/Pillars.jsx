@@ -1,5 +1,4 @@
 "use client";
-import AnimatedSection from "@/components/animations/AnimatedSection";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
