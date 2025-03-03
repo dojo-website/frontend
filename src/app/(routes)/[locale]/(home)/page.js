@@ -35,9 +35,10 @@ const Home = () => {
         <Loader />
       </div>
     );
+
   return (
     <div className="text-2xl font-bold bg-white">
-      <MainSlider />
+      <MainSlider headerImages={homeData?.header_images} />
       <MainContent
         title={homeData.title}
         header={homeData.header}

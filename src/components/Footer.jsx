@@ -32,7 +32,7 @@ const Footer = () => {
     contact?.company_logo.trim() !== "";
 
   return (
-    <footer className="w-full pt-6 text-white bg-black">
+    <footer className="flex-shrink-0 w-full pt-6 text-white bg-black">
       <section className="flex flex-col items-center justify-between gap-3 px-6 mx-auto text-center max-w-7xl md:items-start md:text-left md:flex-row">
         <div className="flex flex-col items-center space-y-3 md:items-start">
           {isValidLogo ? (

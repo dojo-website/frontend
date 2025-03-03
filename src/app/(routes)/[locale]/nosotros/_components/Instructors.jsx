@@ -1,5 +1,4 @@
 import Seperator from "@/components/Seperator";
-import { instructors } from "@/utils/Mocks/Data";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { Fragment } from "react";

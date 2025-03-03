@@ -31,7 +31,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params }) {
-  const locale = (await params)?.locale;
+  const locale = params?.locale;
 
   if (!routing.locales.includes(locale)) {
     notFound();
@@ -40,16 +40,16 @@ export default async function RootLayout({ children, params }) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="h-full">
       <head>
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
       <body
-        className={`${notoSansJP.variable} ${roboto.variable} ${robotoCondensed.className} antialiased`}
+        className={`${notoSansJP.variable} ${roboto.variable} ${robotoCondensed.className} antialiased flex flex-col min-h-full`}
       >
         <NextIntlClientProvider messages={messages}>
           <Header />
-          {children}
+          <main className="flex-grow">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

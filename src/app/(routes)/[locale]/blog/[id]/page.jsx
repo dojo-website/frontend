@@ -53,10 +53,6 @@ const Article = () => {
     );
   }
 
-  const featuredImage = blog?.blog_images?.find(
-    (image) => image.featured
-  )?.image_url;
-
   if (error) {
     return <p className="text-center text-red-500">Error: {error}</p>;
   }
@@ -74,8 +70,8 @@ const Article = () => {
           <Image
             src="/underline.png"
             alt="Underline"
-            width={250}
-            height={50}
+            width={1000}
+            height={200}
             className="w-3/4 max-w-[250px]"
           />
         </div>
@@ -105,10 +101,10 @@ const Article = () => {
 
         {/* Blog Content */}
         <div className="relative -z-10">
-          <div className="absolute right-0 w-56 -bottom-24">
+          <div className="absolute right-0 w-56 select-none -bottom-24">
             <Image
               src="/watermarks/watermark-3.png"
-              className="w-full h-auto"
+              className="w-full h-auto "
               width={200}
               height={200}
               alt="Watermark 3"

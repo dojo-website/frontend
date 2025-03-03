@@ -16,7 +16,7 @@ const ClassSchedule = ({
 
   return (
     <section className="relative flex flex-col mx-auto max-w-7xl">
-      <div className="absolute bottom-0 right-0 w-40 py-12 md:w-48">
+      <div className="absolute bottom-0 right-0 w-40 py-12 select-none md:w-48">
         <Image
           src="/watermarks/watermark-1.png"
           className="w-full h-auto"

@@ -1,14 +1,11 @@
 import api from "@/utils/api";
 
-export const getBlogs = async () => {
+export const getBlogs = async (category = "all") => {
   try {
-    const response = await api.get("/blogs");
+    const response = await api.get(`/blogs?category=${category}`);
     return response.data;
   } catch (error) {
-    console.error(
-      "Failed to fetch Blogs Page data:",
-      error.response?.data || error.message
-    );
+    console.error("Failed to fetch Blogs Page data:", error.response?.data || error.message);
     throw error;
   }
 };
