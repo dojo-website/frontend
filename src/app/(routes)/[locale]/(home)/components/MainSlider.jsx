@@ -23,7 +23,7 @@ const MainSlider = ({ headerImages }) => {
     <section className="relative flex flex-col items-center justify-center mx-auto my-2 max-w-[90%]">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={10}
+        spaceBetween={0}
         slidesPerView={1}
         loop={true}
         navigation={{

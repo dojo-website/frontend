@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import Loader from "@/components/Loader";
 import { getBlogs } from "@/services/blogs";
 import BlogCard from "@/components/BlogCard";
+import AnimatedSection from "@/components/animations/AnimatedSection";
 
 const BlogsSection = () => {
   const [blogData, setBlogData] = useState();
@@ -46,8 +47,10 @@ const BlogsSection = () => {
           </div>
         ) : (
           <div className="grid w-full grid-cols-1 gap-6 p-6 mt-10 md:grid-cols-3">
-            {blogData.slice(0, 3).map((blog) => (
-              <BlogCard key={blog?.id} blog={blog} isButton={true} />
+            {blogData.slice(0, 3).map((blog, index) => (
+              <AnimatedSection key={index} direction="left" delay={0.2 * index}>
+                <BlogCard key={blog?.id} blog={blog} isButton={true} />
+              </AnimatedSection>
             ))}
           </div>
         )}

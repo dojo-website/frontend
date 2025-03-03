@@ -1,8 +1,9 @@
+import AnimatedSection from "@/components/animations/AnimatedSection";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const RegistrationFAQ = ({ title, faqs }) => {
-  (title, faqs);
+  title, faqs;
   const t = useTranslations("registrationFAQs");
 
   return (
@@ -19,21 +20,23 @@ const RegistrationFAQ = ({ title, faqs }) => {
         </div>
 
         <div className="relative max-w-5xl mx-auto">
-          <h1 className="mb-4 font-bold text-center">{title}</h1>
-          <div className="list-decimal list-inside">
-            {faqs?.map((faq, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-2 py-4 rounded-lg font-roboto"
-              >
-                <span className="font-semibold">{index + 1}.</span>
-                <div>
-                  <h3 className="text-lg font-semibold">{faq.question}</h3>
-                  <p className="mt-1">{faq.answer}</p>
+          <AnimatedSection delay={0.2}>
+            <h1 className="mb-4 font-bold text-center">{title}</h1>
+            <div className="list-decimal list-inside">
+              {faqs?.map((faq, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-2 py-4 rounded-lg font-roboto"
+                >
+                  <span className="font-semibold">{index + 1}.</span>
+                  <div>
+                    <h3 className="text-lg font-semibold">{faq.question}</h3>
+                    <p className="mt-1">{faq.answer}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>

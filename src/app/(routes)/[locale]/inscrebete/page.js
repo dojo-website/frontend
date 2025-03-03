@@ -6,6 +6,7 @@ import RegistrationFAQ from "./_components/RegistrationFAQs";
 import TitleSection from "@/components/TitleSection";
 import Loader from "@/components/Loader";
 import { getSignupData } from "@/services/inscrebete";
+import AnimatedSection from "@/components/animations/AnimatedSection";
 
 const Inscrebete = () => {
   const [signupData, setSignupData] = useState(null);

@@ -6,6 +6,7 @@ import TitleSection from "@/components/TitleSection";
 import ClassFAQ from "./_components/ClassFAQs";
 import { getClassesData } from "@/services/classes";
 import Loader from "@/components/Loader";
+import AnimatedSection from "@/components/animations/AnimatedSection";
 
 const Clases = () => {
   const [classesPageData, setClassesPageData] = useState(null);
@@ -39,25 +40,32 @@ const Clases = () => {
         </div>
       ) : classesPageData ? (
         <>
-          <TitleSection
-            title={classesPageData.title}
-            image={classesPageData.course_image}
-          />
-          <ClassSchedule
-            schedule_title={classesPageData.schedule_title}
-            schedule_description={classesPageData.schedule_description}
-            schedule_days={classesPageData.schedule_days}
-            age_group_schedules={classesPageData.age_group_schedules}
-            course_structure_title={classesPageData.course_structure_title}
-            course_structure_description={
-              classesPageData.course_structure_description
-            }
-            structure_details={classesPageData.structure_details}
-          />
-          <ClassFAQ
-            faqs_title={classesPageData.faqs_title}
-            course_faqs={classesPageData.course_faqs}
-          />
+          <AnimatedSection>
+            <TitleSection
+              title={classesPageData.title}
+              image={classesPageData.course_image}
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
+            <ClassSchedule
+              schedule_title={classesPageData.schedule_title}
+              schedule_description={classesPageData.schedule_description}
+              schedule_days={classesPageData.schedule_days}
+              age_group_schedules={classesPageData.age_group_schedules}
+              course_structure_title={classesPageData.course_structure_title}
+              course_structure_description={
+                classesPageData.course_structure_description
+              }
+              structure_details={classesPageData.structure_details}
+            />
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <ClassFAQ
+              faqs_title={classesPageData.faqs_title}
+              course_faqs={classesPageData.course_faqs}
+            />
+          </AnimatedSection>
         </>
       ) : (
         <div className="flex items-center justify-center h-[80vh]">

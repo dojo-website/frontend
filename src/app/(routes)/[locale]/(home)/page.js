@@ -6,6 +6,7 @@ import MainSlider from "./components/MainSlider";
 import MainContent from "./components/MainContent";
 import { getHomePage } from "@/services/home";
 import Loader from "@/components/Loader";
+import AnimatedSection from "@/components/animations/AnimatedSection";
 
 const Home = () => {
   const [homeData, setHomeData] = useState(null);
