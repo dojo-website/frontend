@@ -30,10 +30,17 @@ const Home = () => {
     fetchData();
   }, []);
 
+  if (loading)
+    return (
+      <div className="flex items-center justify-center min-h-screen ">
+        <Loader />
+      </div>
+    );
+
   return (
     <div className="text-2xl font-bold bg-white">
       {loading ? (
-        <div className="flex justify-center items-center min-h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <Loader />
         </div>
       ) : homeData ? (
@@ -44,11 +51,13 @@ const Home = () => {
             header={homeData?.header}
             description={homeData?.description}
           />
-          <Pillars pillars={homeData?.pillars} />
+          <AnimatedSection>
+            <Pillars pillars={homeData?.pillars} />
+          </AnimatedSection>
           <BlogsSection />
         </>
       ) : (
-        <div className="flex justify-center items-center min-h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <h5 className="font-bold text-center text-primary">
             No se encontró ningún registro.
           </h5>

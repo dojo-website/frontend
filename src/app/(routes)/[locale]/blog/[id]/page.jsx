@@ -99,8 +99,8 @@ const Article = () => {
           className="object-cover w-full my-4 rounded-xl h-72"
         />
 
-        {/* Blog Content */}
         <div className="relative -z-10">
+          {/* Watermark */}
           <div className="absolute right-0 w-56 select-none -bottom-24">
             <Image
               src="/watermarks/watermark-3.png"
@@ -110,6 +110,7 @@ const Article = () => {
               alt="Watermark 3"
             />
           </div>
+          {/* Blog Content */}
           <div className="relative max-w-5xl py-8 mx-auto">
             {blog?.blog_sections.map((section, index) => (
               <div key={section.id}>

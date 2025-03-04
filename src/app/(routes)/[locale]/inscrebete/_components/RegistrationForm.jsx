@@ -2,17 +2,44 @@
 import { useForm } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import { createParticipant } from "@/services/inscrebete";
+import { useEffect, useState } from "react";
+import AnimatedSection from "@/components/animations/AnimatedSection";
 
 const RegistrationForm = ({ data }) => {
   const t = useTranslations("registrationForm");
   const classLevels = ["Beginner", "Intermediate", "Advanced"];
+  const [confirmationModal, setConfirmationModal] = useState({
+    open: false,
+    message: "",
+  });
+  const [flashMessage, setFlashMessage] = useState({
+    open: false,
+    message: "",
+    type: "",
+  }); // 'type' can be 'success' or 'error'
 
   const {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm();
+
+  const fullName = watch("full_name");
+  const age = watch("age");
+  const classLevel = watch("class_level");
+  const email = watch("email");
+  const phoneNumber = watch("phone_number");
+
+  useEffect(() => {
+    if (flashMessage.open) {
+      const timer = setTimeout(() => {
+        setFlashMessage({ open: false, message: "", type: "" });
+      }, 4000);
+      return () => clearTimeout(timer); // Cleanup timer
+    }
+  }, [flashMessage.open]);
 
   const onSubmit = async (formData) => {
     try {
@@ -29,29 +56,45 @@ const RegistrationForm = ({ data }) => {
         guardian_email: formData.guardian_email || null,
       };
 
-      const response = await createParticipant(payload);
-      alert(t("submit") + " ✅");
+      await createParticipant(payload);
+      setFlashMessage({ open: true, message: t("submit"), type: "success" });
+      reset();
     } catch (error) {
       console.error(
         "Submission failed:",
         error.response?.data || error.message
       );
-
-      if (error.response?.data) {
-        alert(`Error: ${JSON.stringify(error.response.data)}`);
-      } else {
-        alert(t("error") + " ❌");
-      }
-    } finally {
-      reset();
+      setFlashMessage({
+        open: true,
+        message: error.response?.data
+          ? JSON.stringify(error.response.data)
+          : t("error"),
+        type: "error",
+      });
     }
   };
+
+  const handleFormSubmit = (formData) => {
+    setConfirmationModal({
+      open: true,
+      message: "Do you want to submit this form?",
+      formData,
+    });
+  };
+
+  const handleConfirmation = (confirmed) => {
+    setConfirmationModal({ open: false, message: "" });
+    if (confirmed) {
+      onSubmit(confirmationModal.formData);
+    }
+  };
+
   return (
     <section className="p-8 mx-auto bg-white max-w-7xl">
       <h1 className="mb-6 text-center">{data?.title}</h1>
 
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(handleFormSubmit)}
         className="flex flex-col gap-12 font-roboto"
       >
         <fieldset className="pt-4">
@@ -63,9 +106,16 @@ const RegistrationForm = ({ data }) => {
               <div>
                 <label className="block font-medium">{data?.name_title}</label>
                 <input
-                  {...register("full_name", { required: true })}
+                  {...register("full_name", {
+                    required: "Full name is required",
+                  })}
                   className="w-full p-3 bg-[#F3EFEF] border rounded-md"
                 />
+                {errors.full_name && (
+                  <span className="text-red-500">
+                    {errors.full_name.message}
+                  </span>
+                )}
               </div>
 
               <div>
@@ -79,24 +129,36 @@ const RegistrationForm = ({ data }) => {
                   })}
                   className="w-full p-3 bg-[#F3EFEF] border rounded-md"
                 />
+                {errors.age && (
+                  <span className="text-red-500">{errors.age.message}</span>
+                )}
               </div>
 
               <div className="relative">
                 <label className="block font-medium">{data?.class_title}</label>
                 <div className="relative">
                   <select
-                    {...register("class_level")}
+                    {...register("class_level", {
+                      required: "Class level is required",
+                    })}
                     defaultValue=""
                     className="w-full p-3 bg-[#F3EFEF] border rounded-md appearance-none pr-10"
                   >
                     <option value="" disabled></option>
-                    <option value="Beginner">{classLevels[0]}</option>
-                    <option value="Intermediate">{classLevels[1]}</option>
-                    <option value="Advanced">{classLevels[2]}</option>
+                    {classLevels.map((level) => (
+                      <option key={level} value={level}>
+                        {t(level)}
+                      </option>
+                    ))}
                   </select>
                   <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
                     <img src="/arrow-dropdown.svg" />
                   </div>
+                  {errors.class_level && (
+                    <span className="text-red-500">
+                      {errors.class_level.message}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
@@ -168,7 +230,7 @@ const RegistrationForm = ({ data }) => {
                 </label>
                 <input
                   type="email"
-                  {...register("email", { required: true })}
+                  {...register("email")}
                   className="w-full p-3 bg-[#F3EFEF] border rounded-md"
                 />
               </div>
@@ -178,7 +240,7 @@ const RegistrationForm = ({ data }) => {
                 </label>
                 <input
                   type="tel"
-                  {...register("phone_number", { required: true })}
+                  {...register("phone_number")}
                   className="w-full p-3 bg-[#F3EFEF] border rounded-md"
                 />
               </div>
@@ -195,10 +257,51 @@ const RegistrationForm = ({ data }) => {
           </fieldset>
         </div>
 
-        <button type="submit" className="block mx-auto custom-btn">
+        <button
+          type="submit"
+          disabled={!fullName || !age || !classLevel || !email || !phoneNumber}
+          className="block mx-auto custom-btn disabled:opacity-50"
+        >
           {data?.signup_button_title}
         </button>
       </form>
+
+      {/* Confirmation Modal */}
+      {confirmationModal.open && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="p-6 bg-white rounded-md">
+            <p>{confirmationModal.message}</p>
+            <div className="flex gap-4 mt-4">
+              <button
+                onClick={() => handleConfirmation(true)}
+                className="px-4 py-2 text-white rounded-md custom-btn"
+              >
+                Yes
+              </button>
+              <button
+                onClick={() => handleConfirmation(false)}
+                className="px-4 py-2 text-white bg-gray-500 rounded-md"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {flashMessage.open && (
+        <div className="fixed right-0 flex items-center justify-center p-4 top-24">
+          <AnimatedSection direction="top">
+            <div
+              className={`p-4 px-8 rounded-md ${
+                flashMessage.type === "success" ? "bg-green-500" : "bg-red-500"
+              } text-white`}
+            >
+              <h4>{flashMessage.message}</h4>
+            </div>
+          </AnimatedSection>
+        </div>
+      )}
     </section>
   );
 };

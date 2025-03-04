@@ -28,6 +28,7 @@ const BlogsSection = () => {
   const t = useTranslations("home");
   return (
     <section className="relative flex flex-col items-center justify-center py-10 overflow-hidden bg-white">
+      {/* Watermarks */}
       <div className="absolute w-32 select-none max-md:right-0 md:left-0 md:ml-10 md:w-56 top-5">
         <Image
           src="/watermarks/watermark-3.png"
@@ -37,6 +38,7 @@ const BlogsSection = () => {
           alt="Watermark 1"
         />
       </div>
+      {/* Main Content */}
       <div className="relative max-w-7xl">
         <div className="text-center">
           <h1 className="my-4 uppercase">{t("fromOurBlog")}</h1>

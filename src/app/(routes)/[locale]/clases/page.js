@@ -35,7 +35,7 @@ const Clases = () => {
   return (
     <div className="w-full">
       {loading ? (
-        <div className="flex items-center justify-center h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <Loader />
         </div>
       ) : classesPageData ? (
@@ -46,19 +46,17 @@ const Clases = () => {
               image={classesPageData.course_image}
             />
           </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <ClassSchedule
-              schedule_title={classesPageData.schedule_title}
-              schedule_description={classesPageData.schedule_description}
-              schedule_days={classesPageData.schedule_days}
-              age_group_schedules={classesPageData.age_group_schedules}
-              course_structure_title={classesPageData.course_structure_title}
-              course_structure_description={
-                classesPageData.course_structure_description
-              }
-              structure_details={classesPageData.structure_details}
-            />
-          </AnimatedSection>
+          <ClassSchedule
+            schedule_title={classesPageData.schedule_title}
+            schedule_description={classesPageData.schedule_description}
+            schedule_days={classesPageData.schedule_days}
+            age_group_schedules={classesPageData.age_group_schedules}
+            course_structure_title={classesPageData.course_structure_title}
+            course_structure_description={
+              classesPageData.course_structure_description
+            }
+            structure_details={classesPageData.structure_details}
+          />
 
           <ClassFAQ
             faqs_title={classesPageData.faqs_title}
@@ -66,7 +64,7 @@ const Clases = () => {
           />
         </>
       ) : (
-        <div className="flex items-center justify-center h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <h5 className="font-bold text-center text-primary">
             No se encontró ningún registro.
           </h5>

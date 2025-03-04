@@ -44,7 +44,7 @@ const Nosotros = () => {
   return (
     <div className="w-full">
       {loading ? (
-        <div className="flex justify-center items-center min-h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <Loader />
         </div>
       ) : (
@@ -57,33 +57,33 @@ const Nosotros = () => {
               />
             </AnimatedSection>
 
-              <Title
-                content_title={aboutPageData.content_title}
-                header={aboutPageData.header}
-                mission_title={aboutPageData.mission_title}
-                mission_statement={aboutPageData.mission_statement}
-              />
+            <Title
+              content_title={aboutPageData.content_title}
+              header={aboutPageData.header}
+              mission_title={aboutPageData.mission_title}
+              mission_statement={aboutPageData.mission_statement}
+            />
 
-              <OurPhilosophy
-                inspiration_title={aboutPageData.inspiration_title}
-                inspiration_picture={aboutPageData.inspiration_picture}
-                philosophy_title={aboutPageData.philosophy_title}
-                philosophy_description={aboutPageData.philosophy_description}
-                approaches_title={aboutPageData.approaches_title}
-                approaches_description={aboutPageData.approaches_description}
-                approaches={aboutPageData.approaches}
-              />
+            <OurPhilosophy
+              inspiration_title={aboutPageData.inspiration_title}
+              inspiration_picture={aboutPageData.inspiration_picture}
+              philosophy_title={aboutPageData.philosophy_title}
+              philosophy_description={aboutPageData.philosophy_description}
+              approaches_title={aboutPageData.approaches_title}
+              approaches_description={aboutPageData.approaches_description}
+              approaches={aboutPageData.approaches}
+            />
 
-              <Instructors
-                instructor_title={aboutPageData.instructor_title}
-                instructor_description={aboutPageData.instructor_description}
-                instructors={aboutPageData.instructors}
-              />
+            <Instructors
+              instructor_title={aboutPageData.instructor_title}
+              instructor_description={aboutPageData.instructor_description}
+              instructors={aboutPageData.instructors}
+            />
 
             <AnimatedSection delay={0.4}>
               <Association
-                association_title={aboutPageData.association_title}
-                association_description={aboutPageData.association_description}
+                associationTitle={aboutPageData.association_title}
+                associationDescription={aboutPageData.association_description}
                 associations={aboutPageData.associations}
               />
             </AnimatedSection>

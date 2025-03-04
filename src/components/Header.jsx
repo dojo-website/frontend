@@ -4,12 +4,13 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 
 const Header = () => {
   const t = useTranslations("navigation");
   const params = useParams();
   const locale = params?.locale || "es";
+  const pathname = usePathname();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -37,16 +38,27 @@ const Header = () => {
           </Link>
 
           <ul className="items-center hidden h-full gap-10 md:flex">
-            {navLinks.map(({ key, href }) => (
-              <li key={key}>
-                <Link
-                  href={`/${locale}${href}`}
-                  className="text-xl transition duration-300 hover:text-primary"
-                >
-                  {t(key)}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map(({ key, href }) => {
+              const fullHref = `/${locale}${href}`;
+              // Special handling for the home link
+              const isActive =
+                href === "/"
+                  ? pathname === `/${locale}` || pathname === `/${locale}/`
+                  : pathname === fullHref;
+
+              return (
+                <li key={key}>
+                  <Link
+                    href={fullHref}
+                    className={`text-xl transition duration-300 hover:text-primary ${
+                      isActive ? "text-primary" : ""
+                    }`}
+                  >
+                    {t(key)}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           <button
@@ -63,20 +75,31 @@ const Header = () => {
         {isMenuOpen && (
           <div className="absolute left-0 z-10 w-full text-[#FFF2F2] bg-black">
             <ul className="flex flex-col items-center px-6">
-              {navLinks.map(({ key, href }) => (
-                <li
-                  key={key}
-                  className="w-full py-1 text-2xl font-semibold text-center border-b border-primary"
-                >
-                  <Link
-                    href={`/${locale}${href}`}
-                    className="block w-full p-2 transition duration-300 hover:text-primary"
-                    onClick={() => setIsMenuOpen(false)}
+              {navLinks.map(({ key, href }) => {
+                const fullHref = `/${locale}${href}`;
+                // Special handling for the home link
+                const isActive =
+                  href === "/"
+                    ? pathname === `/${locale}` || pathname === `/${locale}/`
+                    : pathname === fullHref;
+
+                return (
+                  <li
+                    key={key}
+                    className="w-full py-1 text-2xl font-semibold text-center border-b border-primary"
                   >
-                    {t(key)}
-                  </Link>
-                </li>
-              ))}
+                    <Link
+                      href={fullHref}
+                      className={`block w-full p-2 transition duration-300 ${
+                        isActive ? "text-primary" : ""
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {t(key)}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         )}

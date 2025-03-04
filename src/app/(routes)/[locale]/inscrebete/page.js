@@ -32,18 +32,28 @@ const Inscrebete = () => {
     fetchData();
   }, []);
 
+  if (loading)
+    return (
+      <div className="flex items-center justify-center min-h-screen ">
+        <Loader />
+      </div>
+    );
+
   return (
     <div>
       {loading ? (
-        <div className="flex justify-center items-center min-h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <Loader />
         </div>
       ) : signupData ? (
         <>
-          <TitleSection
-            title={signupData?.title}
-            image={signupData?.signup_image}
-          />
+          <AnimatedSection>
+            <TitleSection
+              title={signupData?.title}
+              image={signupData?.signup_image}
+            />
+          </AnimatedSection>
+
           <RegistrationForm data={signupData} />
           <RegistrationFAQ
             title={signupData?.faqs_heading}
@@ -51,7 +61,7 @@ const Inscrebete = () => {
           />
         </>
       ) : (
-        <div className="flex justify-center items-center min-h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <h5 className="font-bold text-center text-primary">
             No se encontró ningún registro.
           </h5>

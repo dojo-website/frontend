@@ -22,7 +22,7 @@ const Instructors = ({
             alt="Watermark 3"
           />
         </div>
-        <div className="relative  w-[90%] my-16 mx-auto">
+        <div className="relative w-[90%] my-16 mx-auto">
           <AnimatedSection delay={0.2} direction="down">
             <div className="max-w-5xl mx-auto text-center">
               <h1 className="uppercase font-notoSans">{instructor_title}</h1>

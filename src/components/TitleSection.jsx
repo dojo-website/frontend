@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AnimatedSection from "./animations/AnimatedSection";
 
 const TitleSection = ({ title, image }) => {
   const isValidImage =
@@ -27,9 +28,11 @@ const TitleSection = ({ title, image }) => {
         <div className="absolute inset-0 flex flex-col justify-center gap-2 px-10 max-w-7xl">
           {isValidTitle && (
             <div className="absolute inset-0 flex flex-col justify-center gap-2 px-10 max-w-7xl">
-              <h1 className="text-3xl font-bold text-black md:text-5xl lg:text-6xl">
-                {title}
-              </h1>
+              <AnimatedSection delay={0.3} direction="left">
+                <h1 className="text-3xl font-bold text-black md:text-5xl lg:text-6xl">
+                  {title}
+                </h1>
+              </AnimatedSection>
 
               <Image
                 src="/underline.png"
