@@ -6,6 +6,7 @@ import { useParams, useSearchParams } from "next/navigation";
 import TitleSection from "@/components/TitleSection";
 import { getBlogs, getBlogsHeader } from "@/services/blogs";
 import Loader from "@/components/Loader";
+import AnimatedSection from "@/components/animations/AnimatedSection";
 
 const blogsPerPage = 9;
 
@@ -94,27 +95,31 @@ const Blogs = () => {
 
   return (
     <Fragment>
-      <TitleSection image={blogHeader?.image} title={blogHeader?.title} />
-
+      <AnimatedSection direction="down">
+        <TitleSection image={blogHeader?.image} title={blogHeader?.title} />
+      </AnimatedSection>
       <div className="my-10">
-        <div className="flex gap-3 px-6 mx-auto overflow-x-auto shadow-md md:shadow-none md:max-w-7xl md:overflow-visible no-scrollbar">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              className={`px-6 py-2 md:rounded-full md:border-gray-500 md:border font-bold font-roboto whitespace-nowrap ${
-                selectedCategory === category.id
-                  ? "border-b-2 border-black md:bg-black md:text-white"
-                  : "md:bg-white md:text-black"
-              }`}
-              onClick={() => {
-                setSelectedCategory(category.id);
-                setCurrentPage(1);
-              }}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div>
+        {/* Category Filter */}
+        <AnimatedSection direction="top" delay={0.1}>
+          <div className="flex gap-3 px-6 mx-auto overflow-x-auto shadow-md md:shadow-none md:max-w-7xl md:overflow-visible no-scrollbar">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                className={`px-6 py-2 md:rounded-full md:border-gray-500 md:border font-bold font-roboto whitespace-nowrap ${
+                  selectedCategory === category.id
+                    ? "border-b-2 border-black md:bg-black md:text-white"
+                    : "md:bg-white md:text-black"
+                }`}
+                onClick={() => {
+                  setSelectedCategory(category.id);
+                  setCurrentPage(1);
+                }}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+        </AnimatedSection>
 
         <section className="p-6 mx-auto max-w-7xl">
           {loading ? (
@@ -130,9 +135,11 @@ const Blogs = () => {
           ) : (
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {currentBlogs.map((blog) => (
-                <Link key={blog.id} href={`/${locale}/blog/${blog.id}`}>
-                  <BlogCard blog={blog} />
-                </Link>
+                <AnimatedSection key={blog.id} direction="left" delay={0.2}>
+                  <Link href={`/${locale}/blog/${blog.id}`}>
+                    <BlogCard blog={blog} />
+                  </Link>
+                </AnimatedSection>
               ))}
             </div>
           )}

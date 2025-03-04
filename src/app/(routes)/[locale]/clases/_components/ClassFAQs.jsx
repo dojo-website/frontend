@@ -1,4 +1,5 @@
 "use client";
+import AnimatedSection from "@/components/animations/AnimatedSection";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -27,8 +28,10 @@ const ClassFAQ = ({ faqs_title, course_faqs }) => {
               >
                 <span className="font-semibold">{index + 1}.</span>
                 <div>
-                  <h3 className="text-lg font-semibold">{item.question}</h3>
-                  <p className="mt-1">{item.answer}</p>
+                  <AnimatedSection delay={0.2 * index} direction="top">
+                    <h3 className="text-lg font-semibold">{item.question}</h3>
+                    <p className="mt-1">{item.answer}</p>
+                  </AnimatedSection>
                 </div>
               </li>
             ))}

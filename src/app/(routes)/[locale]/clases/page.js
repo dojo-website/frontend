@@ -6,6 +6,7 @@ import TitleSection from "@/components/TitleSection";
 import ClassFAQ from "./_components/ClassFAQs";
 import { getClassesData } from "@/services/classes";
 import Loader from "@/components/Loader";
+import AnimatedSection from "@/components/animations/AnimatedSection";
 
 const Clases = () => {
   const [classesPageData, setClassesPageData] = useState(null);
@@ -34,15 +35,17 @@ const Clases = () => {
   return (
     <div className="w-full">
       {loading ? (
-        <div className="flex items-center justify-center h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <Loader />
         </div>
       ) : classesPageData ? (
         <>
-          <TitleSection
-            title={classesPageData.title}
-            image={classesPageData.course_image}
-          />
+          <AnimatedSection>
+            <TitleSection
+              title={classesPageData.title}
+              image={classesPageData.course_image}
+            />
+          </AnimatedSection>
           <ClassSchedule
             schedule_title={classesPageData.schedule_title}
             schedule_description={classesPageData.schedule_description}
@@ -54,13 +57,14 @@ const Clases = () => {
             }
             structure_details={classesPageData.structure_details}
           />
+
           <ClassFAQ
             faqs_title={classesPageData.faqs_title}
             course_faqs={classesPageData.course_faqs}
           />
         </>
       ) : (
-        <div className="flex items-center justify-center h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <h5 className="font-bold text-center text-primary">
             No se encontró ningún registro.
           </h5>

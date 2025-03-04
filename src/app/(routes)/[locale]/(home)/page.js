@@ -6,6 +6,7 @@ import MainSlider from "./components/MainSlider";
 import MainContent from "./components/MainContent";
 import { getHomePage } from "@/services/home";
 import Loader from "@/components/Loader";
+import AnimatedSection from "@/components/animations/AnimatedSection";
 
 const Home = () => {
   const [homeData, setHomeData] = useState(null);
@@ -29,10 +30,17 @@ const Home = () => {
     fetchData();
   }, []);
 
+  if (loading)
+    return (
+      <div className="flex items-center justify-center min-h-screen ">
+        <Loader />
+      </div>
+    );
+
   return (
     <div className="text-2xl font-bold bg-white">
       {loading ? (
-        <div className="flex justify-center items-center min-h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <Loader />
         </div>
       ) : homeData ? (
@@ -43,11 +51,13 @@ const Home = () => {
             header={homeData?.header}
             description={homeData?.description}
           />
-          <Pillars pillars={homeData?.pillars} />
+          <AnimatedSection>
+            <Pillars pillars={homeData?.pillars} />
+          </AnimatedSection>
           <BlogsSection />
         </>
       ) : (
-        <div className="flex justify-center items-center min-h-[80vh]">
+        <div className="flex items-center justify-center min-h-screen">
           <h5 className="font-bold text-center text-primary">
             No se encontró ningún registro.
           </h5>

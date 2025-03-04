@@ -149,7 +149,12 @@
     "contactDetails": "Contact Details",
     "practicedBefore": "Have you practiced karate before?",
     "submit": "SUBMIT REGISTRATION",
-    "select": "Select"
+    "submitSuccess": "Form submitted successfully!",
+    "select": "Select",
+
+    "Beginner": "Beginner",
+    "Intermediate": "Intermediate",
+    "Advanced": "Advanced"
   },
 
   "registrationFAQs": {

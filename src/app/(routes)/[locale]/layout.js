@@ -4,10 +4,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Providers from "./Providers";
+import { routing } from "@/i18n/routing";
 
 const notoSansJP = Noto_Sans({
   subsets: ["latin"],
@@ -31,8 +30,10 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params }) {
-  const locale = params?.locale;
+  // Await the params object before destructuring
+  const { locale } = await params;
 
+  // Validate the locale
   if (!routing.locales.includes(locale)) {
     notFound();
   }
@@ -45,11 +46,11 @@ export default async function RootLayout({ children, params }) {
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
       <body
-        className={`${notoSansJP.variable} ${roboto.variable} ${robotoCondensed.className} antialiased flex flex-col min-h-full`}
+        className={`${notoSansJP.variable} ${roboto.variable} ${robotoCondensed.className} antialiased flex flex-col `}
       >
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main className="min-h-full">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>
