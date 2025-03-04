@@ -1,5 +1,6 @@
 import api from "@/utils/api";
 
+// Fetch contacts data from the API
 const getContacts = async () => {
   try {
     const response = await api.get("/contact");

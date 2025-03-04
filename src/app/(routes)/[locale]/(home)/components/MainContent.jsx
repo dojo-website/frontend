@@ -5,9 +5,10 @@ import AnimatedSection from "@/components/animations/AnimatedSection";
 
 const MainContent = ({ title, header, description }) => {
   const t = useTranslations("home");
+
   return (
     <section className="relative flex flex-col items-center justify-center py-10 mx-auto md:my-10 overflow-hidden bg-white w-[90%] lg:w-full max-w-7xl">
-      {/* Watermarks */}
+      {/* Watermarks for mobile view (hidden on larger screens) */}
       <div className="absolute w-full h-full select-none md:hidden">
         <Image
           src="/watermarks/watermark-1.png"
@@ -24,7 +25,8 @@ const MainContent = ({ title, header, description }) => {
           alt="Watermark 2"
         />
       </div>
-      {/* Watermarks */}
+
+      {/* Watermarks for larger screens (hidden on mobile) */}
       <div className="absolute top-0 right-0 h-auto select-none w-44 max-md:hidden">
         <Image
           src="/watermarks/watermark-1.png"

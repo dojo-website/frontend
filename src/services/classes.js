@@ -1,5 +1,6 @@
 import api from "@/utils/api";
 
+// Fetch classes/course data from the API
 export const getClassesData = async () => {
   try {
     const response = await api.get("/course");

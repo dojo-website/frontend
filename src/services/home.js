@@ -1,6 +1,7 @@
 import api from "@/utils/api";
 import axios from "axios";
 
+// Fetch home page data from the API
 export const getHomePage = async () => {
   try {
     const response = await api.get("/home_page");

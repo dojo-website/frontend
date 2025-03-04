@@ -9,12 +9,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import { useEffect } from "react";
 
 const MainSlider = ({ headerImages }) => {
   const t = useTranslations("home");
   const { locale } = useParams();
 
+  // If no images are provided, display a fallback message
   if (!headerImages || headerImages.length === 0) {
     return <div>No images to display.</div>;
   }
@@ -25,12 +25,12 @@ const MainSlider = ({ headerImages }) => {
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
-        loop={true}
+        loop={true} // Enable infinite looping
         navigation={{
           prevEl: ".custom-prev",
           nextEl: ".custom-next",
         }}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 5000 }} // Auto-slide every 5 seconds
         className="w-full h-[300px] md:h-[600px]"
       >
         {headerImages?.map((image) => (
@@ -44,7 +44,7 @@ const MainSlider = ({ headerImages }) => {
                 alt="Hero Image"
                 priority
                 onError={(e) => {
-                  e.target.src = "/fallback-image.jpg";
+                  e.target.src = "/fallback-image.jpg"; // Fallback image on error
                 }}
               />
               <div className="absolute top-1/2 transform mx-16 md:mx-28 -translate-y-1/2 text-white max-w-[50%]">
@@ -52,6 +52,7 @@ const MainSlider = ({ headerImages }) => {
                 <h4 className="mt-2 font-bold md:text-4xl">
                   El enfoque que define el Karate.
                 </h4>
+                {/* Read more button linked to localized 'nosotros' page */}
                 <Link href={`/${locale}/nosotros`}>
                   <button className="mt-4 text-sm font-medium md:mt-12 md:text-2xl custom-btn">
                     {t("readMore")}
@@ -62,6 +63,7 @@ const MainSlider = ({ headerImages }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+
       <button className="absolute z-10 flex items-center justify-center transform -translate-y-1/2 size-8 md:size-20 custom-prev left-4 top-1/2">
         <Image
           src="/arrow-left.png"

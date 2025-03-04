@@ -44,6 +44,7 @@ const Home = () => {
           <Loader />
         </div>
       ) : homeData ? (
+        // Render main sections of the home page if data is available
         <>
           <MainSlider headerImages={homeData?.header_images} />
           <MainContent
@@ -57,7 +58,8 @@ const Home = () => {
           <BlogsSection />
         </>
       ) : (
-        <div className="flex items-center justify-center min-h-screen">
+        // Show a message if no data is found
+        <div className="flex justify-center items-center min-h-[80vh]">
           <h5 className="font-bold text-center text-primary">
             No se encontró ningún registro.
           </h5>

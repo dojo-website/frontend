@@ -21,6 +21,7 @@ const RegistrationFAQ = ({ title, faqs }) => {
 
         <div className="relative max-w-5xl mx-auto">
           <h1 className="mb-4 font-bold text-center">{title}</h1>
+
           <div className="list-decimal list-inside">
             {faqs?.map((faq, index) => (
               <AnimatedSection key={index} delay={index * 0.2} direction="top">

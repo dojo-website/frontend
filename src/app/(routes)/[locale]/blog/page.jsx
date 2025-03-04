@@ -8,9 +8,11 @@ import { getBlogs, getBlogsHeader } from "@/services/blogs";
 import Loader from "@/components/Loader";
 import AnimatedSection from "@/components/animations/AnimatedSection";
 
+// Define how many blogs to display per page
 const blogsPerPage = 9;
 
 const Blogs = () => {
+  // Define blog categories for filtering
   const categories = [
     { id: "all", name: "All" },
     { id: "news", name: "Noticias" },
@@ -26,6 +28,7 @@ const Blogs = () => {
   const [blogHeader, setBlogHeader] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Get search parameters from the URL (for category filtering)
   const searchParams = useSearchParams();
   const categoryQuery = searchParams.get("category");
 
@@ -36,13 +39,13 @@ const Blogs = () => {
     }
   }, [categoryQuery]);
 
-  // Fetch blog header
+  // Fetch the blog header data
   useEffect(() => {
     const fetchBlogHeader = async () => {
       try {
         const header = await getBlogsHeader();
         if (header && header.length > 0) {
-          setBlogHeader(header[0]);
+          setBlogHeader(header[0]); // Set the first header item if available
         } else {
           setBlogHeader(null);
         }
@@ -55,6 +58,7 @@ const Blogs = () => {
     fetchBlogHeader();
   }, []);
 
+  // Fetch blogs based on the selected category
   useEffect(() => {
     const fetchBlogData = async () => {
       setLoading(true);
@@ -70,16 +74,20 @@ const Blogs = () => {
     fetchBlogData();
   }, [selectedCategory]);
 
+  // Scroll to the top when the current page changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
+  // Calculate pagination indexes
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
   const currentBlogs = blogData.slice(indexOfFirstBlog, indexOfLastBlog);
 
+  // Calculate total number of pages
   const totalPages = Math.ceil(blogData.length / blogsPerPage);
 
+  // Generate the pagination range (max 3 numbers displayed)
   const getPaginationRange = () => {
     let start = Math.max(1, currentPage - 1);
     let end = Math.min(totalPages, currentPage + 1);
@@ -127,12 +135,14 @@ const Blogs = () => {
               <Loader />
             </div>
           ) : currentBlogs.length === 0 ? (
+            // Display message when no blogs are found
             <div className="flex justify-center items-center min-h-[50vh]">
               <h5 className="font-bold text-center text-primary">
                 No se encontró ningún registro.
               </h5>
             </div>
           ) : (
+            // Display blog cards
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {currentBlogs.map((blog) => (
                 <AnimatedSection key={blog.id} direction="left" delay={0.2}>

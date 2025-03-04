@@ -2,6 +2,7 @@ import Image from "next/image";
 import AnimatedSection from "./animations/AnimatedSection";
 
 const TitleSection = ({ title, image }) => {
+  // Validate image and title inputs
   const isValidImage =
     image && typeof image === "string" && image.trim() !== "";
   const isValidTitle =
@@ -10,6 +11,7 @@ const TitleSection = ({ title, image }) => {
   return (
     <div className="flex flex-col items-center justify-center px-2 mx-auto my-2 max-w-7xl">
       <div className="relative w-full">
+        {/* Render image or fallback if no image is provided */}
         {isValidImage ? (
           <Image
             src={image}
@@ -25,6 +27,7 @@ const TitleSection = ({ title, image }) => {
           </div>
         )}
 
+        {/* Overlay for title and underline image */}
         <div className="absolute inset-0 flex flex-col justify-center gap-2 px-10 max-w-7xl">
           {isValidTitle && (
             <div className="absolute inset-0 flex flex-col justify-center gap-2 px-10 max-w-7xl">
@@ -34,6 +37,7 @@ const TitleSection = ({ title, image }) => {
                 </h1>
               </AnimatedSection>
 
+              {/* Underline image below the title */}
               <Image
                 src="/underline.png"
                 alt="Underline"

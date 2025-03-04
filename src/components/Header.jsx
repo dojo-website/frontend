@@ -37,6 +37,7 @@ const Header = () => {
             />
           </Link>
 
+          {/* Desktop Navigation Links */}
           <ul className="items-center hidden h-full gap-10 md:flex">
             {navLinks.map(({ key, href }) => {
               const fullHref = `/${locale}${href}`;
@@ -65,6 +66,7 @@ const Header = () => {
             className="block md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
+            {/* Condition 1: Toggle between hamburger and close icon based on menu state */}
             {isMenuOpen ? (
               <img src="/cross.svg" />
             ) : (
@@ -72,6 +74,8 @@ const Header = () => {
             )}
           </button>
         </nav>
+
+        {/* Condition 2: Render mobile menu if `isMenuOpen` is true */}
         {isMenuOpen && (
           <div className="absolute left-0 z-10 w-full text-[#FFF2F2] bg-black">
             <ul className="flex flex-col items-center px-6">
