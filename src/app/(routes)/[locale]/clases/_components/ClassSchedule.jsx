@@ -17,18 +17,35 @@ const ClassSchedule = ({
 
   return (
     <section className="relative flex flex-col mx-auto max-w-7xl">
-      {/* Watermarks */}
-      <div className="absolute bottom-0 right-0 w-40 py-12 select-none md:w-48">
+      {/* Mobile Watermarks */}
+      <div className="absolute w-full h-full select-none md:hidden">
         <Image
           src="/watermarks/watermark-1.png"
-          className="w-full h-auto"
+          className="absolute top-0 left-0 w-32 h-auto"
           width={200}
           height={200}
           alt="Watermark 1"
         />
         <Image
           src="/watermarks/watermark-2.png"
-          className="w-full h-auto"
+          className="absolute bottom-0 right-0 w-32 h-auto "
+          width={200}
+          height={200}
+          alt="Watermark 2"
+        />
+      </div>
+      {/* Tablet and Desktop Watermarks */}
+      <div className="absolute top-0 right-0 h-auto select-none w-44 max-md:hidden">
+        <Image
+          src="/watermarks/watermark-1.png"
+          className="h-auto w-44"
+          width={200}
+          height={200}
+          alt="Watermark 1"
+        />
+        <Image
+          src="/watermarks/watermark-2.png"
+          className="w-40 h-auto"
           width={200}
           height={200}
           alt="Watermark 2"

@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { createParticipant } from "@/services/inscrebete";
 import { useEffect, useState } from "react";
 import AnimatedSection from "@/components/animations/AnimatedSection";
+import Image from "next/image";
 
 const RegistrationForm = ({ data }) => {
   const t = useTranslations("registrationForm");
@@ -92,223 +93,238 @@ const RegistrationForm = ({ data }) => {
   };
 
   return (
-    <section className="p-8 mx-auto bg-white max-w-7xl">
-      <h1 className="mb-6 text-center">{data?.title}</h1>
+    <div className="relative bg-white">
+      <div className="absolute w-full h-full m-4 select-none md:hidden">
+        <Image
+          src="/watermarks/watermark-1.png"
+          className="absolute top-0 left-0 w-32 h-auto"
+          width={200}
+          height={200}
+          alt="Watermark 1"
+        />
+      </div>
+      <section className="relative p-8 mx-auto max-w-7xl">
+        <h1 className="mb-6 text-center">{data?.title}</h1>
 
-      <form
-        onSubmit={handleSubmit(handleFormSubmit)}
-        className="flex flex-col gap-12 font-roboto"
-      >
-        <fieldset className="pt-4">
-          <legend className="text-xl font-semibold">
-            <h3 className="font-notoSans">{data?.practitioner_title}</h3>
-          </legend>
-
-          <div className="grid grid-cols-1 gap-8 mt-4 md:grid-cols-2">
-            <div className="space-y-4">
-              <div>
-                <label className="block font-medium">{data?.name_title}</label>
-                <input
-                  {...register("full_name", {
-                    required: "Full name is required",
-                  })}
-                  className="w-full p-3 bg-[#F3EFEF] border rounded-md"
-                />
-                {errors.full_name && (
-                  <span className="text-red-500">
-                    {errors.full_name.message}
-                  </span>
-                )}
-              </div>
-
-              <div>
-                <label className="block font-medium">{data?.age_title}</label>
-                <input
-                  type="number"
-                  {...register("age", {
-                    required: true,
-                    min: { value: 1, message: "Minimum age is 1" },
-                    max: { value: 120, message: "Maximum age is 120" },
-                  })}
-                  className="w-full p-3 bg-[#F3EFEF] border rounded-md"
-                />
-                {errors.age && (
-                  <span className="text-red-500">{errors.age.message}</span>
-                )}
-              </div>
-
-              <div className="relative">
-                <label className="block font-medium">{data?.class_title}</label>
-                <div className="relative">
-                  <select
-                    {...register("class_level", {
-                      required: "Class level is required",
+        <form
+          onSubmit={handleSubmit(handleFormSubmit)}
+          className="flex flex-col gap-12 font-roboto"
+        >
+          <fieldset className="pt-4">
+            <legend className="text-xl font-semibold">
+              <h3 className="font-notoSans">{data?.practitioner_title}</h3>
+            </legend>
+            <div className="grid grid-cols-1 gap-8 mt-4 md:grid-cols-2">
+              <div className="space-y-4">
+                <div>
+                  <label className="block font-medium">
+                    {data?.name_title}
+                  </label>
+                  <input
+                    {...register("full_name", {
+                      required: "Full name is required",
                     })}
-                    defaultValue=""
-                    className="w-full p-3 bg-[#F3EFEF] border rounded-md appearance-none pr-10"
-                  >
-                    <option value="" disabled></option>
-                    {classLevels.map((level) => (
-                      <option key={level} value={level}>
-                        {t(level)}
-                      </option>
-                    ))}
-                  </select>
-                  <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
-                    <img src="/arrow-dropdown.svg" />
-                  </div>
-                  {errors.class_level && (
-                    <span className="text-red-500">
-                      {errors.class_level.message}
+                    className="w-full p-3 bg-[#F3EFEF] border rounded-md"
+                  />
+                  {errors.full_name && (
+                    <span className="text-primary">
+                      {errors.full_name.message}
                     </span>
                   )}
                 </div>
-              </div>
-            </div>
 
-            <div className="flex flex-col">
-              <label className="block font-medium">
-                {data?.medical_condition_title}
-              </label>
-              <textarea
-                {...register("medical_condition")}
-                className="w-full min-h-44 flex-1 text-sm leading-relaxed p-3 bg-[#F3EFEF] border rounded-md"
-              />
-            </div>
-          </div>
-        </fieldset>
+                <div>
+                  <label className="block font-medium">{data?.age_title}</label>
+                  <input
+                    type="number"
+                    {...register("age", {
+                      required: true,
+                      min: { value: 1, message: "Minimum age is 1" },
+                      max: { value: 120, message: "Maximum age is 120" },
+                    })}
+                    className="w-full p-3 bg-[#F3EFEF] border rounded-md"
+                  />
+                  {errors.age && (
+                    <span className="text-primary">{errors.age.message}</span>
+                  )}
+                </div>
 
-        <div className="flex flex-col gap-8 md:flex-row">
-          <fieldset className="w-full space-y-4 md:w-1/2">
-            <legend className="text-xl font-semibold">
-              <h3>{data?.guardian_details_heading}</h3>
-              <span className="text-[16px] text-black">
-                {data?.guardian_details_subheading}
-              </span>
-            </legend>
-
-            <div className="flex flex-col gap-4">
-              <div>
-                <label className="block font-medium">
-                  {data?.guardian_name_title}
-                </label>
-                <input
-                  {...register("guardian_full_name")}
-                  className="w-full p-3 bg-[#F3EFEF] border rounded-md"
-                />
-              </div>
-
-              <div>
-                <label className="block font-medium">
-                  {data?.guardian_email_title}
-                </label>
-                <input
-                  type="email"
-                  {...register("guardian_email")}
-                  className="w-full p-3 bg-[#F3EFEF] border rounded-md"
-                />
-              </div>
-
-              <div>
-                <label className="block font-medium">
-                  {data?.guardian_phone_title}
-                </label>
-                <input
-                  type="tel"
-                  {...register("guardian_phone_number")}
-                  className="w-full p-3 bg-[#F3EFEF] border rounded-md"
-                />
-              </div>
-            </div>
-          </fieldset>
-
-          <fieldset className="w-full space-y-4 md:w-1/2">
-            <legend className="text-xl font-semibold">
-              <h3>{data?.contact_details_heading}</h3>
-            </legend>
-
-            <div className="flex flex-col gap-4">
-              <div>
-                <label className="block font-medium">
-                  {data?.contact_email_title}
-                </label>
-                <input
-                  type="email"
-                  {...register("email")}
-                  className="w-full p-3 bg-[#F3EFEF] border rounded-md"
-                />
+                <div className="relative">
+                  <label className="block font-medium">
+                    {data?.class_title}
+                  </label>
+                  <div className="relative">
+                    <select
+                      {...register("class_level", {
+                        required: "Class level is required",
+                      })}
+                      defaultValue=""
+                      className="w-full p-3 bg-[#F3EFEF] border rounded-md appearance-none pr-10"
+                    >
+                      <option value="" disabled></option>
+                      {classLevels.map((level) => (
+                        <option key={level} value={level}>
+                          {t(level)}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
+                      <img src="/arrow-dropdown.svg" />
+                    </div>
+                    {errors.class_level && (
+                      <span className="text-primary">
+                        {errors.class_level.message}
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
 
-              <div>
+              <div className="flex flex-col">
                 <label className="block font-medium">
-                  {data?.contact_phone_title}
+                  {data?.medical_condition_title}
                 </label>
-                <input
-                  type="tel"
-                  {...register("phone_number")}
-                  className="w-full p-3 bg-[#F3EFEF] border rounded-md"
-                />
-              </div>
-
-              <div>
-                <label className="block font-medium">
-                  {data?.contact_history_title}
-                </label>
-                <input
-                  {...register("karate_history")}
-                  className="w-full p-3 bg-[#F3EFEF] border rounded-md"
+                <textarea
+                  {...register("medical_condition")}
+                  className="w-full min-h-44 flex-1 text-sm leading-relaxed p-3 bg-[#F3EFEF] border rounded-md"
                 />
               </div>
             </div>
           </fieldset>
-        </div>
 
-        <button
-          type="submit"
-          disabled={!fullName || !age || !classLevel || !email || !phoneNumber}
-          className="block mx-auto custom-btn disabled:opacity-50"
-        >
-          {data?.signup_button_title}
-        </button>
-      </form>
+          <div className="flex flex-col gap-8 md:flex-row">
+            {/* Guardian Details */}
+            <fieldset className="w-full space-y-4 md:w-1/2">
+              <legend className="text-xl font-semibold">
+                <h3>{data?.guardian_details_heading}</h3>
+                <span className="text-[16px] text-black">
+                  {data?.guardian_details_subheading}
+                </span>
+              </legend>
+              <div className="flex flex-col gap-4">
+                <div>
+                  <label className="block font-medium">
+                    {data?.guardian_name_title}
+                  </label>
+                  <input
+                    {...register("guardian_full_name")}
+                    className="w-full p-3 bg-[#F3EFEF] border rounded-md"
+                  />
+                </div>
+                <div>
+                  <label className="block font-medium">
+                    {data?.guardian_email_title}
+                  </label>
+                  <input
+                    type="email"
+                    {...register("guardian_email")}
+                    className="w-full p-3 bg-[#F3EFEF] border rounded-md"
+                  />
+                </div>
+                <div>
+                  <label className="block font-medium">
+                    {data?.guardian_phone_title}
+                  </label>
+                  <input
+                    type="tel"
+                    {...register("guardian_phone_number")}
+                    className="w-full p-3 bg-[#F3EFEF] border rounded-md"
+                  />
+                </div>
+              </div>
+            </fieldset>
 
-      {/* Confirmation Modal */}
-      {confirmationModal.open && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="p-6 bg-white rounded-md">
-            <p>{confirmationModal.message}</p>
-            <div className="flex gap-4 mt-4">
-              <button
-                onClick={() => handleConfirmation(true)}
-                className="px-4 py-2 text-white rounded-md custom-btn"
-              >
-                Yes
-              </button>
-              <button
-                onClick={() => handleConfirmation(false)}
-                className="px-4 py-2 text-white bg-gray-500 rounded-md"
-              >
-                Cancel
-              </button>
+            {/* Contact Details */}
+            <fieldset className="w-full space-y-4 md:w-1/2">
+              <legend className="text-xl font-semibold">
+                <h3>{data?.contact_details_heading}</h3>
+                <br className="hidden md:block" />
+              </legend>
+              <div className="flex flex-col gap-4">
+                <div>
+                  <label className="block font-medium">
+                    {data?.contact_email_title}
+                  </label>
+                  <input
+                    type="email"
+                    {...register("email")}
+                    className="w-full p-3 bg-[#F3EFEF] border rounded-md"
+                  />
+                </div>
+                <div>
+                  <label className="block font-medium">
+                    {data?.contact_phone_title}
+                  </label>
+                  <input
+                    type="tel"
+                    {...register("phone_number")}
+                    className="w-full p-3 bg-[#F3EFEF] border rounded-md"
+                  />
+                </div>
+                <div>
+                  <label className="block font-medium">
+                    {data?.contact_history_title}
+                  </label>
+                  <input
+                    {...register("karate_history")}
+                    className="w-full p-3 bg-[#F3EFEF] border rounded-md"
+                  />
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <button
+            type="submit"
+            disabled={
+              !fullName || !age || !classLevel || !email || !phoneNumber
+            }
+            className="block mx-auto custom-btn disabled:opacity-50"
+          >
+            {data?.signup_button_title}
+          </button>
+        </form>
+
+        {/* Confirmation Modal */}
+        {confirmationModal.open && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="p-6 bg-white rounded-md">
+              <p>{confirmationModal.message}</p>
+              <div className="flex gap-4 mt-4">
+                <button
+                  onClick={() => handleConfirmation(true)}
+                  className="px-4 py-2 text-white rounded-md custom-btn"
+                >
+                  Yes
+                </button>
+                <button
+                  onClick={() => handleConfirmation(false)}
+                  className="px-4 py-2 text-white bg-gray-500 rounded-md"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {flashMessage.open && (
-        <div className="fixed right-0 flex items-center justify-center p-4 top-24">
-          <AnimatedSection direction="top">
-            <div
-              className={`p-4 px-8 rounded-md ${
-                flashMessage.type === "success" ? "bg-green-500" : "bg-red-500"
-              } text-white`}
-            >
-              <h4>{flashMessage.message}</h4>
-            </div>
-          </AnimatedSection>
-        </div>
-      )}
-    </section>
+        {flashMessage.open && (
+          <div className="fixed right-0 flex items-center justify-center p-4 top-24">
+            <AnimatedSection direction="top">
+              <div
+                className={`p-4 px-8 rounded-md ${
+                  flashMessage.type === "success"
+                    ? "bg-green-500"
+                    : "bg-primary"
+                } text-white`}
+              >
+                <h4>{flashMessage.message}</h4>
+              </div>
+            </AnimatedSection>
+          </div>
+        )}
+      </section>
+    </div>
   );
 };
 

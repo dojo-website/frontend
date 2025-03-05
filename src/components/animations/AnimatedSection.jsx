@@ -12,6 +12,7 @@ const AnimatedSection = ({ children, delay = 0, direction = "bottom" }) => {
     bottom: { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } },
     left: { hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } },
     right: { hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } },
+    fadeIn: { hidden: { opacity: 0 }, visible: { opacity: 1 } },
   };
 
   return (

@@ -20,7 +20,7 @@ const MainSlider = ({ headerImages }) => {
   }
 
   return (
-    <section className="relative flex flex-col items-center justify-center mx-auto my-2 max-w-[90%]">
+    <section className="relative flex flex-col items-center justify-center mx-auto my-2 w-[90%] max-w-7xl">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}
@@ -30,7 +30,11 @@ const MainSlider = ({ headerImages }) => {
           prevEl: ".custom-prev",
           nextEl: ".custom-next",
         }}
+<<<<<<< HEAD
         autoplay={{ delay: 5000 }} // Auto-slide every 5 seconds
+=======
+        autoplay={{ delay: 3000 }}
+>>>>>>> 5b8688e (improvements)
         className="w-full h-[300px] md:h-[600px]"
       >
         {headerImages?.map((image) => (

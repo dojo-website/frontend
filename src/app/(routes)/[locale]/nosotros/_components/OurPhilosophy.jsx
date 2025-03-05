@@ -21,7 +21,7 @@ const OurPhilosophy = ({
         {approaches.map((approach, index) => {
           return (
             <li key={approach?.id || index} className="flex items-center gap-3">
-              <span className="rounded-full size-2 bg-primary"></span>
+              <span className="w-2 h-2 rounded-full bg-primary" />
               <span>
                 <strong>{approach?.title || "Title"}:</strong>
                 {approach?.description || "Description"}
@@ -36,38 +36,39 @@ const OurPhilosophy = ({
   return (
     <div className="w-full py-12 bg-secondary">
       <AnimatedSection delay={0.4}>
-        <div className="flex flex-col items-center mx-auto text-white max-w-7xl">
-          <div className="flex flex-col-reverse items-center justify-center w-full md:flex-row">
+        <div className="flex flex-col items-center max-w-5xl mx-auto text-white">
+          <div className="flex w-[90%] flex-col-reverse items-center justify-center gap-10 mb-10 md:flex-row">
             {/* Image */}
-            <figure className="flex flex-col items-center justify-center w-full m-12 md:w-1/2">
+            <figure className="flex flex-col items-center justify-center w-full gap-2 md:w-1/2">
               <Image
                 src={inspiration_picture}
                 width={400}
                 height={400}
                 alt="Maestro Hidetaka Nishiyama"
-                className="w-11/12 h-auto"
+                className="w-full h-auto"
                 priority
               />
-              <figcaption className="mt-2 text-sm font-thin text-start font-roboto">
+              <figcaption className="w-full mt-2 text-sm italic font-thin text-start font-roboto">
                 {inspiration_title}
               </figcaption>
             </figure>
+            {/* Content */}
             <div className="flex flex-col items-center justify-center w-full gap-12 mb-8 md:w-1/2">
-              <div className="w-[90%]">
+              <div className="w-full">
                 <h2 className="font-bold text-center uppercase font-notoSans md:text-start">
                   {philosophy_title}
                 </h2>
                 <p className="mt-4">{philosophy_description}</p>
               </div>
               {/* (Nuestro Enfoque) for lg screens */}
-              <div className="hidden lg:block w-[90%]">
+              <div className="hidden w-full lg:block">
                 <h2 className="font-bold uppercase">{approaches_title}</h2>
                 <p className="mt-4">{approaches_description}</p>
                 <Approaches />
               </div>
             </div>
           </div>
-          {/* (Nuestro Enfoque) for sm and md (mobile and tablets) screens */}
+          {/* Content for mobile and tablet screens only (Nuestro Enfoque) */}
           <div className="hidden max-lg:block w-[90%]">
             <h2 className="font-bold text-center uppercase">
               {approaches_title}

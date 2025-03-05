@@ -50,7 +50,7 @@ export default async function RootLayout({ children, params }) {
       >
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="min-h-full">{children}</main>
+          <main className="min-h-[80vh]">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

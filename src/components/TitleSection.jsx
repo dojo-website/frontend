@@ -10,7 +10,7 @@ const TitleSection = ({ title, image }) => {
 
   return (
     <div className="flex flex-col items-center justify-center px-2 mx-auto my-2 max-w-7xl">
-      <div className="relative w-full">
+      <div className="relative w-full overflow-hidden rounded-lg max-h-64">
         {/* Render image or fallback if no image is provided */}
         {isValidImage ? (
           <Image
@@ -18,11 +18,11 @@ const TitleSection = ({ title, image }) => {
             alt={isValidTitle ? `${title} Image` : "Blog Header Image"}
             width={2000}
             height={500}
-            className="object-cover w-full rounded-lg"
+            className="object-contain w-full "
             priority
           />
         ) : (
-          <div className="flex items-center justify-center w-full h-64 bg-gray-200 rounded-lg">
+          <div className="flex items-center justify-center w-full h-64 rounded-lg">
             <p className="text-gray-500">No image available</p>
           </div>
         )}

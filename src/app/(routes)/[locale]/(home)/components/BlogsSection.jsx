@@ -53,8 +53,8 @@ const BlogsSection = () => {
           // Display blogs in a grid format
           <div className="grid w-full grid-cols-1 gap-6 p-6 mt-10 md:grid-cols-3">
             {blogData.slice(0, 3).map((blog, index) => (
-              <AnimatedSection key={index} direction="left" delay={0.2 * index}>
-                <BlogCard key={blog?.id} blog={blog} isButton={true} />
+              <AnimatedSection key={blog?.id} direction="left" delay={0.2 * index}>
+                <BlogCard  blog={blog} isButton={true} />
               </AnimatedSection>
             ))}
           </div>

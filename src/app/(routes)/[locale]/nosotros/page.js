@@ -1,15 +1,14 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion"; // Import framer-motion
 import OurPhilosophy from "./_components/OurPhilosophy";
 import Instructors from "./_components/Instructors";
 import Association from "./_components/Association";
-import Title from "./_components/Title";
 import { getAboutUs } from "@/services/about";
 import TitleSection from "@/components/TitleSection";
 import Loader from "@/components/Loader";
 import AnimatedSection from "@/components/animations/AnimatedSection";
+import MainContent from "./_components/MainContent";
 
 const Nosotros = () => {
   const [aboutPageData, setAboutPageData] = useState(null);
@@ -57,7 +56,7 @@ const Nosotros = () => {
               />
             </AnimatedSection>
 
-            <Title
+            <MainContent
               content_title={aboutPageData.content_title}
               header={aboutPageData.header}
               mission_title={aboutPageData.mission_title}

@@ -66,6 +66,7 @@ const Footer = () => {
               </h5>
             </div>
 
+            {/* Contact Information */}
             <div className="flex flex-col items-start gap-4 mt-6 md:mt-0">
               <h3 className="text-white uppercase text-start">
                 {contact?.title}
@@ -141,6 +142,7 @@ const Footer = () => {
               </div>
             </div>
 
+            {/* Social Links */}
             <div className="flex gap-4 mt-6 md:mt-0">
               <a
                 href={contact?.facebook_link}

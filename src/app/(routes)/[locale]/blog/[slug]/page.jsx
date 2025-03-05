@@ -6,28 +6,28 @@ import BlogCard from "@/components/BlogCard";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { getBlogs } from "@/services/blogs"; // Use the same function to fetch all blogs
+import { getBlogs } from "@/services/blogs";
 import Loader from "@/components/Loader";
 
 const Article = () => {
-  const { locale, id } = useParams();
+  const { locale, slug } = useParams(); // ✅ Updated to use `slug`
   const t = useTranslations();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [blogData, setBlogData] = useState([]); // For "More Articles" section
+  const [blogData, setBlogData] = useState([]);
 
-  // Fetch Specific blog data and blogs for the "More Articles" section
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getBlogs();
         setBlogData(data || []);
-        const selectedBlog = data.find((blog) => blog.id === parseInt(id));
+
+        const selectedBlog = data.find((blog) => blog.slug === slug); // ✅ Match by slug
         if (selectedBlog) {
           setBlog(selectedBlog);
         } else {
-          setError("Blog not found");
+          setError("No se encontró ningún registro.");
         }
       } catch (err) {
         setError(err.message);
@@ -37,13 +37,13 @@ const Article = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [slug]);
 
   const featuredImages = blog?.blog_images?.filter((image) => image.featured);
   const imageToShow =
     featuredImages?.length > 0
-      ? featuredImages[0]?.image_url // Use the first featured image
-      : blog?.blog_images[0]?.image_url; // Use the first image if no featured image is found
+      ? featuredImages[0]?.image_url
+      : blog?.blog_images[0]?.image_url;
 
   if (loading) {
     return (
@@ -54,11 +54,21 @@ const Article = () => {
   }
 
   if (error) {
-    return <p className="text-center text-red-500">Error: {error}</p>;
+    return (
+      <div className="flex items-center justify-center min-h-[80vh]">
+        <h5 className="font-bold text-center text-primary">Error: {error}</h5>
+      </div>
+    );
   }
 
   if (!blog) {
-    return <p className="text-center">No blog found.</p>;
+    return (
+      <div className="flex items-center justify-center min-h-[80vh]">
+        <h5 className="font-bold text-center text-primary">
+          No se encontró ningún registro.
+        </h5>
+      </div>
+    );
   }
 
   return (
@@ -98,7 +108,7 @@ const Article = () => {
 
         <div className="relative -z-10">
           {/* Watermark */}
-          <div className="absolute right-0 w-56 select-none -bottom-24">
+          <div className="absolute right-0 hidden select-none w-44 lg:block -bottom-24">
             <Image
               src="/watermarks/watermark-3.png"
               className="w-full h-auto "
@@ -109,10 +119,21 @@ const Article = () => {
           </div>
           {/* Blog Content */}
           <div className="relative max-w-5xl py-8 mx-auto">
-            {blog?.blog_sections.map((section, index) => (
-              <div key={section.id}>
-                <h2 className="mt-4 uppercase">{section.title}</h2>
-                <p className="mt-2 leading-relaxed">{section.description}</p>
+            {blog?.blog_sections.map((section) => (
+              <div key={section.id} className="relative">
+                <div className="absolute top-0 right-0 block w-32 select-none lg:hidden">
+                  <Image
+                    src="/watermarks/watermark-1.png"
+                    className="w-full h-auto "
+                    width={200}
+                    height={200}
+                    alt="Watermark 3"
+                  />
+                </div>
+                <div className="relative">
+                  <h2 className="mt-4 uppercase">{section.title}</h2>
+                  <p className="mt-2 leading-relaxed">{section.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -122,11 +143,11 @@ const Article = () => {
           <h1 className="my-2 text-center uppercase">{t("moreArticles")}</h1>
           <div className="grid w-full grid-cols-1 gap-6 p-4 md:p-6 md:grid-cols-3">
             {blogData
-              .filter((b) => b.id !== blog.id) //filter current blog
+              .filter((b) => b.slug !== slug) // ✅ Filter out current blog using slug
               .slice(0, 3)
               .map((relatedBlog) => (
                 <Link
-                  href={`/${locale}/blog/${relatedBlog.id}`}
+                  href={`/${locale}/blog/${relatedBlog.slug}`} // ✅ Use slug in URL
                   key={relatedBlog.id}
                   className="h-full"
                 >

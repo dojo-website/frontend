@@ -49,8 +49,8 @@ const BlogCard = ({ blog, isButton }) => {
         ) : (
           // Display a "Read More" button if `isButton` is true
           <p className="py-2 mt-auto text-base text-center">
-            <Link href={`${locale}/blog/${blog?.id}`} className="custom-btn">
-              {t("readMore")} {/* Fetch translated "Read More" text */}
+            <Link href={`${locale}/blog/${blog?.slug}`} className="custom-btn">
+              {t("readMore")}
             </Link>
           </p>
         )}

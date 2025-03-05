@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import parse from "html-react-parser";
 import Image from "next/image";
 import AnimatedSection from "@/components/animations/AnimatedSection";
 
@@ -62,3 +61,4 @@ const MainContent = ({ title, header, description }) => {
 };
 
 export default MainContent;
+
