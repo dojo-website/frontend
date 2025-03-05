@@ -7,6 +7,8 @@ import AnimatedSection from "@/components/animations/AnimatedSection";
 
 const RegistrationForm = ({ data }) => {
   const t = useTranslations("registrationForm");
+
+  // Available class levels
   const classLevels = ["Beginner", "Intermediate", "Advanced"];
   const [confirmationModal, setConfirmationModal] = useState({
     open: false,
@@ -43,11 +45,11 @@ const RegistrationForm = ({ data }) => {
 
   const onSubmit = async (formData) => {
     try {
-      // Format the payload
+      // Construct payload with formatted values
       const payload = {
         ...formData,
-        age: parseInt(formData.age, 10),
-        class_level: formData.class_level.toLowerCase(),
+        age: parseInt(formData.age, 10), // Convert age to integer
+        class_level: formData.class_level.toLowerCase(), // Convert class level to lowercase
         phone_number: formData.phone_number || null,
         karate_history: formData.karate_history || null,
         medical_condition: formData.medical_condition || null,
@@ -101,6 +103,7 @@ const RegistrationForm = ({ data }) => {
           <legend className="text-xl font-semibold">
             <h3 className="font-notoSans">{data?.practitioner_title}</h3>
           </legend>
+
           <div className="grid grid-cols-1 gap-8 mt-4 md:grid-cols-2">
             <div className="space-y-4">
               <div>
@@ -176,7 +179,6 @@ const RegistrationForm = ({ data }) => {
         </fieldset>
 
         <div className="flex flex-col gap-8 md:flex-row">
-          {/* Guardian Details */}
           <fieldset className="w-full space-y-4 md:w-1/2">
             <legend className="text-xl font-semibold">
               <h3>{data?.guardian_details_heading}</h3>
@@ -184,6 +186,7 @@ const RegistrationForm = ({ data }) => {
                 {data?.guardian_details_subheading}
               </span>
             </legend>
+
             <div className="flex flex-col gap-4">
               <div>
                 <label className="block font-medium">
@@ -194,6 +197,7 @@ const RegistrationForm = ({ data }) => {
                   className="w-full p-3 bg-[#F3EFEF] border rounded-md"
                 />
               </div>
+
               <div>
                 <label className="block font-medium">
                   {data?.guardian_email_title}
@@ -204,6 +208,7 @@ const RegistrationForm = ({ data }) => {
                   className="w-full p-3 bg-[#F3EFEF] border rounded-md"
                 />
               </div>
+
               <div>
                 <label className="block font-medium">
                   {data?.guardian_phone_title}
@@ -217,12 +222,11 @@ const RegistrationForm = ({ data }) => {
             </div>
           </fieldset>
 
-          {/* Contact Details */}
           <fieldset className="w-full space-y-4 md:w-1/2">
             <legend className="text-xl font-semibold">
               <h3>{data?.contact_details_heading}</h3>
-              <br className="hidden md:block" />
             </legend>
+
             <div className="flex flex-col gap-4">
               <div>
                 <label className="block font-medium">
@@ -234,6 +238,7 @@ const RegistrationForm = ({ data }) => {
                   className="w-full p-3 bg-[#F3EFEF] border rounded-md"
                 />
               </div>
+
               <div>
                 <label className="block font-medium">
                   {data?.contact_phone_title}
@@ -244,6 +249,7 @@ const RegistrationForm = ({ data }) => {
                   className="w-full p-3 bg-[#F3EFEF] border rounded-md"
                 />
               </div>
+
               <div>
                 <label className="block font-medium">
                   {data?.contact_history_title}

@@ -14,6 +14,7 @@ const OurPhilosophy = ({
 }) => {
   const t = useTranslations("nosotros.ourPhilosophy");
 
+  // Nested component to render the list of approaches
   const Approaches = () => {
     return (
       <ul className="mt-4 space-y-2">

@@ -1,5 +1,6 @@
 import api from "@/utils/api";
 
+// Fetch About Us page data from the API
 export const getAboutUs = async () => {
   try {
     const response = await api.get("/about_us");

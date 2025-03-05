@@ -64,7 +64,6 @@ const Article = () => {
   return (
     <div className="w-[90%] mx-auto">
       <div className="max-w-6xl mx-auto">
-        {/* Blog Title */}
         <div className="inset-0 flex flex-col justify-center gap-2 w-[80%] my-6">
           <h1 className="font-bold text-black">{blog.title}</h1>
           <Image
@@ -76,7 +75,6 @@ const Article = () => {
           />
         </div>
 
-        {/* Breadcrumb */}
         <Breadcrumb
           items={[
             { id: 1, label: "Home", href: "/" },
@@ -90,7 +88,6 @@ const Article = () => {
           ]}
         />
 
-        {/* Blog Title Image */}
         <Image
           src={imageToShow || "/favicon.svg"}
           width={1000}
@@ -121,7 +118,6 @@ const Article = () => {
           </div>
         </div>
 
-        {/* More Articles Section */}
         <section className="flex flex-col items-center justify-center my-4">
           <h1 className="my-2 text-center uppercase">{t("moreArticles")}</h1>
           <div className="grid w-full grid-cols-1 gap-6 p-4 md:p-6 md:grid-cols-3">

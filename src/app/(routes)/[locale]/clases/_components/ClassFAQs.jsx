@@ -8,6 +8,7 @@ const ClassFAQ = ({ faqs_title, course_faqs }) => {
 
   return (
     <div className="flex flex-col items-center w-full p-10 py-12 bg-secondary">
+      {/* Main container for FAQ section */}
       <section className="relative w-full py-6 mx-auto text-white max-w-7xl">
         <div className="absolute bottom-0 right-0 w-48 md:w-56">
           <Image
@@ -18,8 +19,11 @@ const ClassFAQ = ({ faqs_title, course_faqs }) => {
             alt="Watermark 3"
           />
         </div>
+
         <div className="relative max-w-5xl mx-auto">
           <h1 className="mb-6 font-bold text-center">{faqs_title}</h1>
+
+          {/* Ordered list for FAQs */}
           <ol className="list-decimal list-inside">
             {course_faqs.map((item, index) => (
               <li

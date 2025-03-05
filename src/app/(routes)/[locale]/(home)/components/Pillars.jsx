@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 
 const PillarsSection = ({ pillars }) => {
   const t = useTranslations("home");
+  // Retrieve the current locale from the URL parameters
   const { locale } = useParams();
 
   return (
@@ -14,10 +15,11 @@ const PillarsSection = ({ pillars }) => {
         <h1 className="mb-6 text-center text-white uppercase">
           {t("pillarOfKime")}
         </h1>
+
         <div className="grid grid-cols-1 gap-10 my-10 md:grid-cols-2">
           {pillars?.map((pillar) => (
             <div
-              key={pillar.id}
+              key={pillar.id} // Ensure each item has a unique key
               className="flex flex-col items-center gap-2 p-6 m-2 text-center bg-white rounded-lg shadow-lg"
             >
               <Image
@@ -27,6 +29,7 @@ const PillarsSection = ({ pillars }) => {
                 height={100}
                 className="w-auto mb-4 select-none h-36 "
               />
+
               <div className="p-2">
                 <h3 className="font-bold uppercase">{pillar.title}</h3>
                 <hr className="w-full my-2 border-primary" />
@@ -37,6 +40,8 @@ const PillarsSection = ({ pillars }) => {
             </div>
           ))}
         </div>
+
+        {/* Signup button linking to the localized registration page */}
         <Link href={`${locale}/inscrebete`} className="custom-btn">
           {t("signUpNow")}
         </Link>

@@ -7,11 +7,11 @@ import Image from "next/image";
 const ClassSchedule = ({
   schedule_title,
   schedule_description,
-  schedule_days,
+  schedule_days, // Days on which the classes occur
   age_group_schedules,
   course_structure_title,
   course_structure_description,
-  structure_details,
+  structure_details, // Array containing course structure details
 }) => {
   const t = useTranslations();
 

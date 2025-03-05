@@ -24,6 +24,7 @@ const Footer = () => {
     fetchContactData();
   }, []);
 
+  // Check if the company logo is valid (non-empty string)
   const isValidLogo =
     contact?.company_logo &&
     typeof contact?.company_logo === "string" &&
@@ -31,6 +32,7 @@ const Footer = () => {
 
   return (
     <footer className="flex-shrink-0 w-full pt-6 text-white bg-black">
+      {/* Condition 1: Display a message if no contact data is found */}
       {!contact ? (
         <div className="flex items-center justify-center w-full">
           <p className="text-center">No contact found.</p>
@@ -38,7 +40,9 @@ const Footer = () => {
       ) : (
         <>
           <section className="flex flex-col items-center justify-between gap-3 px-6 mx-auto text-center max-w-7xl md:items-start md:text-left md:flex-row">
+            {/* Company logo and slogan section */}
             <div className="flex flex-col items-center space-y-3 md:items-start">
+              {/* Condition 2: Display the logo if valid, otherwise show a fallback message */}
               {isValidLogo ? (
                 <Image
                   src={contact?.company_logo}
@@ -58,14 +62,13 @@ const Footer = () => {
                 </div>
               )}
               <h5 className="font-semibold text-white">
-                {contact?.company_title + ": " + contact?.company_slogan ||
-                  "Company Slogan"}
+                {contact?.company_title + ": " + contact?.company_slogan}
               </h5>
             </div>
 
             <div className="flex flex-col items-start gap-4 mt-6 md:mt-0">
               <h3 className="text-white uppercase text-start">
-                {contact?.title || "Contact Information"}
+                {contact?.title}
               </h3>
 
               <div
@@ -87,7 +90,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className="underline hover:underline"
                   >
-                    {contact?.location || "abc"}
+                    {contact?.location}
                   </a>
                 </p>
               </div>
@@ -105,15 +108,15 @@ const Footer = () => {
                     href={`https://wa.me/${contact?.whatsapp_contact.replace(
                       /\D/g,
                       ""
-                    )}`}
+                    )}`} // Clean WhatsApp number for URL
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <p className="no-underline hover:underline">
-                      {contact?.whatsapp_contact || "123"}
+                      {contact?.whatsapp_contact}
                     </p>
                     <p className="hidden underline md:block">
-                      {contact?.whatsapp_text || "Whatsapp"}
+                      {contact?.whatsapp_text}
                     </p>
                   </a>
                 </div>
@@ -132,7 +135,7 @@ const Footer = () => {
                     href={`mailto:${contact?.whatsapp_contact}`}
                     className="hover:underline"
                   >
-                    {contact?.email || "abc@example.com"}
+                    {contact?.email}
                   </a>
                 </p>
               </div>
@@ -142,7 +145,7 @@ const Footer = () => {
               <a
                 href={contact?.facebook_link}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer" // Ensures security and performance for external links
                 aria-label="Visit our Facebook page"
               >
                 <Image
@@ -173,7 +176,7 @@ const Footer = () => {
           <hr className="w-[90%] mx-auto border-primary my-4" />
 
           <p className="flex justify-center pb-4 w-[60%] mx-auto text-center text-sm text-white md:text-base">
-            {contact?.copyright_description || "abc"}
+            {contact?.copyright_description}
           </p>
         </>
       )}

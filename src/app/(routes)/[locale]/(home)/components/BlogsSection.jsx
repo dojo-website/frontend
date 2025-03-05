@@ -15,6 +15,7 @@ const BlogsSection = () => {
     const fetchBlogData = async () => {
       try {
         const data = await getBlogs();
+        // Set the blog data if available, otherwise assign an empty array
         setBlogData(data || []);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -26,6 +27,7 @@ const BlogsSection = () => {
   }, []);
 
   const t = useTranslations("home");
+
   return (
     <section className="relative flex flex-col items-center justify-center py-10 overflow-hidden bg-white">
       {/* Watermarks */}
@@ -38,16 +40,17 @@ const BlogsSection = () => {
           alt="Watermark 1"
         />
       </div>
-      {/* Main Content */}
       <div className="relative max-w-7xl">
         <div className="text-center">
           <h1 className="my-4 uppercase">{t("fromOurBlog")}</h1>
         </div>
+
         {loading ? (
           <div className="text-center">
             <Loader />
           </div>
         ) : (
+          // Display blogs in a grid format
           <div className="grid w-full grid-cols-1 gap-6 p-6 mt-10 md:grid-cols-3">
             {blogData.slice(0, 3).map((blog, index) => (
               <AnimatedSection key={index} direction="left" delay={0.2 * index}>

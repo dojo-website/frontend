@@ -1,9 +1,9 @@
 import api from "@/utils/api";
 
+// Fetch signup page data from the API
 export const getSignupData = async () => {
   try {
     const response = await api.get("/signup");
-
     return response.data;
   } catch (error) {
     console.error(
@@ -14,11 +14,11 @@ export const getSignupData = async () => {
   }
 };
 
+// Create a new participant by sending data to the API
 export const createParticipant = async (participantData) => {
   try {
     const response = await api.post("/participants", participantData);
     "Participant created:", response.data;
-
     return response.data;
   } catch (error) {
     console.error(
