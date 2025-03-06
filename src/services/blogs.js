@@ -1,21 +1,13 @@
 import api from "@/utils/api";
 
 // Function to generate a slug from a title
-const generateSlug = (title, id) => {
-  return `${title
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "") // Remove special characters
-    .replace(/\s+/g, "-")}-${id}`; // Append ID
-};
-
 // Fetch blogs data based on category
 export const getBlogs = async (category = "all") => {
   try {
     const response = await api.get(`/blogs?category=${category}`);
     return response.data.map((blog) => ({
       ...blog,
-      slug: generateSlug(blog.title, blog.id), // Pass ID to ensure unique slug
+      slug: blog.meta_title, // Use meta_title as the slug
     }));
   } catch (error) {
     console.error(
@@ -25,7 +17,6 @@ export const getBlogs = async (category = "all") => {
     throw error;
   }
 };
-
 // Fetch blog header data
 export const getBlogsHeader = async () => {
   try {

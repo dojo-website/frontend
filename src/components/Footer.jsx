@@ -86,12 +86,12 @@ const Footer = () => {
                 />
                 <p itemProp="address" className="md:text-base">
                   <a
-                    href={`https://www.google.com/maps/search/`}
+                    href={contact?.location_value}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:underline"
                   >
-                    {contact?.location}
+                    {contact?.location_text}
                   </a>
                 </p>
               </div>

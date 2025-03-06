@@ -51,7 +51,10 @@ const BlogCard = ({ blog, isButton }) => {
           </p>
         ) : (
           <p className="py-2 mt-auto text-base text-center">
-            <Link href={`${locale}/blog/${blog?.slug}`} className="custom-btn">
+            <Link
+              href={`${locale}/blog/${blog?.meta_title}`}
+              className="custom-btn"
+            >
               {t("readMore")}
             </Link>
           </p>

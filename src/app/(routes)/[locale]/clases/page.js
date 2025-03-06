@@ -64,7 +64,7 @@ const Clases = () => {
           />
         </>
       ) : (
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-center justify-center min-h-[80vh]">
           <h5 className="font-bold text-center text-primary">
             No se encontró ningún registro.
           </h5>
