@@ -8,20 +8,23 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { routing } from "@/i18n/routing";
 
-const notoSansJP = Noto_Sans({
+const notoSans = Noto_Sans({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["variable"],
+  variable: "--font-noto-sans", // Assign to CSS variable
 });
 
 const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
   weight: ["300", "400", "700"],
   display: "swap",
+  variable: "--font-roboto-condensed", // Assign to CSS variable
 });
 
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["400", "700"],
+  variable: "--font-roboto", // Assign to CSS variable
 });
 
 export const metadata = {
@@ -46,7 +49,7 @@ export default async function RootLayout({ children, params }) {
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
       <body
-        className={`${notoSansJP.variable} ${roboto.variable} ${robotoCondensed.className} antialiased flex flex-col `}
+        className={`${notoSans.variable} ${roboto.variable} ${robotoCondensed.className} antialiased flex flex-col `}
       >
         <NextIntlClientProvider messages={messages}>
           <Header />

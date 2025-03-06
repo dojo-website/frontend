@@ -26,7 +26,7 @@ const MainContent = ({ content_title, header, mission_title, mission_statement }
           />
         </div>
         {/* Tablet and Desktop Watermarks */}
-        <div className="absolute top-0 right-0 h-auto select-none w-44 max-md:hidden">
+        <div className="absolute top-0 left-0 h-auto select-none w-44 max-md:hidden">
           <Image
             src="/watermarks/watermark-1.png"
             className="h-auto w-44"
@@ -54,8 +54,8 @@ const MainContent = ({ content_title, header, mission_title, mission_statement }
           </AnimatedSection>
           <AnimatedSection delay={0.4}>
             <div className="flex flex-col items-center justify-center gap-4 mt-4">
-              <h3 className="text-center uppercase">{mission_title}</h3>
-              <p className="mt-2 mb-6 leading-relaxed font-roboto">
+              <h3 className="font-semibold text-center uppercase">{mission_title}</h3>
+              <p className="mt-2 mb-6 leading-loose font-roboto">
                 {mission_statement}
               </p>
             </div>

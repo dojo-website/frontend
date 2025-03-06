@@ -7,7 +7,7 @@ const ClassFAQ = ({ faqs_title, course_faqs }) => {
   const t = useTranslations("classFAQs");
 
   return (
-    <div className="flex flex-col items-center w-full p-10 py-12 bg-secondary">
+    <div className="flex flex-col items-center w-full p-6 md:p-10 bg-secondary">
       {/* Main container for FAQ section */}
       <section className="relative w-full py-6 mx-auto text-white max-w-7xl">
         <div className="absolute bottom-0 right-0 w-48 md:w-56">

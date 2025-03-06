@@ -103,7 +103,7 @@ const Blogs = () => {
 
   return (
     <Fragment>
-      <AnimatedSection direction="fadeIn" delay={0.8}>
+      <AnimatedSection direction="down">
         <TitleSection image={blogHeader?.image} title={blogHeader?.title} />
       </AnimatedSection>
       <div className="my-10">

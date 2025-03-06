@@ -41,7 +41,7 @@ const Footer = () => {
         <>
           <section className="flex flex-col items-center justify-between gap-3 px-6 mx-auto text-center max-w-7xl md:items-start md:text-left md:flex-row">
             {/* Company logo and slogan section */}
-            <div className="flex flex-col items-center space-y-3 md:items-start">
+            <div className="flex flex-col items-center flex-1 w-full space-y-3 md:items-start">
               {/* Condition 2: Display the logo if valid, otherwise show a fallback message */}
               {isValidLogo ? (
                 <Image
@@ -51,23 +51,23 @@ const Footer = () => {
                       ? `${contact?.company_slogan} Image`
                       : "Logo Image"
                   }
-                  width={250}
+                  width={300}
                   height={250}
                   className="object-cover h-auto p-2 bg-white max-md:w-full"
                   priority
                 />
               ) : (
-                <div className="flex items-center justify-center w-full h-auto">
+                <div className="flex items-center justify-center h-auto">
                   <p className="text-white">No image available</p>
                 </div>
               )}
-              <h5 className="font-semibold text-white">
+              <h5 className="text-base leading-tight text-white font-notoSans">
                 {contact?.company_title + ": " + contact?.company_slogan}
               </h5>
             </div>
 
             {/* Contact Information */}
-            <div className="flex flex-col items-start gap-4 mt-6 md:mt-0">
+            <div className="flex flex-col items-start flex-1 w-full gap-4 mt-6 md:mt-0">
               <h3 className="text-white uppercase text-start">
                 {contact?.title}
               </h3>
@@ -143,7 +143,7 @@ const Footer = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex gap-4 mt-6 md:mt-0">
+            <div className="flex gap-4 my-2 lg:flex-1 md:mt-0">
               <a
                 href={contact?.facebook_link}
                 target="_blank"

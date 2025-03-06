@@ -152,6 +152,9 @@
     "submitSuccess": "Form submitted successfully!",
     "select": "Select",
 
+    "max_age": "Maximum age is 120",
+    "min_age": "Minimum age is 1",
+    
     "Beginner": "Beginner",
     "Intermediate": "Intermediate",
     "Advanced": "Advanced"

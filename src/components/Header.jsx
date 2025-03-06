@@ -38,7 +38,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <ul className="items-center hidden h-full gap-10 md:flex">
+          <ul className="items-center hidden h-full gap-6 lg:gap-10 md:flex">
             {navLinks.map(({ key, href }) => {
               const fullHref = `/${locale}${href}`;
               // Special handling for the home link
@@ -51,7 +51,7 @@ const Header = () => {
                 <li key={key}>
                   <Link
                     href={fullHref}
-                    className={`text-xl transition duration-300 hover:text-primary ${
+                    className={`text-lg font-robotoCondensed font-semibold lg:text-xl transition duration-300 hover:text-primary ${
                       isActive ? "text-primary" : ""
                     }`}
                   >

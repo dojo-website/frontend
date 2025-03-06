@@ -35,7 +35,7 @@ const ClassSchedule = ({
         />
       </div>
       {/* Tablet and Desktop Watermarks */}
-      <div className="absolute top-0 right-0 h-auto select-none w-44 max-md:hidden">
+      <div className="absolute bottom-0 right-0 h-auto select-none w-44 max-md:hidden">
         <Image
           src="/watermarks/watermark-1.png"
           className="h-auto w-44"
@@ -60,13 +60,13 @@ const ClassSchedule = ({
 
             <div className="mt-6 rounded-lg ">
               <h6 className="mb-2 font-bold">{schedule_days}</h6>
-              <ul className="space-y-2 text-sm font-roboto">
+              <ul className="mx-3 space-y-2 text-sm font-roboto">
                 {age_group_schedules.map((classItem) => (
                   <li
                     key={classItem.id}
                     className="flex items-center gap-2 font-semibold text-primary"
                   >
-                    <div className="rounded-full size-2 bg-primary" />
+                    <div className="rounded-full size-1.5 bg-primary" />
 
                     <p>
                       {classItem.time_ranges}:&nbsp;

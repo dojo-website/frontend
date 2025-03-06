@@ -30,11 +30,7 @@ const MainSlider = ({ headerImages }) => {
           prevEl: ".custom-prev",
           nextEl: ".custom-next",
         }}
-<<<<<<< HEAD
-        autoplay={{ delay: 5000 }} // Auto-slide every 5 seconds
-=======
         autoplay={{ delay: 3000 }}
->>>>>>> 5b8688e (improvements)
         className="w-full h-[300px] md:h-[600px]"
       >
         {headerImages?.map((image) => (

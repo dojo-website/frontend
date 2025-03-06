@@ -24,10 +24,11 @@ const BlogCard = ({ blog, isButton }) => {
       : blog?.blog_images[0]?.image_url;
 
   return (
-    <div className="flex flex-col h-full overflow-hidden text-white bg-black rounded-xl">
-      <div className="flex-shrink-0 h-56">
+    <div className="flex flex-col h-full max-h-[500px] md:max-h-[500px] overflow-hidden text-white bg-black rounded-xl">
+      {/* Image Section */}
+      <div className="flex-shrink-0 h-56 md:h-40">
         <Image
-          src={imageToShow || "/favicon.svg"} // Fallback to a default image if no image is available
+          src={imageToShow || "/favicon.svg"} // Fallback image
           alt={blog?.title}
           width={800}
           height={300}
@@ -35,19 +36,20 @@ const BlogCard = ({ blog, isButton }) => {
         />
       </div>
 
-      <div className="flex flex-col flex-grow gap-2 p-4">
-        <h4 className="text-lg font-bold">{blog?.title}</h4>
-        <p className="mt-2 text-sm">
-          {blog.blog_sections[0]?.description.substring(0, 200)}...{" "}
-          {/* Display only the first 200 characters of the description */}
+      {/* Content Section */}
+      <div className="flex flex-col flex-grow gap-2 p-4 h-1/2">
+        <h4 className="text-lg font-bold text-center line-clamp-2">
+          {blog?.title}
+        </h4>
+        <p className="text-base text-center line-clamp-3">
+          {blog.blog_sections[0]?.description.substring(0, 200)}
         </p>
+
         {!isButton ? (
-          // Display the creation date if `isButton` is false
           <p className="mt-auto text-base text-center text-primary">
             {formatDate(blog.created_at)}
           </p>
         ) : (
-          // Display a "Read More" button if `isButton` is true
           <p className="py-2 mt-auto text-base text-center">
             <Link href={`${locale}/blog/${blog?.slug}`} className="custom-btn">
               {t("readMore")}

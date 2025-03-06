@@ -152,6 +152,9 @@
     "submitSuccess": "¡Formulario enviado exitosamente!",
     "select": "Select",
 
+    "max_age": "La edad máxima es 120",
+    "min_age": "La edad mínima es 1",
+
     "Beginner": "Principiante",
     "Intermediate": "Intermedio",
     "Advanced": "Avanzado"

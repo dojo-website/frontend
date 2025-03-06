@@ -6,5 +6,5 @@ export default createMiddleware(routing);
 
 // Define middleware matcher for specific routes
 export const config = {
-  matcher: ["/", "/(en|es)/:path*"],
+  matcher: ["/", "/(es|en)/:path*"],
 };

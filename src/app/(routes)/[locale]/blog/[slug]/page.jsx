@@ -97,7 +97,7 @@ const Article = () => {
             { id: 4, label: blog.title, href: `#` },
           ]}
         />
-
+        {/* Blog title Image */}
         <Image
           src={imageToShow || "/favicon.svg"}
           width={1000}
@@ -107,7 +107,7 @@ const Article = () => {
         />
 
         <div className="relative -z-10">
-          {/* Watermark */}
+          {/* Watermarks */}
           <div className="absolute right-0 hidden select-none w-44 lg:block -bottom-24">
             <Image
               src="/watermarks/watermark-3.png"
@@ -117,8 +117,8 @@ const Article = () => {
               alt="Watermark 3"
             />
           </div>
-          {/* Blog Content */}
-          <div className="relative max-w-5xl py-8 mx-auto">
+          {/* Main BLog Content */}
+          <div className="relative min-h-[50vh] max-w-5xl py-8 mx-auto">
             {blog?.blog_sections.map((section) => (
               <div key={section.id} className="relative">
                 <div className="absolute top-0 right-0 block w-32 select-none lg:hidden">
@@ -139,6 +139,7 @@ const Article = () => {
           </div>
         </div>
 
+        {/* More Blogs */}
         <section className="flex flex-col items-center justify-center my-4">
           <h1 className="my-2 text-center uppercase">{t("moreArticles")}</h1>
           <div className="grid w-full grid-cols-1 gap-6 p-4 md:p-6 md:grid-cols-3">

@@ -18,6 +18,7 @@ export const getSignupData = async () => {
 export const createParticipant = async (participantData) => {
   try {
     const response = await api.post("/participants", participantData);
+    console.log("response status:", response.status);
     "Participant created:", response.data;
     return response.data;
   } catch (error) {

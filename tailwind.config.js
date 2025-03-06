@@ -11,7 +11,8 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "#E33524",
+        primary: "#D12726",
+        primaryBtn: "#E33524",
         secondary: "#1D1C1C",
       },
       fontFamily: {

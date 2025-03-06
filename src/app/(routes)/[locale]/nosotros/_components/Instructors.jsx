@@ -27,7 +27,9 @@ const Instructors = ({
           <AnimatedSection delay={0.2} direction="down">
             <div className="max-w-5xl mx-auto text-center">
               <h1 className="uppercase font-notoSans">{instructor_title}</h1>
-              <p className="mt-4 text-lg">{instructor_description}</p>
+              <p className="mt-4 text-lg leading-loose">
+                {instructor_description}
+              </p>
             </div>
           </AnimatedSection>
           <div className="flex flex-col items-center justify-center max-w-5xl gap-5 mx-auto mt-10 md:flex-row md:gap-10">
@@ -41,7 +43,7 @@ const Instructors = ({
               </Fragment>
             ))}
           </div>
-          </div>
+        </div>
       </section>
     </div>
   );
@@ -55,8 +57,8 @@ const InstructorCard = ({ name, designation, description, image }) => {
         <Image
           src={image}
           alt={name}
-          width={120}
-          height={120}
+          width={200}
+          height={200}
           className="object-cover w-full h-full rounded-full"
         />
       </div>
