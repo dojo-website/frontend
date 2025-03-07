@@ -49,12 +49,22 @@ const BlogsSection = () => {
           <div className="text-center">
             <Loader />
           </div>
+        ) : blogData.length === 0 ? (
+          <div className="flex justify-center items-center min-h-[50vh]">
+            <h5 className="font-bold text-center text-primary">
+              No se encontró ningún registro.
+            </h5>
+          </div>
         ) : (
           // Display blogs in a grid format
           <div className="grid w-full grid-cols-1 gap-6 p-6 mt-10 md:grid-cols-3">
             {blogData.slice(0, 3).map((blog, index) => (
-              <AnimatedSection key={blog?.id} direction="left" delay={0.2 * index}>
-                <BlogCard  blog={blog} isButton={true} />
+              <AnimatedSection
+                key={blog?.id}
+                direction="left"
+                delay={0.2 * index}
+              >
+                <BlogCard blog={blog} isButton={true} />
               </AnimatedSection>
             ))}
           </div>

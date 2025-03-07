@@ -1,17 +1,20 @@
 import "@/app/globals.css";
-import { Noto_Sans, Roboto, Roboto_Condensed } from "next/font/google";
+import {
+  Noto_Sans,
+  Noto_Sans_JP,
+  Roboto,
+  Roboto_Condensed,
+} from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { notFound } from "next/navigation";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { routing } from "@/i18n/routing";
 
-const notoSans = Noto_Sans({
+const notoSans = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["variable"],
-  variable: "--font-noto-sans", // Assign to CSS variable
+  variable: "--font-noto-sans-jp", // Assign to CSS variable
 });
 
 const robotoCondensed = Roboto_Condensed({
@@ -29,17 +32,12 @@ const roboto = Roboto({
 
 export const metadata = {
   title: "KIME - KARATE DOJO",
-  description: "A Karate Dojo Blog website",
+  description: "El enfoque que define el Karate",
 };
 
 export default async function RootLayout({ children, params }) {
   // Await the params object before destructuring
   const { locale } = await params;
-
-  // Validate the locale
-  if (!routing.locales.includes(locale)) {
-    notFound();
-  }
 
   const messages = await getMessages();
 

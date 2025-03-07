@@ -154,7 +154,7 @@
 
     "max_age": "Maximum age is 120",
     "min_age": "Minimum age is 1",
-    
+
     "Beginner": "Beginner",
     "Intermediate": "Intermediate",
     "Advanced": "Advanced"
@@ -178,5 +178,14 @@
 
   "footer": {
     "writeToUs": "Write to us on Whatsapp"
+  },
+
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist.",
+    "searchPlaceholder": "Search for a topic...",
+    "searchButton": "Search",
+    "backHome": "Go to Home page now",
+    "countdown": "You will be redirected to home after {counter} seconds"
   }
 }

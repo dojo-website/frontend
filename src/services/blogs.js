@@ -1,6 +1,5 @@
 import api from "@/utils/api";
 
-// Function to generate a slug from a title
 // Fetch blogs data based on category
 export const getBlogs = async (category = "all") => {
   try {

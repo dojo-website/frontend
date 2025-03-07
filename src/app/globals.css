@@ -5,7 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-noto-sans: "Noto Sans", sans-serif;
+  --font-noto-sans-jp: "Noto Sans", sans-serif;
   --font-roboto: "Roboto", sans-serif;
   --font-roboto-condensed: "Roboto Condensed", sans-serif;
 }
@@ -19,7 +19,7 @@
   body {
     color: var(--foreground);
     background: var(--background);
-    font-family: var(--font-noto-sans), var(--font-roboto) sans-serif;
+    font-family: var(--font-noto-sans-jp), var(--font-roboto) sans-serif;
   }
 }
 

@@ -306,7 +306,7 @@ const RegistrationForm = ({ data }) => {
           <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
             <div className="w-[90%] max-w-lg h-64 flex flex-col justify-evenly p-8 transition-transform duration-300 transform scale-95 bg-white rounded-lg shadow-lg hover:scale-100">
               <h4 className="mb-6 text-xl font-bold text-center">
-                {confirmationModal.message} Â¿Quieres enviar este formulario?
+                {confirmationModal.message}
               </h4>
               <div className="flex justify-center gap-6 md:justify-end">
                 <button
