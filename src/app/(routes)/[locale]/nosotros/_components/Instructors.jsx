@@ -13,10 +13,11 @@ const Instructors = ({
   return (
     <div className="flex flex-col items-center">
       <section className="relative flex flex-col justify-center mx-auto lg:w-full max-w-7xl">
+        {/* Watermark */}
         <div className="absolute w-full h-full">
           <Image
             src="/watermarks/watermark-3.png"
-            className="absolute top-0 left-0 w-56 h-auto select-none md:w-64 md:left-auto md:right-0"
+            className="absolute w-32 h-auto select-none left-4 top-4 md:w-56 md:left-auto md:right-0"
             width={200}
             height={200}
             alt="Watermark 3"
@@ -26,19 +27,22 @@ const Instructors = ({
           <AnimatedSection delay={0.2} direction="down">
             <div className="max-w-5xl mx-auto text-center">
               <h1 className="uppercase font-notoSans">{instructor_title}</h1>
-              <p className="mt-4 text-lg">{instructor_description}</p>
+              <p className="mt-4 text-lg leading-loose">
+                {instructor_description}
+              </p>
             </div>
           </AnimatedSection>
-          <AnimatedSection delay={0.4} direction="down">
-            <div className="flex flex-col items-center justify-center max-w-5xl gap-5 mx-auto mt-10 md:flex-row md:gap-10">
-              {instructors.map((instructor, index) => (
-                <Fragment key={instructor.id}>
+          <div className="flex flex-col items-center justify-center max-w-5xl gap-5 mx-auto mt-10 md:flex-row md:gap-10">
+            {instructors.map((instructor, index) => (
+              <Fragment key={instructor.id}>
+                <AnimatedSection direction="left" delay={index * 0.2}>
                   <InstructorCard {...instructor} />
-                  {index !== instructors.length - 1 && <Seperator />}
-                </Fragment>
-              ))}
-            </div>
-          </AnimatedSection>
+                </AnimatedSection>
+
+                {index !== instructors.length - 1 && <Seperator />}
+              </Fragment>
+            ))}
+          </div>
         </div>
       </section>
     </div>
@@ -53,8 +57,8 @@ const InstructorCard = ({ name, designation, description, image }) => {
         <Image
           src={image}
           alt={name}
-          width={120}
-          height={120}
+          width={200}
+          height={200}
           className="object-cover w-full h-full rounded-full"
         />
       </div>

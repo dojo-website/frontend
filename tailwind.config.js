@@ -11,11 +11,12 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "#E33524",
+        primary: "#D12726",
+        primaryBtn: "#E33524",
         secondary: "#1D1C1C",
       },
       fontFamily: {
-        notoSans: ["var(--font-noto-sans)", "sans-serif"],
+        notoSans: ["var(--font-noto-sans-jp)", "sans-serif"],
         roboto: ["var(--font-roboto)", "sans-serif"],
         robotoCondensed: ["var(--font-roboto-condensed)", "sans-serif"],
       },

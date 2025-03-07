@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import parse from "html-react-parser";
 import Image from "next/image";
 import AnimatedSection from "@/components/animations/AnimatedSection";
 
@@ -49,12 +48,12 @@ const MainContent = ({ title, header, description }) => {
           <h1 className="my-6 text-black uppercase">{title}</h1>
         </AnimatedSection>
         <AnimatedSection direction="down" delay={0.4}>
-          <h3 className="mt-2 font-bold font-roboto text-primary">{header}</h3>
+          <h4 className="mt-3 font-bold font-roboto text-primary">{header}</h4>
         </AnimatedSection>
         <AnimatedSection direction="down" delay={0.6}>
-          <h5 className="mt-2 mb-6 leading-relaxed font-roboto">
+          <p className="mt-2 mb-6 font-normal leading-loose font-roboto">
             {description}
-          </h5>
+          </p>
         </AnimatedSection>
       </main>
     </section>

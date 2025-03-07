@@ -152,6 +152,9 @@
     "submitSuccess": "¡Formulario enviado exitosamente!",
     "select": "Select",
 
+    "max_age": "La edad máxima es 120",
+    "min_age": "La edad mínima es 1",
+
     "Beginner": "Principiante",
     "Intermediate": "Intermedio",
     "Advanced": "Avanzado"
@@ -171,5 +174,14 @@
     "can_register_with_teacher_answer": "No, nuestros instructores están enfocados en las clases. Las inscripciones deben realizarse a través de la página web.",
     "class_cost": "¿Cuál es el valor de las clases?",
     "class_cost_answer": "El valor mensual es:\n• $60.000 para niños y jóvenes (hasta 23 años).\n• $80.000 para adultos.\nNo cobramos matrícula."
+  },
+
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe.",
+    "searchPlaceholder": "Busca un tema...",
+    "searchButton": "Buscar",
+    "backHome": "Ir a la página de inicio ahora",
+    "countdown": "Serás redirigido a la página de inicio en {counter} segundos"
   }
 }

@@ -108,7 +108,7 @@ const Blogs = () => {
       </AnimatedSection>
       <div className="my-10">
         {/* Category Filter */}
-        <AnimatedSection direction="top" delay={0.1}>
+        <AnimatedSection direction="top" delay={0.2}>
           <div className="flex gap-3 px-6 mx-auto overflow-x-auto shadow-md md:shadow-none md:max-w-7xl md:overflow-visible no-scrollbar">
             {categories.map((category) => (
               <button
@@ -146,7 +146,7 @@ const Blogs = () => {
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {currentBlogs.map((blog) => (
                 <AnimatedSection key={blog.id} direction="left" delay={0.2}>
-                  <Link href={`/${locale}/blog/${blog.id}`}>
+                  <Link href={`/${locale}/blog/${blog.slug}`}>
                     <BlogCard blog={blog} />
                   </Link>
                 </AnimatedSection>

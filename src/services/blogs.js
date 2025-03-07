@@ -4,7 +4,10 @@ import api from "@/utils/api";
 export const getBlogs = async (category = "all") => {
   try {
     const response = await api.get(`/blogs?category=${category}`);
-    return response.data;
+    return response.data.map((blog) => ({
+      ...blog,
+      slug: blog.meta_title, // Use meta_title as the slug
+    }));
   } catch (error) {
     console.error(
       "Failed to fetch Blogs Page data:",
@@ -13,7 +16,6 @@ export const getBlogs = async (category = "all") => {
     throw error;
   }
 };
-
 // Fetch blog header data
 export const getBlogsHeader = async () => {
   try {
