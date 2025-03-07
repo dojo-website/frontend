@@ -14,28 +14,32 @@ const blogsPerPage = 9;
 const Blogs = () => {
   // Define blog categories for filtering
   const categories = [
-    { id: "all", name: "All" },
-    { id: "news", name: "Noticias" },
-    { id: "technical", name: "Técnica" },
-    { id: "philosophy", name: "Filosofía" },
-    { id: "history", name: "Historia" },
+    { id: "All", name: "All" },
+    { id: "Noticias", name: "Noticias" },
+    { id: "Técnica", name: "Técnica" },
+    { id: "Filosofía", name: "Filosofía" },
+    { id: "Historia", name: "Historia" },
   ];
 
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [currentPage, setCurrentPage] = useState(1);
   const { locale } = useParams();
+  const searchParams = useSearchParams();
+  const categoryQuery = searchParams.get("category");
+
+  // Initialize selectedCategory based on the URL query parameter
+  const [selectedCategory, setSelectedCategory] = useState(
+    categoryQuery || "All"
+  );
+  const [currentPage, setCurrentPage] = useState(1);
   const [blogData, setBlogData] = useState([]);
   const [blogHeader, setBlogHeader] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Get search parameters from the URL (for category filtering)
-  const searchParams = useSearchParams();
-  const categoryQuery = searchParams.get("category");
-
-  // Set the selected category based on the query parameter
+  // Sync selectedCategory with the URL query parameter
   useEffect(() => {
     if (categoryQuery) {
       setSelectedCategory(categoryQuery);
+    } else {
+      setSelectedCategory("All");
     }
   }, [categoryQuery]);
 

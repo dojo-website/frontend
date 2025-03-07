@@ -25,7 +25,6 @@ const Article = () => {
       try {
         const data = await getBlogs();
         setBlogData(data || []);
-
         const selectedBlog = data.find((blog) => blog.meta_title === slug); // ✅ Match by meta_title
         if (selectedBlog) {
           setBlog(selectedBlog);
@@ -41,7 +40,7 @@ const Article = () => {
 
     fetchData();
   }, [slug]);
-
+  
   const featuredImages = blog?.blog_images?.filter((image) => image.featured);
   const imageToShow =
     featuredImages?.length > 0
@@ -63,7 +62,6 @@ const Article = () => {
       </div>
     );
   }
-
   if (!blog) {
     return (
       <div className="flex items-center justify-center min-h-[80vh]">

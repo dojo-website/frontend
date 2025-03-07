@@ -5,6 +5,7 @@ import { createParticipant } from "@/services/inscrebete";
 import { useEffect, useState } from "react";
 import AnimatedSection from "@/components/animations/AnimatedSection";
 import Image from "next/image";
+import Loader from "@/components/Loader";
 
 const RegistrationForm = ({ data }) => {
   const t = useTranslations("registrationForm");
@@ -12,6 +13,7 @@ const RegistrationForm = ({ data }) => {
   // Available class levels
   const classLevels = ["Beginner", "Intermediate", "Advanced"];
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [confirmationModal, setConfirmationModal] = useState({
     open: false,
@@ -87,12 +89,19 @@ const RegistrationForm = ({ data }) => {
     });
   };
 
-  const handleConfirmation = (confirmed) => {
-    setConfirmationModal({ open: false, message: "" });
-    if (confirmed) {
-      onSubmit(confirmationModal.formData);
+const handleConfirmation = async (confirmed) => {
+  if (confirmed) {
+    setIsLoading(true); // Start loading
+    try {
+      await onSubmit(confirmationModal.formData);
+    } finally {
+      setIsLoading(false); // Stop loading
+      setConfirmationModal({ open: false, message: "" }); // Close modal
     }
-  };
+  } else {
+    setConfirmationModal({ open: false, message: "" }); // Close modal if not confirmed
+  }
+};
 
   return (
     <div className="relative bg-white">
@@ -108,7 +117,7 @@ const RegistrationForm = ({ data }) => {
       </div>
       {/* Page Content */}
       <section className="relative p-8 mx-auto max-w-7xl">
-        <h1 className="my-6 text-center">{data?.title}</h1>
+        <h1 className="my-6 text-center uppercase">{data?.registration_title}</h1>
         <form
           onSubmit={handleSubmit(handleFormSubmit)}
           className="flex flex-col gap-12 font-roboto"
@@ -305,23 +314,31 @@ const RegistrationForm = ({ data }) => {
         {confirmationModal.open && (
           <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
             <div className="w-[90%] max-w-lg h-64 flex flex-col justify-evenly p-8 transition-transform duration-300 transform scale-95 bg-white rounded-lg shadow-lg hover:scale-100">
-              <h4 className="mb-6 text-xl font-bold text-center">
-                {confirmationModal.message}
-              </h4>
-              <div className="flex justify-center gap-6 md:justify-end">
-                <button
-                  onClick={() => handleConfirmation(true)}
-                  className="w-24 px-6 py-3 text-white transition-all duration-200 bg-green-500 rounded-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                >
-                  SÃ­
-                </button>
-                <button
-                  onClick={() => handleConfirmation(false)}
-                  className="w-24 px-6 py-3 text-white transition-all duration-200 bg-red-600 rounded-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                >
-                  Cancelar
-                </button>
-              </div>
+              {isLoading ? (
+                <div className="flex items-center justify-center">
+                  <Loader /> {/* Replace with your Loader component */}
+                </div>
+              ) : (
+                <>
+                  <h4 className="mb-6 text-xl font-bold text-center">
+                    {confirmationModal.message}
+                  </h4>
+                  <div className="flex justify-center gap-6 md:justify-end">
+                    <button
+                      onClick={() => handleConfirmation(true)}
+                      className="w-24 px-6 py-3 text-white transition-all duration-200 bg-green-500 rounded-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                    >
+                      Sí
+                    </button>
+                    <button
+                      onClick={() => handleConfirmation(false)}
+                      className="w-24 px-6 py-3 text-white transition-all duration-200 bg-red-600 rounded-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         )}

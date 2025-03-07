@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import getContacts from "@/services/contactUs";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
   const [contact, setContact] = useState(null);
+  const t = useTranslations();
 
   useEffect(() => {
     const fetchContactData = async () => {
@@ -58,7 +60,7 @@ const Footer = () => {
                 />
               ) : (
                 <div className="flex items-center justify-center h-auto">
-                  <p className="text-white">No image available</p>
+                  <p className="text-white">{t("noImageFound")}</p>
                 </div>
               )}
               <h5 className="text-base leading-tight text-white font-notoSans">

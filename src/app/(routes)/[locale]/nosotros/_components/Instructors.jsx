@@ -53,7 +53,7 @@ export default Instructors;
 const InstructorCard = ({ name, designation, description, image }) => {
   return (
     <div className="flex flex-col items-center space-y-3 text-center">
-      <div className="p-1 border-2 rounded-full border-primary size-36">
+      <div className="p-1 border-2 rounded-full border-primary size-[10rem]">
         <Image
           src={image}
           alt={name}

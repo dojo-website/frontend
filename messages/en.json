@@ -187,5 +187,7 @@
     "searchButton": "Search",
     "backHome": "Go to Home page now",
     "countdown": "You will be redirected to home after {counter} seconds"
-  }
+  },
+
+  "noImageFound": "No Image found"
 }

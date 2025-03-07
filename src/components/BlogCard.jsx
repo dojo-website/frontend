@@ -26,7 +26,7 @@ const BlogCard = ({ blog, isButton }) => {
   return (
     <div className="flex flex-col h-full max-h-[500px] md:max-h-[500px] overflow-hidden text-white bg-black rounded-xl">
       {/* Image Section */}
-      <div className="flex-shrink-0 h-56 md:h-40">
+      <div className="flex-shrink-0 h-56 md:h-52">
         <Image
           src={imageToShow || "/favicon.svg"} // Fallback image
           alt={blog?.title}

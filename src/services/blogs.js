@@ -1,7 +1,7 @@
 import api from "@/utils/api";
 
 // Fetch blogs data based on category
-export const getBlogs = async (category = "all") => {
+export const getBlogs = async (category = "All") => {
   try {
     const response = await api.get(`/blogs?category=${category}`);
     return response.data.map((blog) => ({

@@ -3,7 +3,12 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 
-const MainContent = ({ content_title, header, mission_title, mission_statement }) => {
+const MainContent = ({
+  content_title,
+  header,
+  mission_title,
+  mission_statement,
+}) => {
   const t = useTranslations("nosotros.main");
   return (
     <div className="flex flex-col items-center justify-center px-2 my-2">
@@ -54,7 +59,9 @@ const MainContent = ({ content_title, header, mission_title, mission_statement }
           </AnimatedSection>
           <AnimatedSection delay={0.4}>
             <div className="flex flex-col items-center justify-center gap-4 mt-4">
-              <h3 className="font-semibold text-center uppercase">{mission_title}</h3>
+              <h3 className="font-bold text-center uppercase">
+                {mission_title}
+              </h3>
               <p className="mt-2 mb-6 leading-loose font-roboto">
                 {mission_statement}
               </p>

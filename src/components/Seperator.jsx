@@ -5,7 +5,7 @@ const Seperator = () => {
   return (
     <Fragment>
       {/* Desktop & Tablet (Vertical Separator) */}
-      <div className="items-center hidden w-2 h-full md:flex">
+      <div className="items-center hidden w-5 h-full md:flex">
         <Image
           src="/seperator-vertical.png"
           width={30}

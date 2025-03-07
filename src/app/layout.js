@@ -11,7 +11,7 @@ import { getMessages } from "next-intl/server";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const notoSans = Noto_Sans_JP({
+const notoSans = Noto_Sans({
   subsets: ["latin"],
   weight: ["variable"],
   variable: "--font-noto-sans-jp", // Assign to CSS variable
