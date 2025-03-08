@@ -26,7 +26,7 @@ const robotoCondensed = Roboto_Condensed({
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
   variable: "--font-roboto", // Assign to CSS variable
 });
 

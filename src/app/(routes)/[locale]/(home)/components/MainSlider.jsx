@@ -12,12 +12,13 @@ import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 
 const MainSlider = ({ headerImages }) => {
-  const t = useTranslations("home");
+  const home = useTranslations("home");
+  const t = useTranslations();
   const { locale } = useParams();
 
   // If no images are provided, display a fallback message
   if (!headerImages || headerImages.length === 0) {
-    return <div>No images to display.</div>;
+    return <div>{"noImageFound"}</div>;
   }
 
   return (
@@ -28,7 +29,7 @@ const MainSlider = ({ headerImages }) => {
         fadeEffect={{ crossFade: false }} // Smooth fading
         loop={true}
         autoplay={{ delay: 3000, disableOnInteraction: false }} // 5s per slide
-        speed={2000} // 1s transition effect
+        speed={1500} // 1s transition effect
         navigation={{ prevEl: ".custom-prev", nextEl: ".custom-next" }}
         className="w-full h-[300px] md:h-[600px]"
       >
@@ -56,7 +57,7 @@ const MainSlider = ({ headerImages }) => {
                 {/* Read more button linked to localized 'nosotros' page */}
                 <Link href={`/${locale}/nosotros`}>
                   <button className="mt-4 text-sm font-medium md:mt-12 md:text-2xl custom-btn">
-                    {t("readMore")}
+                    {home("readMore")}
                   </button>
                 </Link>
               </div>
@@ -65,23 +66,26 @@ const MainSlider = ({ headerImages }) => {
         ))}
       </Swiper>
 
-      <button className="absolute z-10 flex items-center justify-center transform -translate-y-1/2 size-8 md:size-20 custom-prev left-4 top-1/2">
+      <button className="absolute z-10 flex items-center justify-center size-8 md:size-20 custom-prev left-4 top-1/2">
         <Image
-          src="/arrow-left.png"
+          src="/arrow-slider.svg"
+          className="transform rotate-180 -translate-y-1/2 hover:brightness-90 active:brightness-75"
           alt="Previous"
           width={50}
           height={50}
+          draggable={false}
           priority
         />
       </button>
 
-      <button className="absolute z-10 flex items-center justify-center transform -translate-y-1/2 custom-next size-8 md:size-20 right-4 top-1/2">
+      <button className="absolute z-10 flex items-center justify-center custom-next size-8 md:size-20 right-4 top-1/2">
         <Image
-          src="/arrow-left.png"
-          className="rotate-180"
+          src="/arrow-slider.svg"
+          className="transform -translate-y-1/2 hover:brightness-90 active:brightness-75 "
           alt="Next"
           width={50}
           height={50}
+          draggable={false}
           priority
         />
       </button>

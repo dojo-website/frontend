@@ -25,7 +25,6 @@ const Article = () => {
       try {
         const data = await getBlogs();
         setBlogData(data || []);
-
         const selectedBlog = data.find((blog) => blog.meta_title === slug); // ✅ Match by meta_title
         if (selectedBlog) {
           setBlog(selectedBlog);
@@ -63,7 +62,6 @@ const Article = () => {
       </div>
     );
   }
-
   if (!blog) {
     return (
       <div className="flex items-center justify-center min-h-[80vh]">
@@ -163,9 +161,9 @@ const Article = () => {
             className="object-cover w-full my-4 rounded-xl h-72"
           />
 
-          <div className="relative -z-10">
+          <div className="relative ">
             {/* Watermarks */}
-            <div className="absolute right-0 hidden select-none w-44 lg:block -bottom-24">
+            <div className="absolute right-0 hidden select-none -z-10 w-44 lg:block -bottom-24">
               <Image
                 src="/watermarks/watermark-3.png"
                 className="w-full h-auto "

@@ -15,11 +15,9 @@ const Association = ({
         <h1 className="font-bold uppercase">{associationTitle}</h1>
 
         <div className="max-w-4xl">
-          <p className="leading-loose">
-            {associationDescription}
-          </p>
+          <p className="leading-loose">{associationDescription}</p>
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-6 mt-4 overflow-hidden">
+        <div className="flex flex-wrap items-center justify-center gap-6 mt-4 mb-2 overflow-hidden">
           {associations?.map(({ id, logo, name }) => (
             <AnimatedSection key={id} delay={0.2 * id} direction="left">
               <Image
@@ -27,7 +25,7 @@ const Association = ({
                 width={250}
                 height={250}
                 alt={name}
-                className="object-cover m-2 rounded-lg"
+                className="object-contain m-2 rounded-lg max-h-56"
               />
             </AnimatedSection>
           ))}

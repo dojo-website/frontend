@@ -23,7 +23,7 @@ const OurPhilosophy = ({
             <li key={approach?.id || index} className="flex items-center gap-3">
               <span className="h-2 p-1 m-2 rounded-full bg-primary" />
               <p className="leading-loose">
-                <strong>{approach?.title || "Title"}:</strong>
+                <strong>{approach?.title || "Title"}</strong>
                 {approach?.description || "Description"}
               </p>
             </li>
