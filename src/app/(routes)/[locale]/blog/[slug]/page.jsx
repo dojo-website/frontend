@@ -40,7 +40,7 @@ const Article = () => {
 
     fetchData();
   }, [slug]);
-  
+
   const featuredImages = blog?.blog_images?.filter((image) => image.featured);
   const imageToShow =
     featuredImages?.length > 0
@@ -161,9 +161,9 @@ const Article = () => {
             className="object-cover w-full my-4 rounded-xl h-72"
           />
 
-          <div className="relative -z-10">
+          <div className="relative ">
             {/* Watermarks */}
-            <div className="absolute right-0 hidden select-none w-44 lg:block -bottom-24">
+            <div className="absolute right-0 hidden select-none -z-10 w-44 lg:block -bottom-24">
               <Image
                 src="/watermarks/watermark-3.png"
                 className="w-full h-auto "

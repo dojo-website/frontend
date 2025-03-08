@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 
 const Footer = () => {
   const [contact, setContact] = useState(null);
-  const t = useTranslations();
+  const t = useTranslations("footer");
 
   useEffect(() => {
     const fetchContactData = async () => {
@@ -37,7 +37,7 @@ const Footer = () => {
       {/* Condition 1: Display a message if no contact data is found */}
       {!contact ? (
         <div className="flex items-center justify-center w-full">
-          <p className="text-center">No contact found.</p>
+          <p className="text-center">{t("noContactFound")}</p>
         </div>
       ) : (
         <>
@@ -70,7 +70,7 @@ const Footer = () => {
 
             {/* Contact Information */}
             <div className="flex flex-col items-start flex-1 w-full gap-4 mt-6 md:mt-0">
-              <h3 className="text-white uppercase text-start">
+              <h3 className="font-bold text-white uppercase text-start">
                 {contact?.title}
               </h3>
 

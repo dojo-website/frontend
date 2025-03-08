@@ -1,7 +1,9 @@
 import Image from "next/image";
 import AnimatedSection from "./animations/AnimatedSection";
+import { useTranslations } from "next-intl";
 
 const TitleSection = ({ title, image }) => {
+  const t = useTranslations();
   // Validate image and title inputs
   const isValidImage =
     image && typeof image === "string" && image.trim() !== "";
@@ -22,8 +24,8 @@ const TitleSection = ({ title, image }) => {
             priority
           />
         ) : (
-          <div className="flex items-center justify-center w-full h-64 rounded-lg">
-            <p className="text-gray-500">No image available</p>
+          <div className="flex items-center justify-center w-full rounded-lg">
+            <p className="text-center text-pretty">{t("noImageFound")}</p>
           </div>
         )}
 

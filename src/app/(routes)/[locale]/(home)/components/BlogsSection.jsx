@@ -31,10 +31,10 @@ const BlogsSection = () => {
   return (
     <section className="relative flex flex-col items-center justify-center py-10 overflow-hidden bg-white">
       {/* Watermarks */}
-      <div className="absolute w-32 select-none max-md:right-0 md:left-0 md:ml-10 md:w-56 top-5">
+      <div className="absolute w-full mx-auto max-md:right-0 md:left-0 md:ml-10 top-5 max-w-7xl">
         <Image
           src="/watermarks/watermark-3.png"
-          className="w-full h-auto"
+          className="w-32 h-auto md:w-56"
           width={200}
           height={200}
           alt="Watermark 1"

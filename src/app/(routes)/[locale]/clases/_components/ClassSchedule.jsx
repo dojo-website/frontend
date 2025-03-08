@@ -52,19 +52,19 @@ const ClassSchedule = ({
         />
       </div>
       {/* Main Content */}
-      <section className="relative max-w-5xl px-6 py-12 mx-auto ">
+      <section className="relative max-w-5xl px-3 py-12 mx-auto ">
         <AnimatedSection delay={0.2}>
           <div className="mb-12">
             <h1 className="mb-4 font-bold text-center">{schedule_title}</h1>
             <p className="">{schedule_description}</p>
 
             <div className="mt-6 rounded-lg ">
-              <h6 className="mb-2 font-bold">{schedule_days}</h6>
+              <p className="mb-2 font-bold">{schedule_days}</p>
               <ul className="mx-3 space-y-2 text-sm font-roboto">
                 {age_group_schedules.map((classItem) => (
                   <li
                     key={classItem.id}
-                    className="flex items-center gap-2 font-semibold text-primary"
+                    className="flex items-center gap-2 font-bold text-primary"
                   >
                     <div className="rounded-full size-1.5 bg-primary" />
 
@@ -93,9 +93,9 @@ const ClassSchedule = ({
                   key={index}
                   className="flex items-start gap-2 p-4 rounded-lg"
                 >
-                  <span className="font-semibold">{index + 1}.</span>
+                  <span className="font-bold">{index + 1}.</span>
                   <div>
-                    <h3 className="text-lg font-semibold">{step.title}</h3>
+                    <p className="font-bold ">{step.title}</p>
                     <p>{step.description}</p>
                   </div>
                 </li>

@@ -52,7 +52,7 @@ const MainContent = ({
           <AnimatedSection delay={0.2}>
             <div className="flex flex-col items-center justify-center gap-4 mb-6">
               <h1 className="text-center uppercase">{content_title}</h1>
-              <h4 className="font-semibold text-center text-primary font-roboto">
+              <h4 className="font-bold text-center text-primary font-roboto">
                 {header}
               </h4>
             </div>

@@ -11,7 +11,7 @@ import { getMessages } from "next-intl/server";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const notoSans = Noto_Sans({
+const notoSans = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["variable"],
   variable: "--font-noto-sans-jp", // Assign to CSS variable
@@ -26,7 +26,7 @@ const robotoCondensed = Roboto_Condensed({
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
   variable: "--font-roboto", // Assign to CSS variable
 });
 

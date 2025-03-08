@@ -66,23 +66,26 @@ const MainSlider = ({ headerImages }) => {
         ))}
       </Swiper>
 
-      <button className="absolute z-10 flex items-center justify-center transform -translate-y-1/2 size-8 md:size-20 custom-prev left-4 top-1/2">
+      <button className="absolute z-10 flex items-center justify-center size-8 md:size-20 custom-prev left-4 top-1/2">
         <Image
-          src="/arrow-left.png"
+          src="/arrow-slider.svg"
+          className="transform rotate-180 -translate-y-1/2 hover:brightness-90 active:brightness-75"
           alt="Previous"
           width={50}
           height={50}
+          draggable={false}
           priority
         />
       </button>
 
-      <button className="absolute z-10 flex items-center justify-center transform -translate-y-1/2 custom-next size-8 md:size-20 right-4 top-1/2">
+      <button className="absolute z-10 flex items-center justify-center custom-next size-8 md:size-20 right-4 top-1/2">
         <Image
-          src="/arrow-left.png"
-          className="rotate-180"
+          src="/arrow-slider.svg"
+          className="transform -translate-y-1/2 hover:brightness-90 active:brightness-75 "
           alt="Next"
           width={50}
           height={50}
+          draggable={false}
           priority
         />
       </button>

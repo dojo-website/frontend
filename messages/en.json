@@ -176,10 +176,6 @@
     "class_cost_answer": "The monthly fee is:\n• $60,000 for children and youth (up to 23 years old).\n• $80,000 for adults.\nNo registration fee."
   },
 
-  "footer": {
-    "writeToUs": "Write to us on Whatsapp"
-  },
-
   "notFound": {
     "title": "Page Not Found",
     "description": "The page you're looking for doesn't exist.",
@@ -187,6 +183,11 @@
     "searchButton": "Search",
     "backHome": "Go to Home page now",
     "countdown": "You will be redirected to home after {counter} seconds"
+  },
+
+  "footer": {
+    "writeToUs": "Write to us on Whatsapp",
+    "noContactFound": "No contact found."
   },
 
   "noImageFound": "No Image found"

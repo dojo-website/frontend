@@ -10,7 +10,7 @@ const ClassFAQ = ({ faqs_title, course_faqs }) => {
     <div className="flex flex-col items-center w-full p-6 md:p-10 bg-secondary">
       {/* Main container for FAQ section */}
       <section className="relative w-full py-6 mx-auto text-white max-w-7xl">
-        <div className="absolute bottom-0 right-0 w-48 md:w-56">
+        <div className="absolute bottom-0 right-0 w-32 md:w-48">
           <Image
             src="/watermarks/watermark-3.png"
             className="w-full h-auto select-none opacity-10"
@@ -21,7 +21,7 @@ const ClassFAQ = ({ faqs_title, course_faqs }) => {
         </div>
 
         <div className="relative max-w-5xl mx-auto">
-          <h1 className="mb-6 font-bold text-center">{faqs_title}</h1>
+          <h1 className="mb-6 font-bold text-center uppercase">{faqs_title}</h1>
 
           {/* Ordered list for FAQs */}
           <ol className="list-decimal list-inside">
@@ -30,10 +30,10 @@ const ClassFAQ = ({ faqs_title, course_faqs }) => {
                 key={index}
                 className="flex items-start gap-2 py-4 rounded-lg font-roboto"
               >
-                <span className="font-semibold">{index + 1}.</span>
+                <span className="font-bold">{index + 1}.</span>
                 <div>
                   <AnimatedSection delay={0.2 * index} direction="top">
-                    <h3 className="text-lg font-semibold">{item.question}</h3>
+                    <p className="font-bold">{item.question}</p>
                     <p className="mt-1">{item.answer}</p>
                   </AnimatedSection>
                 </div>

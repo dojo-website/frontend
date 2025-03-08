@@ -38,9 +38,9 @@ const BlogCard = ({ blog, isButton }) => {
 
       {/* Content Section */}
       <div className="flex flex-col flex-grow gap-2 p-4 h-1/2">
-        <h4 className="text-lg font-bold text-center line-clamp-2">
+        <h5 className="font-bold text-center font-notoSans line-clamp-2">
           {blog?.title}
-        </h4>
+        </h5>
         <p className="text-base text-center line-clamp-3">
           {blog.blog_sections[0]?.description.substring(0, 200)}
         </p>

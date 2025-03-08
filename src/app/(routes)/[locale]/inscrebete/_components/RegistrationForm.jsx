@@ -63,19 +63,30 @@ const RegistrationForm = ({ data }) => {
         guardian_email: formData.guardian_email || null,
       };
 
-      await createParticipant(payload);
-      setFlashMessage({ open: true, message: t("submit"), type: "success" });
-      reset();
+      const result = await createParticipant(payload);
+
+      if (result.error) {
+        // Handle the error object returned from createParticipant
+        setFlashMessage({
+          open: true,
+          message: result.message, // Specific error message (e.g., "participant with this email already exists")
+          type: "error",
+        });
+      } else {
+        // Success case
+        setFlashMessage({
+          open: true,
+          message: t("submit"),
+          type: "success",
+        });
+        reset();
+      }
     } catch (error) {
-      console.error(
-        "Submission failed:",
-        error.response?.data || error.message
-      );
+      // Fallback for unexpected errors
+      console.error("Submission failed:", error);
       setFlashMessage({
         open: true,
-        message: error.response?.data
-          ? JSON.stringify(error.response.data)
-          : t("error"),
+        message: "An unexpected error occurred. Please try again.",
         type: "error",
       });
     }
@@ -89,19 +100,19 @@ const RegistrationForm = ({ data }) => {
     });
   };
 
-const handleConfirmation = async (confirmed) => {
-  if (confirmed) {
-    setIsLoading(true); // Start loading
-    try {
-      await onSubmit(confirmationModal.formData);
-    } finally {
-      setIsLoading(false); // Stop loading
-      setConfirmationModal({ open: false, message: "" }); // Close modal
+  const handleConfirmation = async (confirmed) => {
+    if (confirmed) {
+      setIsLoading(true);
+      try {
+        await onSubmit(confirmationModal.formData);
+      } finally {
+        setIsLoading(false);
+        setConfirmationModal({ open: false, message: "" });
+      }
+    } else {
+      setConfirmationModal({ open: false, message: "" });
     }
-  } else {
-    setConfirmationModal({ open: false, message: "" }); // Close modal if not confirmed
-  }
-};
+  };
 
   return (
     <div className="relative bg-white">
@@ -117,14 +128,16 @@ const handleConfirmation = async (confirmed) => {
       </div>
       {/* Page Content */}
       <section className="relative p-8 mx-auto max-w-7xl">
-        <h1 className="my-6 text-center uppercase">{data?.registration_title}</h1>
+        <h1 className="my-6 text-center uppercase">
+          {data?.registration_title}
+        </h1>
         <form
           onSubmit={handleSubmit(handleFormSubmit)}
           className="flex flex-col gap-12 font-roboto"
         >
           <div className="my-4">
             <fieldset className="pt-4">
-              <legend className="text-xl font-semibold">
+              <legend className="text-xl">
                 <h3 className="font-bold line-clamp-1 font-roboto">
                   {data?.practitioner_title}
                 </h3>
@@ -132,7 +145,7 @@ const handleConfirmation = async (confirmed) => {
               <div className="grid grid-cols-1 gap-8 mt-4 md:grid-cols-2">
                 <div className="space-y-4">
                   <div>
-                    <label className="block font-semibold">
+                    <label className="block font-bold">
                       {data?.name_title}
                     </label>
                     <input
@@ -148,9 +161,7 @@ const handleConfirmation = async (confirmed) => {
                     )}
                   </div>
                   <div>
-                    <label className="block font-semibold">
-                      {data?.age_title}
-                    </label>
+                    <label className="block font-bold">{data?.age_title}</label>
                     <input
                       type="number"
                       {...register("age", {
@@ -165,7 +176,7 @@ const handleConfirmation = async (confirmed) => {
                     )}
                   </div>
                   <div className="relative w-full">
-                    <label className="block font-semibold">
+                    <label className="block font-bold">
                       {data?.class_title}
                     </label>
                     <div className="relative w-full">
@@ -202,7 +213,7 @@ const handleConfirmation = async (confirmed) => {
                 </div>
 
                 <div className="flex flex-col">
-                  <label className="block font-semibold">
+                  <label className="block font-bold">
                     {data?.medical_condition_title}
                   </label>
                   <textarea
@@ -221,13 +232,13 @@ const handleConfirmation = async (confirmed) => {
                 <h3 className="font-bold font-roboto line-clamp-1">
                   {data?.guardian_details_heading}
                 </h3>
-                <span className="text-[16px] text-black">
-                  {data?.guardian_details_subheading}
+                <span className="text-base">
+                  <p>{data?.guardian_details_subheading}</p>
                 </span>
               </legend>
               <div className="flex flex-col gap-4">
                 <div>
-                  <label className="block font-semibold">
+                  <label className="block font-bold">
                     {data?.guardian_name_title}
                   </label>
                   <input
@@ -236,7 +247,7 @@ const handleConfirmation = async (confirmed) => {
                   />
                 </div>
                 <div>
-                  <label className="block font-semibold">
+                  <label className="block font-bold">
                     {data?.guardian_email_title}
                   </label>
                   <input
@@ -246,7 +257,7 @@ const handleConfirmation = async (confirmed) => {
                   />
                 </div>
                 <div>
-                  <label className="block font-semibold">
+                  <label className="block font-bold">
                     {data?.guardian_phone_title}
                   </label>
                   <input
@@ -266,7 +277,7 @@ const handleConfirmation = async (confirmed) => {
                 </h3>
                 <br className="hidden md:block" />
               </legend>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col h-full gap-4">
                 <div>
                   <label className="block font-extrabold">
                     {data?.contact_email_title}
@@ -278,7 +289,7 @@ const handleConfirmation = async (confirmed) => {
                   />
                 </div>
                 <div>
-                  <label className="block font-semibold">
+                  <label className="block font-bold">
                     {data?.contact_phone_title}
                   </label>
                   <input
@@ -288,7 +299,7 @@ const handleConfirmation = async (confirmed) => {
                   />
                 </div>
                 <div>
-                  <label className="block font-semibold">
+                  <label className="block font-bold">
                     {data?.contact_history_title}
                   </label>
                   <input
@@ -342,6 +353,7 @@ const handleConfirmation = async (confirmed) => {
             </div>
           </div>
         )}
+
         {flashMessage.open && (
           <div className="fixed right-0 flex items-center justify-center p-4 top-24">
             <AnimatedSection direction="top">
